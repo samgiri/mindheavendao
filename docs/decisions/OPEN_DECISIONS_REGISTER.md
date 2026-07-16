@@ -1,0 +1,274 @@
+# Open Decisions Register
+
+**Status key:** Open means no final approval. Recommended options are proposals, not decisions.
+
+## OD-01 — Exact MIND per Founder Node tier
+
+- **Decision/status:** Amount for each tier and lock; Open.
+- **Why it matters:** Defines access, supply demand, and concentration.
+- **Options:** fixed amounts; governance table; auction/allocation rounds.
+- **Recommended:** fixed launch table with prospective, timelocked changes.
+- **Risks:** exclusion, concentration, inconsistent marketing.
+- **Approver/dependencies:** Constitutional governance plus legal review; pricing method, allocation schedule.
+
+## OD-02 — MIND reference-price methodology
+
+- **Decision/status:** How business reference values map to MIND; Open.
+- **Why it matters:** Prevents arbitrary or misleading conversion.
+- **Options:** no on-chain USD mapping; fixed governance reference; TWAP oracle.
+- **Recommended:** no on-chain USD calculation at launch; publish approved MIND amounts.
+- **Risks:** oracle manipulation, securities/consumer implications, volatility.
+- **Approver/dependencies:** Governance and legal/finance; liquidity, oracle policy.
+
+## OD-03 — Accepted payment assets
+
+- **Decision/status:** Assets accepted for any contribution flow; Open.
+- **Why it matters:** Affects custody, volatility, sanctions, and accounting.
+- **Options:** MIND only; selected stablecoins; native asset; off-chain payment.
+- **Recommended:** minimal allowlist of audited assets after legal review.
+- **Risks:** depeg, token quirks, chargebacks, AML exposure.
+- **Approver/dependencies:** Treasury governance/legal; node acquisition design.
+
+## OD-04 — Eligible referral reward base
+
+- **Decision/status:** Amount to which 7/8/10% applies; Open.
+- **Why it matters:** Determines liabilities and user expectations.
+- **Options:** approved protocol fee; fixed HEAVEN amount; net eligible contribution.
+- **Recommended:** bounded protocol-defined base excluding taxes, refunds, and pass-through funds.
+- **Risks:** unfunded rewards, mis-selling, ambiguous refunds.
+- **Approver/dependencies:** Governance/legal; funding and qualification rules.
+
+## OD-05 — Qualified referral definition
+
+- **Decision/status:** Exact qualification event and finality; Open.
+- **Why it matters:** Controls fraud, brackets, and rewards.
+- **Options:** active paid node after review; time-delayed finality; verified contribution milestone.
+- **Recommended:** unique eligible founder with active node after refund/fraud window.
+- **Risks:** Sybil, reversals, delayed rewards.
+- **Approver/dependencies:** Governance/compliance; identity, refunds, active-status snapshot.
+
+## OD-06 — HEAVEN total supply
+
+- **Decision/status:** Supply cap and allocation; Open.
+- **Why it matters:** Fundamental utility economics and liabilities.
+- **Options:** fixed cap; capped emissions; uncapped governed emissions.
+- **Recommended:** defer until independently modeled; prefer transparent hard constraints.
+- **Risks:** inflation, scarcity mismatch, regulatory messaging.
+- **Approver/dependencies:** Constitutional governance/legal; utility design.
+
+## OD-07 — HEAVEN emission model
+
+- **Decision/status:** Release schedule and authorization; Open.
+- **Why it matters:** Determines sustainability.
+- **Options:** pre-minted allocation; capped epochs; governed budget.
+- **Recommended:** pre-funded epoch budgets with published caps.
+- **Risks:** over-emission, capture, unfunded promises.
+- **Approver/dependencies:** Governance/economic review; supply and treasury.
+
+## OD-08 — HEAVEN reward-vault funding
+
+- **Decision/status:** Funding sources and cadence; Open.
+- **Why it matters:** No reward can exceed available HEAVEN.
+- **Options:** treasury epochs; protocol revenue; approved contributions.
+- **Recommended:** pre-fund isolated epochs before qualification/finalization.
+- **Risks:** insolvency, commingling, source legality.
+- **Approver/dependencies:** Treasury governance/legal; emission, budgets.
+
+## OD-09 — Weekly staking reward formula
+
+- **Decision/status:** Whether/how active nodes accrue HEAVEN; Open.
+- **Why it matters:** Largest potential recurring liability.
+- **Options:** no automatic reward; funded fixed epochs; performance-based budget.
+- **Recommended:** no formula until HEAVEN economics and funding are approved; never guaranteed.
+- **Risks:** unsustainable yield, APY marketing, gaming.
+- **Approver/dependencies:** Constitutional governance/legal; HEAVEN model, vault funding.
+
+## OD-10 — HEAVEN auto-compounding meaning
+
+- **Decision/status:** Operational definition; Open.
+- **Why it matters:** HEAVEN is distinct from MIND staking.
+- **Options:** no compounding; opt-in utility lock; claim-and-restake workflow.
+- **Recommended:** avoid “auto-compounding” until a real HEAVEN utility position exists.
+- **Risks:** misleading returns, custody/tax complexity.
+- **Approver/dependencies:** Governance/legal; HEAVEN utility and reward formula.
+
+## OD-11 — Founder Node early withdrawal
+
+- **Decision/status:** Whether principal can exit before maturity; Open.
+- **Why it matters:** User safety and lock credibility.
+- **Options:** prohibited; penalty; cooldown and governance-set conditions.
+- **Recommended:** transparent opt-in terms with bounded penalty, subject to legal review.
+- **Risks:** bank-run dynamics, unfair penalties, accounting complexity.
+- **Approver/dependencies:** Governance/legal/security; reward clawbacks.
+
+## OD-12 — Emergency withdrawal
+
+- **Decision/status:** Safe exit during prolonged pause; Open.
+- **Why it matters:** Protects principal when operations fail.
+- **Options:** principal-only escape hatch; timelocked migration; none.
+- **Recommended:** delayed principal-only escape hatch that cannot claim unearned rewards.
+- **Risks:** bypass, exploitation during incident.
+- **Approver/dependencies:** Governance/security; pause and upgrade model.
+
+## OD-13 — Founder Node transferability
+
+- **Decision/status:** Transfer of positions; Open.
+- **Why it matters:** Affects identity, referrals, and secondary markets.
+- **Options:** non-transferable; governed transfer; freely transferable.
+- **Recommended:** non-transferable at launch, with reviewed migration path.
+- **Risks:** market speculation, sanctions evasion, status ambiguity.
+- **Approver/dependencies:** Constitutional governance/legal; NFT and inheritance.
+
+## OD-14 — Founder Node inheritance
+
+- **Decision/status:** Succession after death/incapacity; Open.
+- **Why it matters:** Long locks require continuity.
+- **Options:** wallet estate process; nominated beneficiary; legal executor review.
+- **Recommended:** documented off-chain legal process plus bounded on-chain recovery.
+- **Risks:** fraud, privacy, jurisdiction conflict.
+- **Approver/dependencies:** Foundation/legal/governance; identity and transferability.
+
+## OD-15 — MIND token transferability
+
+- **Decision/status:** Launch transfer policy; Open.
+- **Why it matters:** Governance distribution, regulation, liquidity.
+- **Options:** standard transferable; phased transfer; restricted allocation vesting.
+- **Recommended:** standard token semantics with transparent treasury/allocation vesting if legally approved.
+- **Risks:** speculation, capture, classification.
+- **Approver/dependencies:** Constitutional governance/legal; allocation and liquidity.
+
+## OD-16 — Foundation jurisdiction
+
+- **Decision/status:** Incorporation location; Open.
+- **Why it matters:** Determines duties, taxation, reporting, liability.
+- **Options:** jurisdiction-specific foundation/association/company structures.
+- **Recommended:** comparative counsel-led review based on operations and users.
+- **Risks:** enforcement, tax, banking, credibility.
+- **Approver/dependencies:** Founding board and counsel; launch markets.
+
+## OD-17 — DAO legal wrapper
+
+- **Decision/status:** Entity connecting governance to legal acts; Open.
+- **Why it matters:** Contracts, liability, employment, IP, treasury.
+- **Options:** foundation; association; purpose trust; paired entities.
+- **Recommended:** counsel-selected structure with explicit on-chain/off-chain authority map.
+- **Risks:** governance decisions unenforceable, member liability.
+- **Approver/dependencies:** Foundation/counsel/governance; jurisdiction.
+
+## OD-18 — Upgradeability model
+
+- **Decision/status:** Proxy, migration, or immutable per component; Open.
+- **Why it matters:** Balances fixes against admin risk.
+- **Options:** immutable; UUPS/transparent proxies; versioned migration.
+- **Recommended:** immutable token/timelock; migration-first for custody; bounded proxies only where justified.
+- **Risks:** upgrade capture, storage corruption, frozen bugs.
+- **Approver/dependencies:** Governance/security/auditors; component design.
+
+## OD-19 — Governance proposal eligibility
+
+- **Decision/status:** Who can submit proposals and required threshold; Open.
+- **Why it matters:** Controls access and spam.
+- **Options:** token threshold; active node plus threshold; endorsed forum process.
+- **Recommended:** modest delegated-MIND threshold plus documented community pathway.
+- **Risks:** exclusion, spam, whale gatekeeping.
+- **Approver/dependencies:** Constitutional governance; voting distribution.
+
+## OD-20 — Off-chain contribution verification
+
+- **Decision/status:** Evidence, reviewers, appeals, commitments; Open.
+- **Why it matters:** Pool points depend on genuine contribution.
+- **Options:** committees; attestations; signed data providers; hybrid review.
+- **Recommended:** multi-reviewer process, evidence rubric, appeal window, Merkle commitment.
+- **Risks:** bias, bribery, privacy, centralization.
+- **Approver/dependencies:** Governance/privacy/legal; categories and suspension.
+
+## OD-21 — MindGlobal point assignment
+
+- **Decision/status:** Category weights, caps, and period rules; Open.
+- **Why it matters:** Determines proportional distribution.
+- **Options:** fixed rubric; governance-set future weights; quadratic/capped categories.
+- **Recommended:** published per-period rubric with category caps and prospective governance updates.
+- **Risks:** gaming, popularity bias, opaque scoring.
+- **Approver/dependencies:** Governance/community review; verification model.
+
+## OD-22 — Suspension and appeal process
+
+- **Decision/status:** Grounds, authority, evidence, remedy; Open.
+- **Why it matters:** Protects protocol and due process.
+- **Options:** elected council; foundation review; independent panel.
+- **Recommended:** published grounds, multi-person decision, notice, appeal, and time limits.
+- **Risks:** arbitrary exclusion, slow fraud response.
+- **Approver/dependencies:** Governance/legal/ethics; identity and verification.
+
+## OD-23 — Treasury allocation breakdown
+
+- **Decision/status:** Operational detail beneath indicative 60/25/15 policy; Open.
+- **Why it matters:** Budget control and sustainability.
+- **Options:** annual budgets; epoch caps; proposal-by-proposal.
+- **Recommended:** annual budget plus epoch spending caps and public variance reports.
+- **Risks:** rigidity, misuse, hidden liabilities.
+- **Approver/dependencies:** Governance/treasury committee; revenue and reserve policy.
+
+## OD-24 — Oracle requirements
+
+- **Decision/status:** Whether price/status data is needed on-chain; Open.
+- **Why it matters:** Oracles add manipulation and liveness risk.
+- **Options:** no price oracle; audited TWAP; decentralized feed; signed attestations.
+- **Recommended:** avoid price dependence at launch; use redundant feeds only when necessary.
+- **Risks:** manipulation, outage, stale data.
+- **Approver/dependencies:** Technical governance/security; pricing and accepted assets.
+
+## OD-25 — Audit and bug-bounty budget
+
+- **Decision/status:** Scope, providers, and funding; Open.
+- **Why it matters:** Essential before custody or governance deployment.
+- **Options:** one audit; multiple audits; staged review plus bounty.
+- **Recommended:** independent audit(s), remediation verification, ongoing tiered bounty and monitoring.
+- **Risks:** inadequate coverage, budget pressure, false assurance.
+- **Approver/dependencies:** Treasury/security governance; final code and launch scope.
+
+## OD-26 — Founder NFT design
+
+- **Decision/status:** Whether an NFT exists and its semantics; Open.
+- **Why it matters:** Could confuse credentials with tradable assets.
+- **Options:** no NFT; soulbound credential; transferable position token.
+- **Recommended:** omit unless needed; if used, non-transferable credential at launch.
+- **Risks:** speculation, metadata/IP, transfer loopholes.
+- **Approver/dependencies:** Governance/legal/brand; node transfer and inheritance.
+
+## OD-27 — Liquidity policy
+
+- **Decision/status:** Treasury/market liquidity approach; Open.
+- **Why it matters:** Affects volatility, access, and regulation.
+- **Options:** no protocol liquidity; capped governed provision; external venues only.
+- **Recommended:** counsel-reviewed, transparent policy with caps and no price promises.
+- **Risks:** loss, manipulation, impermanent loss, classification.
+- **Approver/dependencies:** Governance/legal/treasury; transferability and assets.
+
+## OD-28 — Claim deadlines
+
+- **Decision/status:** Expiry for referral and pool claims; Open.
+- **Why it matters:** Defines long-term liabilities and user fairness.
+- **Options:** no expiry; 12/24/36 months; governance sweep after notice.
+- **Recommended:** long, published deadline with repeated notice and legally reviewed exceptions.
+- **Risks:** forfeiture disputes, permanent liabilities.
+- **Approver/dependencies:** Governance/legal; vault and user communications.
+
+## OD-29 — Unclaimed HEAVEN handling
+
+- **Decision/status:** Destination after claim expiry; Open.
+- **Why it matters:** Prevents arbitrary treasury capture.
+- **Options:** roll to future pool; return to source; community treasury; burn.
+- **Recommended:** return to designated reward reserve after deadline and public reconciliation.
+- **Risks:** unfair enrichment, accounting ambiguity.
+- **Approver/dependencies:** Governance/legal; claim deadlines and emission rules.
+
+## OD-30 — Data privacy model
+
+- **Decision/status:** Data minimization, roles, retention, and rights; Open.
+- **Why it matters:** Wellness, identity, and contribution evidence may be sensitive.
+- **Options:** pseudonymous minimal data; regional processors; decentralized credentials.
+- **Recommended:** keep sensitive evidence off-chain, minimize collection, encrypt, set retention, and complete privacy impact assessment.
+- **Risks:** irreversible disclosure, breach, cross-border violations.
+- **Approver/dependencies:** Privacy/legal/security governance; verification and jurisdictions.
+
