@@ -1,138 +1,62 @@
-const teachings = [
-  {
-    number: "01",
-    title: "Stillness",
-    body: "Return to the quiet beneath thought — the place from which clear action begins.",
-    glyph: "◌",
-  },
-  {
-    number: "02",
-    title: "The Way",
-    body: "Move with life, not against it. Practice the art of effort without force.",
-    glyph: "∿",
-  },
-  {
-    number: "03",
-    title: "Awakening",
-    body: "See beyond the familiar self and meet the vast intelligence already within.",
-    glyph: "✦",
-  },
-];
+"use client";
+
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import { BrandLogo } from "./home/BrandLogo";
+import { COMMUNITY_ROLES, ECOSYSTEM_NODES, FAQS, GOVERNANCE_DESCRIPTIONS, GOVERNANCE_STEPS, NAV_ITEMS, PARTICLES, PILLARS, PROBLEMS, ROADMAP, TOKEN_FLOW } from "./home/content";
 
 export default function Home() {
-  return (
-    <main>
-      <section className="hero" id="home">
-        <div className="heroImage" aria-hidden="true" />
-        <div className="heroShade" aria-hidden="true" />
+  const [active,setActive] = useState("problem");
+  const [menuOpen,setMenuOpen] = useState(false);
+  const [scrolled,setScrolled] = useState(false);
+  const [selectedNode,setSelectedNode] = useState("human");
+  const [openFaq,setOpenFaq] = useState(0);
+  const selected = ECOSYSTEM_NODES.find(n=>n.id===selectedNode)!;
 
-        <header className="nav shell">
-          <a className="brand" href="#home" aria-label="Mind Heaven Dao, home">
-            <span className="brandMark">天</span>
-            <span>Mind Heaven Dao</span>
-          </a>
-          <nav aria-label="Main navigation">
-            <a href="#path">The Path</a>
-            <a href="#teachings">Teachings</a>
-            <a href="#about">About</a>
-          </nav>
-          <a className="navCta" href="#enter">Enter the Dao <span>↗</span></a>
-        </header>
+  useEffect(()=>{
+    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("isVisible");const activeSection=NAV_ITEMS.find(item=>item===entry.target.id);if(activeSection)setActive(activeSection);}}),{rootMargin:"-25% 0px -55%",threshold:.05});
+    document.querySelectorAll("[data-reveal], section[id]").forEach(node=>observer.observe(node));
+    const onScroll=()=>setScrolled(window.scrollY>24);onScroll();window.addEventListener("scroll",onScroll,{passive:true});
+    return()=>{observer.disconnect();window.removeEventListener("scroll",onScroll)};
+  },[]);
 
-        <div className="heroContent shell">
-          <p className="eyebrow"><span /> A sanctuary beyond the noise</p>
-          <h1>Find the heaven<br />within your mind.</h1>
-          <p className="heroCopy">
-            Ancient wisdom for the modern spirit. A path of stillness,
-            clarity, and return to what has always been whole.
-          </p>
-          <a className="primaryButton" href="#path">
-            Begin the journey <span className="buttonCircle">↓</span>
-          </a>
-        </div>
+  return <main>
+    <header className={scrolled?"siteNav scrolled":"siteNav"}>
+      <BrandLogo />
+      <nav className={menuOpen?"navLinks open":"navLinks"} aria-label="Primary navigation">{NAV_ITEMS.map(item=><a key={item} className={active===item?"active":""} href={`#${item}`} onClick={()=>setMenuOpen(false)}>{item[0].toUpperCase()+item.slice(1)}</a>)}</nav>
+      <a className="navAction" href="#contact">Join the Evolution <span>↗</span></a>
+      <button className="menuButton" aria-label="Toggle navigation" aria-expanded={menuOpen} onClick={()=>setMenuOpen(!menuOpen)}><i/><i/></button>
+    </header>
 
-        <div className="heroFooter shell">
-          <span>Scroll to awaken</span>
-          <span className="verticalLine" />
-          <span>00 — 01</span>
-        </div>
-      </section>
+    <section className="hero" id="home">
+      <div className="aurora"/><div className="heroGrid"/><div className="particleField" aria-hidden="true">{PARTICLES.map((p,i)=><i key={i} style={{left:p.left,top:p.top,animationDelay:p.delay,width:p.size,height:p.size}}/>)}</div>
+      <div className="network" aria-hidden="true"><span className="ring r1"/><span className="ring r2"/><span className="ring r3"/><span className="connection c1"/><span className="connection c2"/><span className="connection c3"/><span className="core brandCore"><Image src="/mindheaven-official-logo.png" alt="" width={1536} height={1024} priority sizes="(max-width: 900px) 260px, 340px" unoptimized/></span>{[0,1,2,3,4,5].map(n=><span key={n} className={`node n${n}`}/>)}</div>
+      <div className="heroInner"><div className="launchPill"><span/> Building the intelligence layer for human potential</div><h1>Human intelligence,<br/><em>evolved.</em></h1><p className="heroLead">MindHeavenDAO is building the intelligence layer where AI, neuroscience, wellness, decentralized governance, and community ownership work together to unlock human potential.</p><div className="heroActions"><a className="button primary" href="#contact">Become a Founding Member <span>↗</span></a><a className="button ghost" href="#vision"><i className="play">▶</i> Explore the Vision</a></div><div className="trustLine"><span>Built for Human Agency</span><span>Privacy by Design</span><span>Community Owned</span></div></div>
+      <a href="#problem" className="scrollCue" aria-label="Scroll to the problem"><span>Scroll to explore</span><i>↓</i></a>
+    </section>
 
-      <section className="manifesto" id="path">
-        <div className="orb orbOne" />
-        <div className="shell manifestoGrid">
-          <p className="sectionLabel">01 / The invitation</p>
-          <div>
-            <p className="quoteMark">“</p>
-            <h2>The way is not in the sky.<br />The way is in the heart.</h2>
-            <p className="manifestoCopy">
-              Mind Heaven Dao is a living practice for those seeking more than
-              answers. It is an invitation to slow down, look within, and
-              remember the quiet truth beneath the surface of things.
-            </p>
-          </div>
-        </div>
-      </section>
+    <section className="problem section" id="problem"><div className="container" data-reveal><p className="kicker"><span>01</span> The problem</p><div className="problemHeadline"><h2>Technology evolved.<br/><em>Human systems did not.</em></h2><p>MindHeavenDAO is building an intelligence layer designed to put human agency, wellness, privacy, and community ownership at the center.</p></div><div className="problemGrid">{PROBLEMS.map((p,i)=><article key={p[0]}><span>{String(i+1).padStart(2,"0")}</span><h3>{p[0]}</h3><p>{p[1]}</p></article>)}</div></div></section>
 
-      <section className="teachings shell" id="teachings">
-        <div className="sectionTop">
-          <p className="sectionLabel">02 / Three gates</p>
-          <p>Each gate is a practice.<br />Each practice, a return.</p>
-        </div>
-        <div className="cards">
-          {teachings.map((item) => (
-            <article className="card" key={item.number}>
-              <div className="cardTop">
-                <span>{item.number}</span>
-                <span className="glyph">{item.glyph}</span>
-              </div>
-              <div>
-                <h3>{item.title}</h3>
-                <p>{item.body}</p>
-              </div>
-              <a href="#enter" aria-label={`Explore ${item.title}`}>Explore <span>↗</span></a>
-            </article>
-          ))}
-        </div>
-      </section>
+    <section className="vision section" id="vision"><div className="sectionGlow cyan"/><div className="container splitIntro" data-reveal><div><p className="kicker"><span>02</span> Our vision</p><h2>A smarter, healthier and<br/><em>more conscious future.</em></h2></div><div className="visionCopy"><p>We believe the next stage of innovation will not be defined by artificial intelligence alone, but by the relationship between AI, human wellbeing, collective knowledge, and responsible ownership.</p><blockquote>“The future is not something we enter.<br/>It is something we create together.”</blockquote></div></div></section>
 
-      <section className="about" id="about">
-        <div className="aboutVisual" aria-hidden="true">
-          <div className="enso" />
-          <span className="aboutGlyph">道</span>
-        </div>
-        <div className="aboutCopy">
-          <p className="sectionLabel">03 / The philosophy</p>
-          <h2>Nothing to chase.<br />Nothing to become.</h2>
-          <p>
-            The Dao does not ask you to improve the self. It asks you to see
-            through it — and discover the boundless awareness that was never missing.
-          </p>
-          <a href="#enter">Discover our story <span>→</span></a>
-        </div>
-      </section>
+    <section className="solution section" id="solution"><div className="container sectionHeader" data-reveal><div><p className="kicker"><span>03</span> The solution</p><h2>Built around people.<br/><em>Designed for progress.</em></h2></div><p>Five connected pillars form the proposed foundation for a calm, credible, and human-centered intelligence ecosystem.</p></div><div className="container solutionGrid" data-reveal>{PILLARS.map((p,i)=><article className="glassCard solutionCard" key={p[1]}><div><i>{p[0]}</i><span>{String(i+1).padStart(2,"0")}</span></div><h3>{p[1]}</h3><p>{p[2]}</p></article>)}</div></section>
 
-      <section className="enter" id="enter">
-        <div className="enterGlow" />
-        <div className="shell enterInner">
-          <p className="eyebrow"><span /> Your first step</p>
-          <h2>The gate is open.</h2>
-          <p>Receive a seven-day introduction to stillness, delivered one practice at a time.</p>
-          <form className="emailForm">
-            <label className="srOnly" htmlFor="email">Email address</label>
-            <input id="email" type="email" placeholder="Your email address" required />
-            <button type="submit">Enter the Dao <span>↗</span></button>
-          </form>
-          <small>No noise. No doctrine. Only practice.</small>
-        </div>
-      </section>
+    <section className="ecosystem section" id="ecosystem"><div className="container sectionHeader" data-reveal><div><p className="kicker"><span>04</span> MindHeavenDAO ecosystem</p><h2>One ecosystem.<br/><em>A continuous evolution.</em></h2></div><p>Understand the complete MindHeavenDAO vision in seconds. Select a node to explore how every layer works together to enhance human intelligence.</p></div><div className="container ecosystemNetwork" data-reveal><div className="ecoLines" aria-hidden="true"><i/><i/><i/><i/><i/><i/><i/></div><div className="ecoNodes" role="group" aria-label="MindHeavenDAO ecosystem nodes">{ECOSYSTEM_NODES.map((n,i)=><button key={n.id} className={`ecoNode node-${n.id} tone-${n.color} ${selectedNode===n.id?"selected":""}`} aria-pressed={selectedNode===n.id} onClick={()=>setSelectedNode(n.id)} onMouseEnter={()=>setSelectedNode(n.id)}><i>{n.icon}</i><span>{n.title}</span><small>{String(i+1).padStart(2,"0")}</small></button>)}</div><div className={`ecoDetail tone-${selected.color}`} aria-live="polite"><span>{selected.icon}</span><div><small>Selected ecosystem layer</small><h3>{selected.title}</h3><p>{selected.text}</p></div></div><p className="feedbackLoop">Human Intelligence <span>↺</span> Continuous AI Learning — responsible ecosystem evolution</p></div></section>
 
-      <footer className="footer shell">
-        <a className="brand" href="#home"><span className="brandMark">天</span><span>Mind Heaven Dao</span></a>
-        <p>Ancient wisdom.<br />A living way.</p>
-        <div className="footerLinks"><a href="#path">The Path</a><a href="#teachings">Teachings</a><a href="#about">About</a></div>
-        <p className="copyright">© 2026 Mind Heaven Dao</p>
-      </footer>
-    </main>
-  );
+    <section className="wellness section" id="wellness"><div className="wellnessBackdrop"/><div className="container wellnessInner"><div className="wellnessCopy" data-reveal><p className="kicker"><span>05</span> AI & wellness</p><h2>Intelligence works best<br/><em>when people thrive.</em></h2><p>The proposed platform connects adaptive intelligence with wellbeing practices across focus, reflection, recovery, learning, and conscious growth.</p><div className="wellnessTags"><span>Mindfulness</span><span>Focus</span><span>Sleep</span><span>Movement</span><span>Reflection</span></div></div><div className="goalGrid" data-reveal>{["Human-Centered AI","Privacy by Design","Community Owned","Wellness First","Decentralized Governance","Global Vision"].map((g,i)=><article className="glassCard" key={g}><span>Design principle {String(i+1).padStart(2,"0")}</span><h3>{g}</h3><p>Planned as a core foundation of the MindHeaven ecosystem.</p></article>)}</div></div></section>
+
+    <section className="governance section" id="governance"><div className="container sectionHeader" data-reveal><div><p className="kicker"><span>06</span> DAO governance</p><h2>Community voice,<br/><em>structured for action.</em></h2></div><p><b>Concept preview:</b> a transparent process planned to connect member insight with accountable execution as the ecosystem matures.</p></div><div className="container governanceChain" data-reveal>{GOVERNANCE_STEPS.map((g,i)=><article key={g}><span>{String(i+1).padStart(2,"0")}</span><i>{i===GOVERNANCE_STEPS.length-1?"◎":"↓"}</i><strong>{g}</strong><small>{GOVERNANCE_DESCRIPTIONS[i]}</small></article>)}</div><div className="container governanceNote" data-reveal><span>Planned · Progressive decentralization</span><p>Governance, voting, and treasury features are under development and are not represented as live functionality.</p></div></section>
+
+    <section className="token section" id="token"><div className="container sectionHeader" data-reveal><div><p className="kicker"><span>07</span> Token economy</p><h2>Value designed to<br/><em>circulate responsibly.</em></h2></div><p>The proposed token layer is intended as coordination infrastructure—not a promise of financial return.</p></div><div className="container tokenChain" data-reveal>{TOKEN_FLOW.map((t,i)=><article key={t}><span>{String(i+1).padStart(2,"0")}</span><strong>{t}</strong>{i<TOKEN_FLOW.length-1&&<i>→</i>}</article>)}</div><div className="container tokenUtilities" data-reveal>{["Governance participation","Contribution recognition","Ecosystem access","Community incentives","Treasury coordination","Partner participation","Research support"].map(x=><span key={x}>{x}</span>)}</div><p className="container tokenDisclaimer">Token model under development. Final utility, allocation, technical implementation, and legal structure are subject to review. Information is provisional and does not constitute financial, investment, or legal advice.</p></section>
+
+    <section className="roadmap section" id="roadmap"><div className="container" data-reveal><p className="kicker"><span>08</span> The road ahead</p><div className="sectionHeader compact"><h2>A phased path toward<br/><em>collective intelligence.</em></h2><p>Direction, not fixed promises. Each phase depends on research, validation, community input, and responsible execution.</p></div><div className="timeline">{ROADMAP.map((r,i)=><article key={r[0]} className={i===0?"current":""}><div className="timelineTop"><span>{r[0]}</span><i>{i===0?"Current focus":"Planned"}</i></div><h3>{r[1]}</h3><p>{r[2]}</p></article>)}</div></div></section>
+
+    <section className="community section" id="community"><div className="container communityLayout"><div className="communityCopy" data-reveal><p className="kicker"><span>09</span> A global community</p><h2>Built with people,<br/><em>not only for people.</em></h2><p>MindHeavenDAO brings together technologists, researchers, wellness professionals, creators, builders, and global community members to shape the future of human intelligence.</p><div className="heroActions"><a className="button primary" href="#contact">Become a Founding Member <span>↗</span></a><a className="button ghost" href="mailto:hello@mindheaven.ai?subject=MindHeavenDAO Community">Join the Community</a></div></div><div className="roleGrid" data-reveal>{COMMUNITY_ROLES.map((r,i)=><article key={r}><span>{String(i+1).padStart(2,"0")}</span><strong>{r}</strong></article>)}</div></div></section>
+
+    <section className="faq section" id="faq"><div className="container faqLayout"><div data-reveal><p className="kicker"><span>10</span> Questions</p><h2>Clarity,<br/><em>by design.</em></h2></div><div className="faqList" data-reveal>{FAQS.map((f,i)=><div className={openFaq===i?"faqItem open":"faqItem"} key={f[0]}><button aria-expanded={openFaq===i} aria-controls={`faq-${i}`} onClick={()=>setOpenFaq(openFaq===i?-1:i)}><span>{String(i+1).padStart(2,"0")}</span>{f[0]}<i>+</i></button><div id={`faq-${i}`} role="region" hidden={openFaq!==i}><p>{f[1]}</p></div></div>)}</div></div></section>
+
+    <section className="contact section" id="contact"><div className="contactGlow"/><Image className="contactEmblem" src="/mindheaven-official-logo.png" alt="" aria-hidden="true" width={1536} height={1024} sizes="600px" unoptimized/><div className="container contactInner" data-reveal><p className="kicker"><span>11</span> Begin here</p><h2>Help shape the future of<br/><em>human intelligence.</em></h2><p>Join a global community exploring how AI, wellness, collective knowledge, and decentralized ownership can unlock greater human potential.</p><div className="heroActions"><a className="button primary" href="mailto:hello@mindheaven.ai?subject=Founding Member Interest">Become a Founding Member <span>↗</span></a><a className="button ghost" href="#vision">Read the Vision</a></div></div></section>
+
+    <footer><div className="container footerTop"><BrandLogo footer/><p>Expanding human potential through intelligence, wellbeing, and responsible community ownership.</p><div><h4>Explore</h4><a href="#vision">Vision Paper</a><a href="#governance">Governance</a><a href="#token">Token Disclaimer</a></div><div><h4>Resources</h4><span className="comingSoon">Whitepaper <small>Coming soon</small></span><a href="#faq">FAQ</a><a href="mailto:hello@mindheaven.ai">Contact</a></div><div><h4>Legal</h4><span className="comingSoon">Privacy Policy <small>Coming soon</small></span><span className="comingSoon">Terms <small>Coming soon</small></span></div><div><h4>Community</h4><span className="comingSoon">Telegram <small>Coming soon</small></span><span className="comingSoon">X <small>Coming soon</small></span><span className="comingSoon">LinkedIn <small>Coming soon</small></span></div></div><div className="container footerDisclaimer">MindHeavenDAO is an evolving technology and community initiative. Information on this website is provided for educational and informational purposes and does not constitute financial, investment, legal, or medical advice.</div><div className="container footerBottom"><span>© 2026 MindHeavenDAO. All rights reserved.</span><span>Human intelligence, evolved.</span></div></footer>
+  </main>;
 }
