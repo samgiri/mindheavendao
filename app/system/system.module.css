@@ -17,3 +17,40 @@
 .disclaimer{margin-bottom:12px;padding:15px 18px;display:flex;align-items:center;gap:20px;border:1px solid rgba(226,189,116,.18);border-radius:12px;background:rgba(226,189,116,.04)}.disclaimer b{color:#e2bd74;font-size:8px;letter-spacing:.13em}.disclaimer p{margin:0;color:#7e7668;font-size:9px}.allocation{height:56px;display:grid;grid-template-columns:140px 1fr 40px;gap:18px;align-items:center}.allocation span{color:#8396a8;font-size:9px}.allocation>div{height:3px;background:#142535}.allocation i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--cyan))}.allocation strong{font-size:9px;color:#9db3c3}.control{height:61px;display:grid;grid-template-columns:30px 1fr auto;align-items:center;border-bottom:1px solid rgba(100,180,230,.08)}.control i{width:19px;height:19px;display:grid;place-items:center;border:1px solid #385064;border-radius:50%;color:#60798d;font-size:8px;font-style:normal}.control .ready{color:var(--green);border-color:rgba(162,255,94,.3)}.control span{color:#8397a8;font-size:10px}.control strong{color:#65798b;font-size:8px;font-weight:400;text-transform:uppercase}
 @media(max-width:1050px){.shell{grid-template-columns:220px 1fr}.metrics{grid-template-columns:1fr 1fr}.proposalList{grid-template-columns:1fr}.advisory{grid-template-columns:1fr 1fr}.advisory p,.advisory i{grid-column:1/-1}.governanceSummary{grid-template-columns:repeat(3,1fr)}.governanceSummary p{grid-column:1/-1}}
 @media(max-width:760px){.shell{display:block}.sidebar{position:fixed;z-index:20;left:-280px;width:268px;transition:.3s}.sidebarOpen{left:0;box-shadow:30px 0 70px rgba(0,0,0,.6)}.topbar{padding:0 18px}.topbar>div{display:none}.menu{display:block;border:0;color:#fff;background:none;font-size:19px}.content{padding:38px 18px 70px}.intro{display:block}.intro>span{display:block;margin-top:18px}.metrics,.overviewGrid,.identityGrid,.transparencyGrid,.contributionLayout{grid-template-columns:1fr}.activation{align-items:start;flex-direction:column}.governanceSummary{grid-template-columns:1fr 1fr}.proposalList{grid-template-columns:1fr}.advisory{grid-template-columns:1fr}.advisory p,.advisory i{grid-column:auto}.contributionRow{grid-template-columns:50px 1fr 40px}.contributionRow>i{display:none}.allocation{grid-template-columns:110px 1fr 35px}}
+
+/* Readability pass: calm interface typography with accessible small text. */
+.shell{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:14px;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+.workspace,.intro h1,.activation h2,.metrics strong,.panelHead h2,.panelHead>strong,
+.identityCard h2,.governanceSummary strong,.proposal h2,.submitCard h2{
+  font-family:inherit;
+  font-weight:500;
+  letter-spacing:-.035em;
+}
+.intro h1{line-height:1.06}.intro>span{font-size:15px;line-height:1.65;color:#96a8b9}
+.workspace{font-size:18px;letter-spacing:-.02em}
+.sidebar nav span{font-size:13px}.sidebarFoot{font-size:11px}
+.status,.workspace span,.intro p,.panelHead span,.activation span,.advisory>span,
+.identityCard>span,.submitCard>span{font-size:10px;line-height:1.4}
+.topbar small,.wallet,.walletConnected{font-size:10px}
+.activation p,.proposal p,.submitCard p{font-size:13px;line-height:1.7}
+.metrics span,.metrics small,.compactProposal>small,.compactProposal span,.activity span,
+.panelHead button,.proposalMeta,.proposal small,.proposal footer>span,.proposal footer button,
+.contributionRow>span,.contributionRow small,.contributionRow>i,.disclaimer b,.disclaimer p,
+.allocation span,.allocation strong,.control strong{font-size:10px}
+.compactProposal strong,.activity strong,.contributionRow strong{font-size:13px}
+.identityCard p,.permission,.control span{font-size:12px}
+.identityCard small{font-size:10px;line-height:1.5}
+.governanceSummary span{font-size:10px}.governanceSummary p{font-size:11px}
+.proposal h2{font-size:24px;line-height:1.25}
+.permission strong,.activity>b,.contributionRow b{font-size:11px}
+.sidebar nav button:focus-visible,.wallet:focus-visible,.walletConnected:focus-visible,
+.activation button:focus-visible,.panelHead button:focus-visible,.proposal footer button:focus-visible,
+.identityCard button:focus-visible,.submitCard button:focus-visible{
+  outline:2px solid var(--cyan);
+  outline-offset:3px;
+}
