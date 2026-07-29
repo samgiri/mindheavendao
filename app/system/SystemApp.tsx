@@ -181,7 +181,7 @@ export function SystemApp() {
     const next = { ...voted, [id]: choice };
     setVoted(next);
     window.localStorage.setItem("mhd-demo-votes-v2", JSON.stringify(next));
-    setNotice(`Prototype vote recorded as ${choice} for ${id}. It is local browser data, not an on-chain vote.`);
+    setNotice(`Prototype vote recorded (${choice}) for ${id}. It is local browser data, not an on-chain vote.`);
   }
 
   const connectedToTarget = wallet.chainId === BSC_TESTNET_CHAIN_ID;
