@@ -15,3 +15,15 @@ Confirmed for documentation:
 - 60/25/15 operating-surplus policy is indicative and governance-controlled.
 
 No open recommendation in these documents is recorded as approved. No production implementation or deployment is authorized.
+
+## 2026-07-29 — GitHub designated as official source of record
+
+Confirmed:
+
+- The `samgiri/mindheavendao` GitHub repository is the official source of record for MindHeavenDAO Foundation documents, decision history, versioned policies, technical specifications, and application code.
+- Material work must be preserved through scoped branches, commits, and pull requests.
+- Drafts must remain visibly classified as drafts until approved.
+- Approved records must not be silently overwritten; material changes require a new version and decision entry.
+- External presentation files may be generated from repository records, but GitHub remains the authoritative version unless a binding legal record requires a different system.
+
+This decision improves transparency, professionalism, continuity, and auditability. It does not make a draft authoritative merely because it is stored in the repository.
