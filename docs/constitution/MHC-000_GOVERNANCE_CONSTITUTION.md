@@ -9,7 +9,7 @@
 **Approval date:** Not approved  
 **Last updated:** 2026-07-30  
 **Parent authority:** MHF-000 MindHeavenDAO Foundation Charter  
-**Related records:** MHF-002 Documentation Standards; Governance Framework; Progressive Decentralization; Open Decisions Register  
+**Related records:** [MHF-002 Documentation Standards](../foundation/DOCUMENTATION_STANDARDS.md); [Governance Framework](GOVERNANCE_FRAMEWORK.md); [Progressive Decentralization](PROGRESSIVE_DECENTRALIZATION.md); [Open Decisions Register](../decisions/OPEN_DECISIONS_REGISTER.md)  
 **Technology advisory:** SatoshiLab.ai
 
 ## Preamble
@@ -145,6 +145,8 @@ Founder authority during this phase must be:
 
 Founder approval of a draft does not by itself activate tokens, treasury operations, smart contracts, or public governance.
 
+Founder stewardship must be reviewed at a published cadence before activation. After constitutional governance is activated, founder status creates no automatic veto, treasury authority, administrative privilege, or permanent office unless a ratified rule expressly grants a bounded role.
+
 ## Article VIII — Community governance
 
 Community governance should exercise authority only after eligibility, voting, security, treasury, legal, and execution controls are ready.
@@ -177,7 +179,7 @@ Governance proposals should be classified before voting.
 
 ### Ordinary proposals
 
-Ordinary proposals concern actions within already approved constitutional and policy bounds, including future operational parameters, routine budgets, grants, and appointments where authority has been delegated.
+Ordinary proposals concern actions within already approved constitutional and policy bounds, including future operational parameters, routine budgets, grants, and appointments where authority has been delegated. An ordinary proposal may not exceed approved spending caps, alter protected rights, create a new privileged role, or be divided artificially to avoid classification as a major proposal.
 
 The Version 1 ordinary baseline in Article VIII applies unless a later ratified rule lawfully changes it.
 
@@ -299,7 +301,7 @@ Treasury controls must include:
 - signer appointment, rotation, recovery, and removal procedures; and
 - independent review proportionate to risk.
 
-The indicative 60% HEAVEN rewards, 25% ecosystem growth, and 15% emergency reserve model remains governance-controlled planning guidance. It does not create a permanent entitlement and cannot authorize unfunded rewards.
+The indicative operating-surplus model—up to 60% for HEAVEN rewards, 25% for ecosystem growth, and 15% for emergency reserve—remains governance-controlled planning guidance. It does not create a permanent entitlement and cannot authorize unfunded rewards.
 
 No governance vote may lawfully spend assets the relevant body does not control or override binding contractual, fiduciary, tax, sanctions, consumer-protection, or insolvency obligations.
 
@@ -446,7 +448,15 @@ No amendment may:
 - remove the humanitarian mission; or
 - place any founder, token holder, council, adviser, administrator, or automated system above applicable law and the Charter.
 
-## Article XXII — Ratification and activation
+## Article XXII — Continuity, dissolution, and severability
+
+Governance must maintain documented continuity arrangements for critical records, domains, repositories, keys, treasury access, contracts, advisers, and operational responsibilities.
+
+If MindHeavenDAO or a legal entity serving it is dissolved, remaining assets must be handled under applicable law and binding obligations. After satisfying lawful liabilities, mission-dedicated assets should be transferred to one or more aligned public-benefit, nonprofit, foundation, or community purposes where legally permitted. Token holding, voting power, founder status, or advisory status alone must not create a right to divide residual mission assets.
+
+If a provision of this Constitution is unlawful or unenforceable in a relevant jurisdiction, it should be limited only to the minimum extent required. The remaining provisions continue where legally and operationally possible. Governance must record the conflict and adopt a compliant replacement that preserves the original safeguard as closely as practical.
+
+## Article XXIII — Ratification and activation
 
 This document remains a draft until the founder records approval during the pre-governance phase.
 
