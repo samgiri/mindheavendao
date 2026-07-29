@@ -2,8 +2,12 @@ import type { Metadata } from "next";
 import { SystemApp } from "./SystemApp";
 
 export const metadata: Metadata = {
-  title: "Founder System | MindHeavenDAO",
-  description: "Phase 1 prototype for MindHeavenDAO member identity, governance, contributions, and transparent reporting.",
+  title: "Founder dApp | MindHeavenDAO",
+  description: "MindHeavenDAO Phase 2 founder dApp interface for identity, Founder Nodes, governance, contribution, rewards, treasury transparency, and official records.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function SystemPage() {
