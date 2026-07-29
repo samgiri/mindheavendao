@@ -1,6 +1,6 @@
 # MindHeavenDAO
 
-Official MindHeavenDAO repository containing the approved Version 3 website, Foundation Volume I, and draft MIND Protocol documentation.
+Official MindHeavenDAO repository containing the approved Version 3 website, Foundation Volume I, and draft governance and MIND Protocol documentation.
 
 ## Approved website
 
@@ -25,6 +25,13 @@ The founding records are indexed in [`docs/foundation/`](docs/foundation/):
 - [Foundation status and index](docs/foundation/README.md)
 
 These records are drafts until reviewed and explicitly approved through the documented governance process.
+
+## Governance constitution
+
+- [MHC-000 Governance Constitution](docs/constitution/MHC-000_GOVERNANCE_CONSTITUTION.md) — the proposed institutional governance layer beneath the Foundation Charter.
+- [MIND Protocol Constitution v0.1](docs/constitution/MIND_PROTOCOL_CONSTITUTION_v0.1.md) — the earlier protocol-focused draft retained for history and specialist policy context.
+
+MHC-000 remains a draft until founder approval and requires a separate activation decision before any on-chain governance becomes operational.
 
 ## Protocol documentation
 
