@@ -2,7 +2,13 @@
 
 **Document ID:** MHF-002  
 **Version:** 0.1  
-**Status:** Draft for founder review
+**Status:** Draft for review  
+**Classification:** Foundation standard  
+**Maintainer:** MindHeavenDAO Foundation  
+**Approval authority:** Founder (pre-governance phase)  
+**Approval date:** Not approved  
+**Last updated:** 2026-07-29  
+**Related decision:** 2026-07-29 GitHub source-of-record decision
 
 ## Purpose
 
@@ -124,3 +130,7 @@ Before approval, confirm:
 - legal, health, privacy, and financial claims are appropriately bounded;
 - implementation does not exceed the approved policy; and
 - the decision log and index are updated.
+
+## Change history
+
+- **0.1 — 2026-07-29:** Initial draft for founder review.
