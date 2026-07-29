@@ -272,3 +272,39 @@
 - **Risks:** irreversible disclosure, breach, cross-border violations.
 - **Approver/dependencies:** Privacy/legal/security governance; verification and jurisdictions.
 
+## OD-31 — Governance voting mechanics
+
+- **Decision/status:** Eligible-supply denominator, abstention treatment, delegation, late-quorum protection, cancellation, and inaccessible-token treatment; Open.
+- **Why it matters:** These rules determine whether the confirmed ordinary-governance baseline operates fairly and resists manipulation.
+- **Options:** circulating-vote supply; delegated active supply; total eligible supply with defined exclusions; standard or extended quorum protections.
+- **Recommended:** use auditable snapshot-based voting with treasury and provably inaccessible balances handled under a published denominator, revocable delegation, explicit abstention rules, and late-quorum protection.
+- **Risks:** double counting, quorum manipulation, disenfranchisement, proposal capture.
+- **Approver/dependencies:** Constitutional governance and security review; MIND distribution, Governor implementation, legal readiness.
+
+## OD-32 — Proposal classification and materiality thresholds
+
+- **Decision/status:** Financial and operational boundaries between ordinary and major proposals; Open.
+- **Why it matters:** Undefined boundaries permit inconsistent classification or proposal splitting.
+- **Options:** fixed asset thresholds; percentage-of-treasury limits; annual budget caps; risk-based classification; combined model.
+- **Recommended:** combine approved annual/epoch caps with percentage-of-treasury and risk triggers, and aggregate related proposals to prevent threshold avoidance.
+- **Risks:** treasury loss, governance bypass, arbitrary classification, slow routine operations.
+- **Approver/dependencies:** Constitutional and treasury governance; treasury valuation, budgets, legal obligations.
+
+## OD-33 — Emergency authority configuration
+
+- **Decision/status:** Emergency council composition, threshold, exact pause scope, expiry, renewal, and post-incident review deadline; Open.
+- **Why it matters:** Emergency powers must respond quickly without becoming a permanent governance bypass.
+- **Options:** security multisig; elected security council; dual Foundation/community confirmation; automated bounded pause.
+- **Recommended:** diverse threshold council with named subsystem powers, short automatic expiry, recorded rationale, prompt governance review, and no custody or policy-changing authority.
+- **Risks:** delayed incident response, abusive pause, signer compromise, permanent centralization.
+- **Approver/dependencies:** Constitutional governance and independent security review; contract architecture, incident plan, signer policy.
+
+## OD-34 — Founder-stewardship review and transition
+
+- **Decision/status:** Review cadence, activation evidence, transition authority, and removal of residual founder privileges; Open.
+- **Why it matters:** Progressive decentralization requires a verifiable transfer rather than an indefinite promise.
+- **Options:** milestone review; time-based review; independent readiness panel; combined founder/community approval.
+- **Recommended:** published milestone assessment at a fixed review cadence, independent legal/security input, explicit transition decision, and a post-activation role map showing every retained or removed authority.
+- **Risks:** premature decentralization, founder lock-in, unclear accountability, hidden administrative access.
+- **Approver/dependencies:** Founder before activation and constitutional governance after activation; legal wrapper, security, participation, treasury readiness.
+
