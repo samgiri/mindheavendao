@@ -6,6 +6,8 @@ All notable repository changes are documented here.
 
 ### Added
 
+- Founder dApp Phase 2 UI with expanded product surfaces, wallet identity preview, BSC Testnet detection, safety gates, and deployment-readiness documentation.
+
 - MHC-000 Governance Constitution v0.1 as the proposed institutional governance layer beneath the Foundation Charter.
 - MIND Protocol Constitution v0.1 and supporting policy documents.
 - Proposed technical architecture and contract-by-contract specification.
