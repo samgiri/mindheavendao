@@ -1,5 +1,15 @@
 # The MindHeavenDAO Founding Manifesto
 
+**Document ID:** MHF-001  
+**Version:** 0.1  
+**Status:** Draft for review  
+**Classification:** Foundational  
+**Maintainer:** MindHeavenDAO Foundation  
+**Approval authority:** Founder (pre-governance phase)  
+**Approval date:** Not approved  
+**Last updated:** 2026-07-29  
+**Related decision:** 2026-07-29 GitHub source-of-record decision
+
 ## A mission-driven foundation for human potential
 
 Technology is accelerating.
@@ -49,3 +59,7 @@ Who are we building it for?
 **For humanity.**
 
 This is the soul of MindHeavenDAO.
+
+## Change history
+
+- **0.1 — 2026-07-29:** Initial draft for founder review.
