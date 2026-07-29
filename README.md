@@ -30,6 +30,7 @@ These records are drafts until reviewed and explicitly approved through the docu
 
 - [MHC-000 Governance Constitution](docs/constitution/MHC-000_GOVERNANCE_CONSTITUTION.md) — the proposed institutional governance layer beneath the Foundation Charter.
 - [MIND Protocol Constitution v0.1](docs/constitution/MIND_PROTOCOL_CONSTITUTION_v0.1.md) — the earlier protocol-focused draft retained for history and specialist policy context.
+- [MHR-001 Internal Audit](docs/reviews/MHR-001_MHC-000_INTERNAL_AUDIT.md) — audit scope, corrections, open decisions, and remaining approval gates.
 
 MHC-000 remains a draft until founder approval and requires a separate activation decision before any on-chain governance becomes operational.
 
