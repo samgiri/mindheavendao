@@ -1,8 +1,14 @@
 # MHF-000 — MindHeavenDAO Foundation Charter
 
+**Document ID:** MHF-000  
 **Version:** 0.1  
-**Status:** Draft for founder review  
+**Status:** Draft for review  
 **Classification:** Foundational  
+**Maintainer:** MindHeavenDAO Foundation  
+**Approval authority:** Founder (pre-governance phase)  
+**Approval date:** Not approved  
+**Last updated:** 2026-07-29  
+**Related decision:** 2026-07-29 GitHub source-of-record decision  
 **Technology advisory:** SatoshiLab.ai
 
 ## Preamble
@@ -172,3 +178,7 @@ We will use advanced technology without worshipping it. We will build economic s
 We are building for people, with people, and ultimately:
 
 **For humanity.**
+
+## Change history
+
+- **0.1 — 2026-07-29:** Initial draft for founder review.
