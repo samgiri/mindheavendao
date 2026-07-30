@@ -4,12 +4,13 @@
 
 ## OD-01 — Exact MIND per Founder Node tier
 
-- **Decision/status:** Amount for each tier and lock; Open.
-- **Why it matters:** Defines access, supply demand, and concentration.
-- **Options:** fixed amounts; governance table; auction/allocation rounds.
-- **Recommended:** fixed launch table with prospective, timelocked changes.
-- **Risks:** exclusion, concentration, inconsistent marketing.
-- **Approver/dependencies:** Constitutional governance plus legal review; pricing method, allocation schedule.
+- **Decision/status:** **Approved 2026-07-30 — five fixed Founder Node allocation levels.**
+- **Decision record:** [MHE-003 — Founder Node MIND Allocation Decision](MHE-003_FOUNDER_NODE_MIND_ALLOCATION_DECISION.md).
+- **Approved amounts:** Seed 5,000; Builder 10,000; Visionary 25,000; Pioneer 50,000; Genesis 100,000 MIND.
+- **Confirmed boundary:** 5,000 MIND is the minimum Founder Node commitment; no sub-5,000 tier.
+- **Still required:** lock terms, rewards, withdrawal, upgrades, multiple-node rules, legal/security review, and deployment approval.
+- **Risks:** exclusion, concentration, inconsistent marketing, and confusion between planning reference and market value.
+- **Approver/dependencies:** Founder approved amounts; MHE-002 controls reference language.
 
 ## OD-02 — MIND reference-price methodology
 
