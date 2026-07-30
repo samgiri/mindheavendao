@@ -27,6 +27,15 @@ type WalletState = {
   mode: "disconnected" | "demo" | "wallet";
 };
 
+type ChainStatus = {
+  status: "online" | "offline";
+  network: { name: string; chainId: number; chainIdHex: string; explorerUrl: string };
+  block: { number: number } | null;
+  rpc: { healthy: boolean; latencyMs: number | null };
+  contracts: { configured: string[]; configuredCount: number; totalCount: number; mode: "registry-only" };
+  checkedAt: string;
+};
+
 const BSC_TESTNET_CHAIN_ID = "0x61";
 const BSC_MAINNET_CHAIN_ID = "0x38";
 const DEMO_ADDRESS = "0x7A2f8E91c4D5b630F84a1B2c9D3e6F1120A44E6B";
@@ -53,6 +62,8 @@ export function SystemApp() {
   const [mobileNav, setMobileNav] = useState(false);
   const [voted, setVoted] = useState<Record<string, "for" | "against" | "abstain">>({});
   const [walletPanel, setWalletPanel] = useState(false);
+  const [chainStatus, setChainStatus] = useState<ChainStatus | null>(null);
+  const [chainStatusLoading, setChainStatusLoading] = useState(true);
 
   useEffect(() => {
     const storedAddress = window.localStorage.getItem("mhd-demo-wallet") ?? "";
@@ -86,6 +97,30 @@ export function SystemApp() {
     return () => {
       provider.removeListener?.("accountsChanged", onAccounts);
       provider.removeListener?.("chainChanged", onChain);
+    };
+  }, []);
+
+  useEffect(() => {
+    let active = true;
+
+    async function refreshChainStatus() {
+      setChainStatusLoading(true);
+      try {
+        const response = await fetch("/api/chain/status", { cache: "no-store" });
+        const payload = (await response.json()) as ChainStatus;
+        if (active) setChainStatus(payload);
+      } catch {
+        if (active) setChainStatus(null);
+      } finally {
+        if (active) setChainStatusLoading(false);
+      }
+    }
+
+    void refreshChainStatus();
+    const interval = window.setInterval(refreshChainStatus, 60_000);
+    return () => {
+      active = false;
+      window.clearInterval(interval);
     };
   }, []);
 
@@ -194,7 +229,7 @@ export function SystemApp() {
         </div>
         <div className={styles.productLabel}>
           <span>FOUNDER DAPP</span>
-          <b>Phase 2 · Testnet ready UI</b>
+          <b>Phase 3 · Read-only testnet</b>
         </div>
         <nav aria-label="Founder dApp navigation">
           {NAVIGATION.map(item => (
@@ -220,7 +255,7 @@ export function SystemApp() {
           <button className={styles.menu} onClick={() => setMobileNav(!mobileNav)} aria-label="Toggle menu">☰</button>
           <div className={styles.environment}>
             <span className={styles.status}>TEST ENVIRONMENT</span>
-            <small>No live contracts · No financial transactions</small>
+            <small>No deployed contracts · No financial transactions</small>
           </div>
           <div className={styles.topActions}>
             {wallet.address && (
@@ -237,7 +272,7 @@ export function SystemApp() {
         {notice && <div className={styles.notice} role="status"><span>{notice}</span><button onClick={() => setNotice("")}>×</button></div>}
 
         <div className={styles.content}>
-          {view === "dashboard" && <Dashboard wallet={wallet} readinessScore={readinessScore} navigate={navigate} connect={() => setWalletPanel(true)} />}
+          {view === "dashboard" && <Dashboard wallet={wallet} readinessScore={readinessScore} chainStatus={chainStatus} chainStatusLoading={chainStatusLoading} navigate={navigate} connect={() => setWalletPanel(true)} />}
           {view === "identity" && <Identity wallet={wallet} connect={() => setWalletPanel(true)} disconnect={disconnect} switchNetwork={switchToTestnet} />}
           {view === "nodes" && <FounderNodes wallet={wallet} />}
           {view === "governance" && <Governance wallet={wallet} voted={voted} recordVote={recordVote} />}
@@ -283,7 +318,7 @@ function PageIntro({ eyebrow, title, copy, tag }: { eyebrow: string; title: stri
   return <div className={styles.intro}><div><p>{eyebrow}</p><h1>{title}</h1></div><div>{tag && <small>{tag}</small>}<span>{copy}</span></div></div>;
 }
 
-function Dashboard({ wallet, readinessScore, navigate, connect }: { wallet: WalletState; readinessScore: number; navigate: (view: View) => void; connect: () => void }) {
+function Dashboard({ wallet, readinessScore, chainStatus, chainStatusLoading, navigate, connect }: { wallet: WalletState; readinessScore: number; chainStatus: ChainStatus | null; chainStatusLoading: boolean; navigate: (view: View) => void; connect: () => void }) {
   return <>
     <PageIntro eyebrow="MindHeavenDAO · Founder command center" title="Mission control" copy="One calm interface for identity, nodes, governance, contribution, rewards, treasury transparency, and official records." tag="PHASE 2" />
     {!wallet.address && <section className={styles.activation}>
@@ -294,7 +329,7 @@ function Dashboard({ wallet, readinessScore, navigate, connect }: { wallet: Wall
       <article><span>Deployment readiness</span><strong>{readinessScore}%</strong><div><i style={{ width: `${readinessScore}%` }} /></div><small>1 of 6 launch controls ready</small></article>
       <article><span>Governance</span><strong>02</strong><small>Prototype proposals open</small></article>
       <article><span>Contribution record</span><strong>250</strong><small>Non-financial demo points</small></article>
-      <article><span>Network target</span><strong>BSC</strong><small>Testnet integration mode</small></article>
+      <article><span>Testnet RPC</span><strong>{chainStatusLoading ? "…" : chainStatus?.rpc.healthy && chainStatus.block ? chainStatus.block.number.toLocaleString() : "OFF"}</strong><small>{chainStatus?.rpc.healthy ? `Live block · ${chainStatus.rpc.latencyMs ?? "—"} ms` : "Read-only BSC status"}</small></article>
     </div>
     <div className={styles.dashboardGrid}>
       <section className={styles.panel}>
