@@ -111,3 +111,18 @@ Confirmed by the Founder:
 - New drafts must follow [MHE-007](MHE-007_SERVICE_BASED_HEAVEN_REWARD_FORMULA_DECISION.md).
 
 OD-09 is further partially resolved. Actual rates, HEAVEN factors, duties, verification, funding source, timing, legal approval, security review, and deployment remain open.
+
+## 2026-07-30 — Founder Node participation duties and evidence framework approved
+
+Confirmed by the Founder:
+
+- Participation points must come from useful, prospectively published service tasks; MIND ownership, holding, locking, referral volume, or financial contribution alone is insufficient.
+- Approved service categories cover governance stewardship, education/community, verification/research, technical/design/operations, and human-potential mission work.
+- Participants may receive no more than 100 verified points per epoch, must ordinarily complete at least two tasks, and cannot receive more than 60 points from one category.
+- Scores are 0 below 50 points, 0.50 from 50–79 points, and 1.00 from 80–100 points.
+- Qualitative work requires two independent reviewers, conflict declarations, reasoned decisions, and an appeal period of at least 14 days.
+- Sensitive evidence remains off-chain under data-minimization, encryption, access, retention, and privacy-impact controls.
+- Accessibility alternatives and applicable labor, tax, IP, sanctions, and jurisdictional review are mandatory.
+- New drafts must follow [MHE-008](MHE-008_PARTICIPATION_DUTIES_AND_EVIDENCE_DECISION.md).
+
+OD-20 and OD-21 are partially resolved. Exact task catalogs, reviewer appointments, evidence systems, legal review, security review, and activation remain open.
