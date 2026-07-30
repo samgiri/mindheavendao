@@ -18,6 +18,7 @@ All notable repository changes are documented here.
 
 ### Clarified
 
+- MHE-011 approves 180/365/730-day Founder Node positions, 7/30-day claim intervals, prospective 14-day mode switches limited to one per rolling 90 days, reward-lot fee attribution, and continuous-maturity/no-early-claim bonus eligibility.
 - MHE-010 approves prospective reward-vault funding deadlines, nine 365-day Release Years, auditable claim states, unused-fund return, 24-month standard claims, 12-month dormant protection, repeated notices, and legally reviewed post-36-month disposition.
 - MHE-009 approves a fixed 177,000,000 HEAVEN genesis supply, reconciled 60/12/10/8/5/5 allocation, and nine-year reward-reserve ceilings of 12/10/8/7/6/5/4/4/4%, superseding the conflicting ten-year draft without authorizing distribution or deployment.
 - MHE-008 approves a prospective Founder Node service-task catalog, category caps, 0–100 verified points, 0 / 0.50 / 1 score thresholds, dual review for qualitative work, conflict and appeal controls, privacy minimization, and accessibility requirements.
