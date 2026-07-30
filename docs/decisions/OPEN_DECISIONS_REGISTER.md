@@ -15,9 +15,9 @@
 ## OD-02 — MIND reference-price methodology
 
 - **Decision/status:** **Approved 2026-07-30 — 1 MIND = $1 is an off-chain Founder Node allocation reference only.**
-- **Decision record:** [MHE-002 — MIND Off-Chain Reference Decision](MHE-002_MIND_OFFCHAIN_REFERENCE_DECISION.md).
+- **Decision records:** [MHE-002 — MIND Off-Chain Reference Decision](MHE-002_MIND_OFFCHAIN_REFERENCE_DECISION.md) and [MHE-006 — Founder Node Epoch and Legal Readiness Decision](MHE-006_FOUNDER_NODE_EPOCH_AND_LEGAL_READINESS_DECISION.md).
 - **Confirmed boundaries:** contracts use fixed MIND amounts; no USD oracle, peg, redemption promise, price guarantee, or treasury obligation.
-- **Still required:** OD-01 approval of exact tier amounts and legal/communications review.
+- **Still required:** Any future epoch reference rate requires a separate prospective governance decision and jurisdiction-specific legal/communications approval.
 - **Risks:** users may misunderstand a planning reference as promised market value.
 - **Approver/dependencies:** Founder approved methodology; legal/finance review remains required for public materials.
 
@@ -78,10 +78,10 @@
 ## OD-09 — Founder Node HEAVEN reward formula
 
 - **Decision/status:** **Partially approved 2026-07-30 — variable maximum total reward ceilings.**
-- **Decision records:** [MHE-004 — Variable Reward Ceilings](MHE-004_VARIABLE_REWARD_CEILING_DECISION.md) and [MHE-005 — Reward Claim Options](MHE-005_REWARD_CLAIM_OPTIONS_DECISION.md).
+- **Decision records:** [MHE-004 — Variable Reward Ceilings](MHE-004_VARIABLE_REWARD_CEILING_DECISION.md), [MHE-005 — Reward Claim Options](MHE-005_REWARD_CLAIM_OPTIONS_DECISION.md), and [MHE-006 — Founder Node Epoch and Legal Readiness Decision](MHE-006_FOUNDER_NODE_EPOCH_AND_LEGAL_READINESS_DECISION.md).
 - **Approved ceilings:** up to 38% for 6 months; up to 78% for 12 months; up to 122% for 24 months.
 - **Approved claims:** weekly with 2% protocol claim fee; monthly with no protocol claim fee; maturity with an eligible loyalty bonus up to 5%; network gas remains payable.
-- **Confirmed boundaries:** not APY or guaranteed; actual rewards and bonuses may be lower or zero; HEAVEN only; future funded epochs; all amounts remain inside the ceiling; no auto-compounding or unfunded liability.
+- **Confirmed boundaries:** not APY or guaranteed; actual rewards and bonuses may be lower or zero; HEAVEN only; allocation and reward epochs are separately approved; future reward epochs must be pre-funded; all amounts remain inside the ceiling; no auto-compounding or unfunded liability.
 - **Still open:** performance formula, HEAVEN conversion, mode switching/anti-gaming, timing constants, funding source, and legal approval.
 - **Risks:** unsustainable reward cost, misleading APY language, gaming, governance capture, and funding shortfall.
 - **Approver/dependencies:** Founder approved ceilings; constitutional governance/legal/economic review must approve the remaining formula and HEAVEN model.
