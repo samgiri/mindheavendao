@@ -83,13 +83,14 @@
 ## OD-09 — Founder Node HEAVEN reward formula
 
 - **Decision/status:** **Partially approved 2026-07-30 — variable maximum total reward ceilings.**
-- **Decision records:** [MHE-004 — Variable Reward Ceilings](MHE-004_VARIABLE_REWARD_CEILING_DECISION.md), [MHE-005 — Reward Claim Options](MHE-005_REWARD_CLAIM_OPTIONS_DECISION.md), [MHE-006 — Founder Node Epoch and Legal Readiness Decision](MHE-006_FOUNDER_NODE_EPOCH_AND_LEGAL_READINESS_DECISION.md), and [MHE-007 — Service-Based HEAVEN Reward Formula Decision](MHE-007_SERVICE_BASED_HEAVEN_REWARD_FORMULA_DECISION.md).
+- **Decision records:** [MHE-004 — Variable Reward Ceilings](MHE-004_VARIABLE_REWARD_CEILING_DECISION.md), [MHE-005 — Reward Claim Options](MHE-005_REWARD_CLAIM_OPTIONS_DECISION.md), [MHE-006 — Founder Node Epoch and Legal Readiness Decision](MHE-006_FOUNDER_NODE_EPOCH_AND_LEGAL_READINESS_DECISION.md), [MHE-007 — Service-Based HEAVEN Reward Formula Decision](MHE-007_SERVICE_BASED_HEAVEN_REWARD_FORMULA_DECISION.md), and [MHE-011 — Claim Timing, Switching, and Maturity Decision](MHE-011_CLAIM_TIMING_SWITCHING_AND_MATURITY_DECISION.md).
 - **Approved ceilings:** up to 38% for 6 months; up to 78% for 12 months; up to 122% for 24 months.
-- **Approved claims:** weekly with 2% protocol claim fee; monthly with no protocol claim fee; maturity with an eligible loyalty bonus up to 5%; network gas remains payable.
+- **Approved claims:** weekly with 2% protocol claim fee and seven-day interval; monthly with no protocol claim fee and 30-day interval; maturity with an eligible loyalty bonus up to 5%; network gas remains payable.
 - **Approved formula architecture:** eligible fixed MIND quantity × actual epoch rate × calculation-only HEAVEN allocation factor × verified participation score, followed by a common pro-rata funded-pool adjustment.
 - **Approved participation scores:** 0 for inactive/ineligible; 0.50 for verified partial completion; 1.00 for verified full completion.
 - **Confirmed boundaries:** holding or locking MIND alone does not earn or guarantee HEAVEN; not APY or guaranteed; actual rewards and bonuses may be lower or zero; HEAVEN only; allocation and reward epochs are separately approved; future reward epochs must be pre-funded; all amounts remain inside the ceiling; no auto-compounding or unfunded liability.
-- **Still open:** actual epoch rates, HEAVEN allocation factors, service duties and evidence rules, reviewers and appeals, mode switching/anti-gaming, timing and rounding constants, funding source, unused-fund handling, and legal approval.
+- **Approved timing/anti-gaming:** 180/365/730-day positions; explicit mode selection; switches effective after 14 days and limited to one per rolling 90 days; earlier lots keep their fee class; continuous no-early-claim maturity mode is required for bonus eligibility.
+- **Still open:** actual epoch rates, HEAVEN allocation factors, exact recurring epoch duration, actual maturity bonus, partial claims, rounding/dust/minimums, fee destination, withdrawal, funding transactions, legal approval, and implementation.
 - **Risks:** subjective scoring, verification disputes, privacy exposure, unsustainable reward cost, misleading APY language, gaming, governance capture, and funding shortfall.
 - **Approver/dependencies:** Founder approved ceilings; constitutional governance/legal/economic review must approve the remaining formula and HEAVEN model.
 
@@ -259,7 +260,8 @@
 ## OD-28 — Claim deadlines
 
 - **Decision/status:** **Policy approved 2026-07-30 — 24-month standard claim period plus 12-month dormant protection.**
-- **Decision record:** [MHE-010 — Reward Vault Lifecycle and Dormant Claims Decision](MHE-010_REWARD_VAULT_LIFECYCLE_AND_DORMANT_CLAIMS_DECISION.md).
+- **Decision records:** [MHE-010 — Reward Vault Lifecycle and Dormant Claims Decision](MHE-010_REWARD_VAULT_LIFECYCLE_AND_DORMANT_CLAIMS_DECISION.md) and [MHE-011 — Claim Timing, Switching, and Maturity Decision](MHE-011_CLAIM_TIMING_SWITCHING_AND_MATURITY_DECISION.md).
+- **Approved cadence:** weekly claims use a seven-day successful-claim interval; monthly claims use a 30-day interval; maturity settlement occurs after exact position maturity and applicable finalization.
 - **Approved timeline:** finalized claims remain normally claimable for 24 months, then remain segregated and late-claimable through month 36; deadlines extend for protocol-caused unavailability, protected appeals, and applicable legal processes.
 - **Approved notices:** availability notice; approximately 12- and 18-month reminders; notice before dormancy; 90- and 30-day notices before potential disposition.
 - **Still required:** contract implementation, contact permissions, recovery/inheritance rules, jurisdiction-specific unclaimed-property analysis, legal review, security audit, and activation.
