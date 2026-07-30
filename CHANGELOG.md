@@ -18,6 +18,7 @@ All notable repository changes are documented here.
 
 ### Clarified
 
+- MHE-004 approves variable maximum total reward references of up to 38% / 78% / 122% for 6 / 12 / 24 months; these are not APY or guaranteed liabilities, and actual HEAVEN rewards may be lower or zero.
 - MHE-003 approves five fixed Founder Node commitments from Seed at 5,000 MIND through Genesis at 100,000 MIND; no sub-5,000 Founder Node category is created.
 - MHE-002 limits “1 MIND = $1” to an off-chain Founder Node allocation reference; contracts use fixed MIND units with no USD oracle, peg, redemption, or price guarantee.
 - MHE-001 approves MIND as a transferable governance token with a permanently fixed 20,000,000 supply, superseding the non-transferable Step 2 recommendation without authorizing deployment, sale, liquidity, price promises, or guaranteed returns.
