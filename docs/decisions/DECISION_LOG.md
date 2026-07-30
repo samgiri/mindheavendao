@@ -61,3 +61,14 @@ Confirmed by the Founder:
 - New drafts must follow [MHE-003](MHE-003_FOUNDER_NODE_MIND_ALLOCATION_DECISION.md).
 
 OD-01 is resolved. Lock terms, rewards, withdrawals, multiple-node rules, legal review, and deployment remain separate approval gates.
+
+## 2026-07-30 — Variable Founder Node reward ceilings approved
+
+Confirmed by the Founder:
+
+- Six-, twelve-, and twenty-four-month business lock terms use maximum total reward references of up to 38%, 78%, and 122% respectively.
+- These figures are variable ceilings, not APY, fixed income, guaranteed yield, or automatic liabilities.
+- Actual rewards depend on DAO performance, governance-approved budgets, and sufficient pre-funded HEAVEN and may be lower or zero.
+- New drafts must follow [MHE-004](MHE-004_VARIABLE_REWARD_CEILING_DECISION.md).
+
+OD-09 is partially resolved. The performance formula, HEAVEN conversion, cadence, exact duration constants, and funding model remain open.
