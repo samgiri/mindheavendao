@@ -38,3 +38,14 @@ Confirmed by the Founder:
 - New technical and economic drafts must follow [MHE-001](MHE-001_TRANSFERABLE_MIND_DECISION.md); historical drafts remain preserved.
 
 OD-15 is resolved. Allocation vesting, governance safeguards, Founder Node amounts, reward formulas, legal review, and deployment remain separate approval gates.
+
+## 2026-07-30 — MIND dollar reference limited to off-chain planning
+
+Confirmed by the Founder:
+
+- “1 MIND = $1” is an off-chain Founder Node allocation reference only.
+- Contracts will use fixed MIND amounts and will not calculate USD value or depend on a price oracle.
+- The reference is not a peg, guaranteed price, redemption promise, treasury obligation, or market-value representation.
+- New drafts must follow [MHE-002](MHE-002_MIND_OFFCHAIN_REFERENCE_DECISION.md).
+
+OD-02 is resolved. Exact Founder Node MIND amounts remain pending under OD-01.
