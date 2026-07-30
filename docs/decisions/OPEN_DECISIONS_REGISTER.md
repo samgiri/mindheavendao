@@ -78,10 +78,11 @@
 ## OD-09 — Founder Node HEAVEN reward formula
 
 - **Decision/status:** **Partially approved 2026-07-30 — variable maximum total reward ceilings.**
-- **Decision record:** [MHE-004 — Founder Node Variable Reward Ceiling Decision](MHE-004_VARIABLE_REWARD_CEILING_DECISION.md).
+- **Decision records:** [MHE-004 — Variable Reward Ceilings](MHE-004_VARIABLE_REWARD_CEILING_DECISION.md) and [MHE-005 — Reward Claim Options](MHE-005_REWARD_CLAIM_OPTIONS_DECISION.md).
 - **Approved ceilings:** up to 38% for 6 months; up to 78% for 12 months; up to 122% for 24 months.
-- **Confirmed boundaries:** not APY or guaranteed; actual rewards may be lower or zero; HEAVEN only; future funded epochs; no auto-compounding or unfunded liability.
-- **Still open:** performance formula, HEAVEN conversion, weekly/monthly cadence, duration constants, funding source, and legal approval.
+- **Approved claims:** weekly with 2% protocol claim fee; monthly with no protocol claim fee; maturity with an eligible loyalty bonus up to 5%; network gas remains payable.
+- **Confirmed boundaries:** not APY or guaranteed; actual rewards and bonuses may be lower or zero; HEAVEN only; future funded epochs; all amounts remain inside the ceiling; no auto-compounding or unfunded liability.
+- **Still open:** performance formula, HEAVEN conversion, mode switching/anti-gaming, timing constants, funding source, and legal approval.
 - **Risks:** unsustainable reward cost, misleading APY language, gaming, governance capture, and funding shortfall.
 - **Approver/dependencies:** Founder approved ceilings; constitutional governance/legal/economic review must approve the remaining formula and HEAVEN model.
 
