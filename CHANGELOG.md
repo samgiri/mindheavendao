@@ -18,6 +18,7 @@ All notable repository changes are documented here.
 
 ### Clarified
 
+- MHE-010 approves prospective reward-vault funding deadlines, nine 365-day Release Years, auditable claim states, unused-fund return, 24-month standard claims, 12-month dormant protection, repeated notices, and legally reviewed post-36-month disposition.
 - MHE-009 approves a fixed 177,000,000 HEAVEN genesis supply, reconciled 60/12/10/8/5/5 allocation, and nine-year reward-reserve ceilings of 12/10/8/7/6/5/4/4/4%, superseding the conflicting ten-year draft without authorizing distribution or deployment.
 - MHE-008 approves a prospective Founder Node service-task catalog, category caps, 0–100 verified points, 0 / 0.50 / 1 score thresholds, dual review for qualitative work, conflict and appeal controls, privacy minimization, and accessibility requirements.
 - MHE-007 approves a service-based HEAVEN reward formula with verified 0 / 0.50 / 1 participation scores and a common pro-rata adjustment that prevents total payments from exceeding the pre-funded epoch pool.
