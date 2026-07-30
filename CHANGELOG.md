@@ -18,6 +18,19 @@ All notable repository changes are documented here.
 
 ### Clarified
 
+- MHE-013 makes active Founder Node positions non-transferable while approving state-preserving owner migration, two-of-three guardian recovery, exceptional reviewed recovery, beneficiary nomination, lawful succession continuation, and estate settlement.
+- MHE-012 approves full MIND-unit principal return, a 30-day ordinary early-exit cooldown, prospective reward cutoff, preservation of finalized HEAVEN, irreversible maturity-bonus loss, and a principal-only emergency path for critical events or a 30-day prolonged pause.
+- MHE-011 approves 180/365/730-day Founder Node positions, 7/30-day claim intervals, prospective 14-day mode switches limited to one per rolling 90 days, reward-lot fee attribution, and continuous-maturity/no-early-claim bonus eligibility.
+- MHE-010 approves prospective reward-vault funding deadlines, nine 365-day Release Years, auditable claim states, unused-fund return, 24-month standard claims, 12-month dormant protection, repeated notices, and legally reviewed post-36-month disposition.
+- MHE-009 approves a fixed 177,000,000 HEAVEN genesis supply, reconciled 60/12/10/8/5/5 allocation, and nine-year reward-reserve ceilings of 12/10/8/7/6/5/4/4/4%, superseding the conflicting ten-year draft without authorizing distribution or deployment.
+- MHE-008 approves a prospective Founder Node service-task catalog, category caps, 0–100 verified points, 0 / 0.50 / 1 score thresholds, dual review for qualitative work, conflict and appeal controls, privacy minimization, and accessibility requirements.
+- MHE-007 approves a service-based HEAVEN reward formula with verified 0 / 0.50 / 1 participation scores and a common pro-rata adjustment that prevents total payments from exceeding the pre-funded epoch pool.
+- MHE-006 retains fixed Founder Node MIND quantities, rejects automatic participation-linked price escalation, permits only separately approved off-chain epoch references, and makes jurisdiction-specific legal readiness a mandatory activation gate.
+- MHE-005 approves weekly HEAVEN claims with a 2% protocol claim fee, monthly claims with no protocol claim fee, and maturity settlement with an eligible pre-funded loyalty bonus up to 5%, all inside the applicable reward ceiling.
+- MHE-004 approves variable maximum total reward references of up to 38% / 78% / 122% for 6 / 12 / 24 months; these are not APY or guaranteed liabilities, and actual HEAVEN rewards may be lower or zero.
+- MHE-003 approves five fixed Founder Node commitments from Seed at 5,000 MIND through Genesis at 100,000 MIND; no sub-5,000 Founder Node category is created.
+- MHE-002 limits “1 MIND = $1” to an off-chain Founder Node allocation reference; contracts use fixed MIND units with no USD oracle, peg, redemption, or price guarantee.
+- MHE-001 approves MIND as a transferable governance token with a permanently fixed 20,000,000 supply, superseding the non-transferable Step 2 recommendation without authorizing deployment, sale, liquidity, price promises, or guaranteed returns.
 - The earlier MIND Protocol Constitution remains a protocol-focused draft and is not silently replaced by MHC-000.
 - Approval of MHC-000 does not by itself activate tokens, treasury operations, smart contracts, or on-chain governance.
 

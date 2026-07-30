@@ -4,21 +4,22 @@
 
 ## OD-01 — Exact MIND per Founder Node tier
 
-- **Decision/status:** Amount for each tier and lock; Open.
-- **Why it matters:** Defines access, supply demand, and concentration.
-- **Options:** fixed amounts; governance table; auction/allocation rounds.
-- **Recommended:** fixed launch table with prospective, timelocked changes.
-- **Risks:** exclusion, concentration, inconsistent marketing.
-- **Approver/dependencies:** Constitutional governance plus legal review; pricing method, allocation schedule.
+- **Decision/status:** **Approved 2026-07-30 — five fixed Founder Node allocation levels.**
+- **Decision record:** [MHE-003 — Founder Node MIND Allocation Decision](MHE-003_FOUNDER_NODE_MIND_ALLOCATION_DECISION.md).
+- **Approved amounts:** Seed 5,000; Builder 10,000; Visionary 25,000; Pioneer 50,000; Genesis 100,000 MIND.
+- **Confirmed boundary:** 5,000 MIND is the minimum Founder Node commitment; no sub-5,000 tier.
+- **Still required:** lock terms, rewards, withdrawal, upgrades, multiple-node rules, legal/security review, and deployment approval.
+- **Risks:** exclusion, concentration, inconsistent marketing, and confusion between planning reference and market value.
+- **Approver/dependencies:** Founder approved amounts; MHE-002 controls reference language.
 
 ## OD-02 — MIND reference-price methodology
 
-- **Decision/status:** How business reference values map to MIND; Open.
-- **Why it matters:** Prevents arbitrary or misleading conversion.
-- **Options:** no on-chain USD mapping; fixed governance reference; TWAP oracle.
-- **Recommended:** no on-chain USD calculation at launch; publish approved MIND amounts.
-- **Risks:** oracle manipulation, securities/consumer implications, volatility.
-- **Approver/dependencies:** Governance and legal/finance; liquidity, oracle policy.
+- **Decision/status:** **Approved 2026-07-30 — 1 MIND = $1 is an off-chain Founder Node allocation reference only.**
+- **Decision records:** [MHE-002 — MIND Off-Chain Reference Decision](MHE-002_MIND_OFFCHAIN_REFERENCE_DECISION.md) and [MHE-006 — Founder Node Epoch and Legal Readiness Decision](MHE-006_FOUNDER_NODE_EPOCH_AND_LEGAL_READINESS_DECISION.md).
+- **Confirmed boundaries:** contracts use fixed MIND amounts; no USD oracle, peg, redemption promise, price guarantee, or treasury obligation.
+- **Still required:** Any future epoch reference rate requires a separate prospective governance decision and jurisdiction-specific legal/communications approval.
+- **Risks:** users may misunderstand a planning reference as promised market value.
+- **Approver/dependencies:** Founder approved methodology; legal/finance review remains required for public materials.
 
 ## OD-03 — Accepted payment assets
 
@@ -49,39 +50,49 @@
 
 ## OD-06 — HEAVEN total supply
 
-- **Decision/status:** Supply cap and allocation; Open.
-- **Why it matters:** Fundamental utility economics and liabilities.
-- **Options:** fixed cap; capped emissions; uncapped governed emissions.
-- **Recommended:** defer until independently modeled; prefer transparent hard constraints.
-- **Risks:** inflation, scarcity mismatch, regulatory messaging.
-- **Approver/dependencies:** Constitutional governance/legal; utility design.
+- **Decision/status:** **Approved 2026-07-30 — fixed 177,000,000 lifetime and genesis supply.**
+- **Decision record:** [MHE-009 — HEAVEN Fixed Supply and Nine-Year Release Decision](MHE-009_HEAVEN_FIXED_SUPPLY_AND_NINE_YEAR_RELEASE_DECISION.md).
+- **Approved allocation:** 60% Founder Node/verified service reward reserve; 12% ecosystem/user programs; 10% DAO treasury; 8% development/operations; 5% partners/practitioners; 5% emergency/community reserve.
+- **Confirmed boundaries:** 18 decimals; one genesis mint into locked vaults; no future minting, inflation, re-mint after burn, public-sale allocation, guaranteed value, peg, redemption, or automatic burn at launch.
+- **Still required:** audited token/vault implementation, named roles and vaults, non-reward schedules and beneficiaries, legal review, deployment, and activation.
+- **Risks:** vault compromise, premature circulation, insider concentration, allocation misuse, misleading scarcity claims, and regulatory classification.
+- **Approver/dependencies:** Founder approved supply/allocation; constitutional governance, legal, economic, treasury, and security review remain required for activation.
 
 ## OD-07 — HEAVEN emission model
 
-- **Decision/status:** Release schedule and authorization; Open.
-- **Why it matters:** Determines sustainability.
-- **Options:** pre-minted allocation; capped epochs; governed budget.
-- **Recommended:** pre-funded epoch budgets with published caps.
-- **Risks:** over-emission, capture, unfunded promises.
-- **Approver/dependencies:** Governance/economic review; supply and treasury.
+- **Decision/status:** **Partially approved 2026-07-30 — genesis-locked supply and nine-year reward-reserve release ceilings.**
+- **Decision records:** [MHE-009 — HEAVEN Fixed Supply and Nine-Year Release Decision](MHE-009_HEAVEN_FIXED_SUPPLY_AND_NINE_YEAR_RELEASE_DECISION.md) and [MHE-010 — Reward Vault Lifecycle and Dormant Claims Decision](MHE-010_REWARD_VAULT_LIFECYCLE_AND_DORMANT_CLAIMS_DECISION.md).
+- **Approved timing:** the schedule begins at a separately approved non-backdated timestamp; each Release Year is 365 days; an epoch cannot cross a Release Year boundary.
+- **Approved annual ceilings:** 12%, 10%, 8%, 7%, 6%, 5%, 4%, 4%, and 4% of total supply for Years 1–9, totaling the 60% / 106,200,000 HEAVEN reward reserve.
+- **Confirmed boundaries:** annual ceilings are maximums, not promised emissions; no future-year borrowing; unused capacity remains locked and does not roll automatically; the historical ten-year schedule is superseded.
+- **Still open:** actual commencement timestamp, exact recurring epoch duration, epoch budgets, claim-mode timing interaction, vault implementation, administrators, reporting, legal/security approval, and activation.
+- **Risks:** over-release, schedule ambiguity, governance capture, vault compromise, unfunded promises, and misleading emissions language.
+- **Approver/dependencies:** Founder approved architecture; governance/economic/legal/security approval remains required for implementation and each activation.
 
 ## OD-08 — HEAVEN reward-vault funding
 
-- **Decision/status:** Funding sources and cadence; Open.
-- **Why it matters:** No reward can exceed available HEAVEN.
-- **Options:** treasury epochs; protocol revenue; approved contributions.
-- **Recommended:** pre-fund isolated epochs before qualification/finalization.
-- **Risks:** insolvency, commingling, source legality.
-- **Approver/dependencies:** Treasury governance/legal; emission, budgets.
+- **Decision/status:** **Partially approved 2026-07-30 — genesis-locked reserve, isolated pre-funding, lifecycle states, and unused-fund return.**
+- **Decision records:** [MHE-009 — HEAVEN Fixed Supply and Nine-Year Release Decision](MHE-009_HEAVEN_FIXED_SUPPLY_AND_NINE_YEAR_RELEASE_DECISION.md) and [MHE-010 — Reward Vault Lifecycle and Dormant Claims Decision](MHE-010_REWARD_VAULT_LIFECYCLE_AND_DORMANT_CLAIMS_DECISION.md).
+- **Approved funding architecture:** HEAVEN moves from the locked 60% reward reserve into a separately approved isolated epoch vault before reward activation; final approval is due at least seven days before start and full funding at least 48 hours before start.
+- **Approved lifecycle:** funded-unallocated, provisional, disputed, finalized-claimable, claimed, unused, dormant, returned, and burned states must reconcile exactly; unused funds return within seven days after finalization.
+- **Confirmed boundaries:** no commingling with MIND principal; no guaranteed liability; no price/liquidity support; no future-year borrowing; returned funds retain provenance and do not automatically restore or roll annual capacity.
+- **Still open:** exact vault contracts, recurring epoch duration, budgets, release authority, funding transactions, claim-mode interaction, reconciliation implementation, administrators, security review, legal approval, and activation.
+- **Risks:** vault insolvency, accounting error, commingling, admin compromise, claim-state corruption, source/destination misuse, and legal classification.
+- **Approver/dependencies:** Founder approved architecture; treasury governance/legal/security approval remains required for implementation and each funded epoch.
 
-## OD-09 — Weekly staking reward formula
+## OD-09 — Founder Node HEAVEN reward formula
 
-- **Decision/status:** Whether/how active nodes accrue HEAVEN; Open.
-- **Why it matters:** Largest potential recurring liability.
-- **Options:** no automatic reward; funded fixed epochs; performance-based budget.
-- **Recommended:** no formula until HEAVEN economics and funding are approved; never guaranteed.
-- **Risks:** unsustainable yield, APY marketing, gaming.
-- **Approver/dependencies:** Constitutional governance/legal; HEAVEN model, vault funding.
+- **Decision/status:** **Partially approved 2026-07-30 — variable maximum total reward ceilings.**
+- **Decision records:** [MHE-004 — Variable Reward Ceilings](MHE-004_VARIABLE_REWARD_CEILING_DECISION.md), [MHE-005 — Reward Claim Options](MHE-005_REWARD_CLAIM_OPTIONS_DECISION.md), [MHE-006 — Founder Node Epoch and Legal Readiness Decision](MHE-006_FOUNDER_NODE_EPOCH_AND_LEGAL_READINESS_DECISION.md), [MHE-007 — Service-Based HEAVEN Reward Formula Decision](MHE-007_SERVICE_BASED_HEAVEN_REWARD_FORMULA_DECISION.md), and [MHE-011 — Claim Timing, Switching, and Maturity Decision](MHE-011_CLAIM_TIMING_SWITCHING_AND_MATURITY_DECISION.md).
+- **Approved ceilings:** up to 38% for 6 months; up to 78% for 12 months; up to 122% for 24 months.
+- **Approved claims:** weekly with 2% protocol claim fee and seven-day interval; monthly with no protocol claim fee and 30-day interval; maturity with an eligible loyalty bonus up to 5%; network gas remains payable.
+- **Approved formula architecture:** eligible fixed MIND quantity × actual epoch rate × calculation-only HEAVEN allocation factor × verified participation score, followed by a common pro-rata funded-pool adjustment.
+- **Approved participation scores:** 0 for inactive/ineligible; 0.50 for verified partial completion; 1.00 for verified full completion.
+- **Confirmed boundaries:** holding or locking MIND alone does not earn or guarantee HEAVEN; not APY or guaranteed; actual rewards and bonuses may be lower or zero; HEAVEN only; allocation and reward epochs are separately approved; future reward epochs must be pre-funded; all amounts remain inside the ceiling; no auto-compounding or unfunded liability.
+- **Approved timing/anti-gaming:** 180/365/730-day positions; explicit mode selection; switches effective after 14 days and limited to one per rolling 90 days; earlier lots keep their fee class; continuous no-early-claim maturity mode is required for bonus eligibility.
+- **Still open:** actual epoch rates, HEAVEN allocation factors, exact recurring epoch duration, actual maturity bonus, partial claims, rounding/dust/minimums, fee destination, withdrawal, funding transactions, legal approval, and implementation.
+- **Risks:** subjective scoring, verification disputes, privacy exposure, unsustainable reward cost, misleading APY language, gaming, governance capture, and funding shortfall.
+- **Approver/dependencies:** Founder approved ceilings; constitutional governance/legal/economic review must approve the remaining formula and HEAVEN model.
 
 ## OD-10 — HEAVEN auto-compounding meaning
 
@@ -94,48 +105,54 @@
 
 ## OD-11 — Founder Node early withdrawal
 
-- **Decision/status:** Whether principal can exit before maturity; Open.
-- **Why it matters:** User safety and lock credibility.
-- **Options:** prohibited; penalty; cooldown and governance-set conditions.
-- **Recommended:** transparent opt-in terms with bounded penalty, subject to legal review.
-- **Risks:** bank-run dynamics, unfair penalties, accounting complexity.
-- **Approver/dependencies:** Governance/legal/security; reward clawbacks.
+- **Decision/status:** **Policy approved 2026-07-30 — permissionless early-exit request, 30-day cooldown, and full MIND-unit principal return.**
+- **Decision record:** [MHE-012 — Early Withdrawal and Emergency Exit Decision](MHE-012_EARLY_WITHDRAWAL_AND_EMERGENCY_EXIT_DECISION.md).
+- **Approved consequences:** zero protocol principal fee; position status/voting and unfinished-interval reward eligibility stop prospectively at request; finalized HEAVEN is preserved; maturity-bonus eligibility is permanently lost; cancellation does not restore the reward gap or bonus eligibility.
+- **Approved anti-gaming:** completed pre-request intervals may finalize; unfinished intervals receive no automatic proration; cancellation requires 30 days before another ordinary early-exit request; the same position cannot reactivate after execution.
+- **Still required:** audited contract, voting snapshot integration, destination/recovery rules, custody and insolvency analysis, legal review, security audit, and activation.
+- **Risks:** exit queues, snapshot manipulation, accounting cutoffs, inaccessible wallets, custody classification, gas, and smart-contract failure.
+- **Approver/dependencies:** Founder approved policy; governance/legal/security approval remains required for implementation.
 
 ## OD-12 — Emergency withdrawal
 
-- **Decision/status:** Safe exit during prolonged pause; Open.
-- **Why it matters:** Protects principal when operations fail.
-- **Options:** principal-only escape hatch; timelocked migration; none.
-- **Recommended:** delayed principal-only escape hatch that cannot claim unearned rewards.
-- **Risks:** bypass, exploitation during incident.
-- **Approver/dependencies:** Governance/security; pause and upgrade model.
+- **Decision/status:** **Policy approved 2026-07-30 — principal-only emergency exit after qualifying critical activation or 30-day prolonged withdrawal pause.**
+- **Decision record:** [MHE-012 — Early Withdrawal and Emergency Exit Decision](MHE-012_EARLY_WITHDRAWAL_AND_EMERGENCY_EXIT_DECISION.md).
+- **Approved treatment:** no cooldown; return 100% of locked MIND units; zero protocol exit fee; no treasury approval per participant; finalized/dormant HEAVEN remains protected; no automatic unearned reward or accelerated maturity bonus.
+- **Approved boundaries:** principal cannot be lent, pledged, bridged, used by treasury, confiscated, or redirected; emergency authority cannot alter ceilings, claim history, or selected-wallet treatment.
+- **Still required:** exact objective trigger, emergency authority and threshold, safe migration interaction, recovery/inheritance, legal-hold process, legal review, security audit, and activation.
+- **Risks:** false trigger, incident exploitation, signer compromise, migration failure, legal holds, and contract insolvency.
+- **Approver/dependencies:** Founder approved policy; governance/security/legal approval and OD-18/OD-33 implementation remain required.
 
 ## OD-13 — Founder Node transferability
 
-- **Decision/status:** Transfer of positions; Open.
-- **Why it matters:** Affects identity, referrals, and secondary markets.
-- **Options:** non-transferable; governed transfer; freely transferable.
-- **Recommended:** non-transferable at launch, with reviewed migration path.
-- **Risks:** market speculation, sanctions evasion, status ambiguity.
-- **Approver/dependencies:** Constitutional governance/legal; NFT and inheritance.
+- **Decision/status:** **Policy approved 2026-07-30 — active positions are non-transferable; only continuity-specific migration is permitted.**
+- **Decision record:** [MHE-013 — Position Transfer, Recovery, and Inheritance Decision](MHE-013_POSITION_TRANSFER_RECOVERY_AND_INHERITANCE_DECISION.md).
+- **Approved boundaries:** no sale, assignment, gifting, wrapping, bridging, fractionalization, transferable NFT, collateral, liquidity, split, merge, or marketplace; unlocked MIND remains transferable under MHE-001.
+- **Approved continuity paths:** owner-authorized wallet migration, pre-authorized guardian recovery, compatible smart-wallet migration, lawful incapacity/succession, and audited protocol migration.
+- **Approved owner migration:** source and destination signatures, seven-day delay, cancellation, duplicate-position checks, and exact state preservation.
+- **Still required:** contract design, snapshot cooldown, smart-wallet support, operator/role appointments, legal/privacy/security review, and activation.
+- **Risks:** disguised secondary market, recovery fraud, guardian collusion, duplicate state, voting duplication, sanctions evasion, and privacy exposure.
+- **Approver/dependencies:** Founder approved policy; constitutional governance/legal/privacy/security approval and OD-18 implementation remain required.
 
 ## OD-14 — Founder Node inheritance
 
-- **Decision/status:** Succession after death/incapacity; Open.
-- **Why it matters:** Long locks require continuity.
-- **Options:** wallet estate process; nominated beneficiary; legal executor review.
-- **Recommended:** documented off-chain legal process plus bounded on-chain recovery.
-- **Risks:** fraud, privacy, jurisdiction conflict.
-- **Approver/dependencies:** Foundation/legal/governance; identity and transferability.
+- **Decision/status:** **Policy approved 2026-07-30 — revocable nomination, guardian recovery, lawful incapacity/succession review, and estate settlement.**
+- **Decision record:** [MHE-013 — Position Transfer, Recovery, and Inheritance Decision](MHE-013_POSITION_TRANSFER_RECOVERY_AND_INHERITANCE_DECISION.md).
+- **Approved recovery baseline:** two of three pre-authorized guardians and a 14-day challenge; exceptional non-configured recovery requires two independent reviewers, legal checks, notice, appeal, and at least 30 days to challenge.
+- **Approved succession outcomes:** an eligible successor may continue the unchanged position; otherwise 100% of locked MIND units and finalized HEAVEN settle through the lawful estate/beneficiary process; prohibited recipients remain segregated under applicable law.
+- **Confirmed boundaries:** nomination is not an inheritance guarantee and cannot override wills, courts, marital/property rights, creditors, tax, sanctions, or applicable succession law.
+- **Still required:** governing law, operator and reviewer appointments, evidence rubrics, data processors, recovery/inheritance contracts, jurisdiction procedures, legal/privacy/security review, and activation.
+- **Risks:** forged evidence, identity theft, guardian or reviewer collusion, succession conflict, tax, sanctions, privacy breach, duplicate payment, and inaccessible assets.
+- **Approver/dependencies:** Founder approved policy; Foundation/legal/governance/privacy/security approval remains required for implementation.
 
 ## OD-15 — MIND token transferability
 
-- **Decision/status:** Launch transfer policy; Open.
-- **Why it matters:** Governance distribution, regulation, liquidity.
-- **Options:** standard transferable; phased transfer; restricted allocation vesting.
-- **Recommended:** standard token semantics with transparent treasury/allocation vesting if legally approved.
-- **Risks:** speculation, capture, classification.
-- **Approver/dependencies:** Constitutional governance/legal; allocation and liquidity.
+- **Decision/status:** **Approved 2026-07-30 — standard transferable governance token.**
+- **Decision record:** [MHE-001 — Transferable MIND Decision](MHE-001_TRANSFERABLE_MIND_DECISION.md).
+- **Confirmed boundaries:** fixed 20,000,000 genesis supply; no future mint, tax, blacklist, confiscation, guaranteed value, or automatic MIND/HEAVEN conversion.
+- **Still required:** allocation vesting, governance safeguards, legal review, liquidity policy, and deployment approval.
+- **Risks:** speculation, concentration, governance capture, classification, and misleading market communications.
+- **Approver/dependencies:** Founder approved transferability; constitutional governance and legal/security review retain authority over dependent rules.
 
 ## OD-16 — Foundation jurisdiction
 
@@ -175,21 +192,22 @@
 
 ## OD-20 — Off-chain contribution verification
 
-- **Decision/status:** Evidence, reviewers, appeals, commitments; Open.
-- **Why it matters:** Pool points depend on genuine contribution.
-- **Options:** committees; attestations; signed data providers; hybrid review.
-- **Recommended:** multi-reviewer process, evidence rubric, appeal window, Merkle commitment.
-- **Risks:** bias, bribery, privacy, centralization.
-- **Approver/dependencies:** Governance/privacy/legal; categories and suspension.
+- **Decision/status:** **Partially approved 2026-07-30 — evidence, review, conflict, appeal, and privacy architecture.**
+- **Decision record:** [MHE-008 — Participation Duties and Evidence Decision](MHE-008_PARTICIPATION_DUTIES_AND_EVIDENCE_DECISION.md).
+- **Approved controls:** prospective task criteria; attributable evidence; two independent reviewers for qualitative work; conflict declarations; reason codes; at least 14 days to appeal; non-originating appeal review; sensitive evidence kept off-chain; minimal public commitments.
+- **Still open:** evidence platform, exact schemas, reviewer appointment and compensation, automated-rule validation, retention periods, controller/processor roles, security assessment, legal review, and activation.
+- **Risks:** bias, bribery, collusion, privacy exposure, reviewer concentration, automation errors, and centralization.
+- **Approver/dependencies:** Founder approved architecture; governance/privacy/legal/security approval remains required for implementation, categories, reviewers, suspension, and activation.
 
 ## OD-21 — MindGlobal point assignment
 
-- **Decision/status:** Category weights, caps, and period rules; Open.
-- **Why it matters:** Determines proportional distribution.
-- **Options:** fixed rubric; governance-set future weights; quadratic/capped categories.
-- **Recommended:** published per-period rubric with category caps and prospective governance updates.
-- **Risks:** gaming, popularity bias, opaque scoring.
-- **Approver/dependencies:** Governance/community review; verification model.
+- **Decision/status:** **Partially approved 2026-07-30 for Founder Node participation — categories, caps, thresholds, and prospective task-catalog rules.**
+- **Decision record:** [MHE-008 — Participation Duties and Evidence Decision](MHE-008_PARTICIPATION_DUTIES_AND_EVIDENCE_DECISION.md).
+- **Approved Founder Node framework:** governance stewardship capped at 25 points; education/community, verification/research, technical/design/operations, and human-potential mission work each capped at 40; overall cap 100; ordinarily at least two tasks; no more than 60 points from one category.
+- **Approved MHE-007 score mapping:** 0–49 points = 0; 50–79 = 0.50; 80–100 = 1.00.
+- **Still open:** exact epoch tasks and values, repetition rules, quality rubrics, accessibility alternatives, MindGlobal Pool applicability, reviewer system, legal review, and activation.
+- **Risks:** gaming, popularity bias, opaque scoring, category capture, exclusion, employment/tax misclassification, and unverifiable work.
+- **Approver/dependencies:** Founder approved Founder Node architecture; governance/community/legal/privacy/security review remains required for implementation and any MindGlobal Pool use.
 
 ## OD-22 — Suspension and appeal process
 
@@ -247,21 +265,24 @@
 
 ## OD-28 — Claim deadlines
 
-- **Decision/status:** Expiry for referral and pool claims; Open.
-- **Why it matters:** Defines long-term liabilities and user fairness.
-- **Options:** no expiry; 12/24/36 months; governance sweep after notice.
-- **Recommended:** long, published deadline with repeated notice and legally reviewed exceptions.
-- **Risks:** forfeiture disputes, permanent liabilities.
-- **Approver/dependencies:** Governance/legal; vault and user communications.
+- **Decision/status:** **Policy approved 2026-07-30 — 24-month standard claim period plus 12-month dormant protection.**
+- **Decision records:** [MHE-010 — Reward Vault Lifecycle and Dormant Claims Decision](MHE-010_REWARD_VAULT_LIFECYCLE_AND_DORMANT_CLAIMS_DECISION.md) and [MHE-011 — Claim Timing, Switching, and Maturity Decision](MHE-011_CLAIM_TIMING_SWITCHING_AND_MATURITY_DECISION.md).
+- **Approved cadence:** weekly claims use a seven-day successful-claim interval; monthly claims use a 30-day interval; maturity settlement occurs after exact position maturity and applicable finalization.
+- **Approved timeline:** finalized claims remain normally claimable for 24 months, then remain segregated and late-claimable through month 36; deadlines extend for protocol-caused unavailability, protected appeals, and applicable legal processes.
+- **Approved notices:** availability notice; approximately 12- and 18-month reminders; notice before dormancy; 90- and 30-day notices before potential disposition.
+- **Still required:** contract implementation, contact permissions, recovery/inheritance rules, jurisdiction-specific unclaimed-property analysis, legal review, security audit, and activation.
+- **Risks:** forfeiture disputes, inaccessible wallets, notice failure, succession fraud, sanctions holds, custody classification, and permanent liabilities.
+- **Approver/dependencies:** Founder approved policy; governance/legal/privacy/security approval remains required for implementation.
 
 ## OD-29 — Unclaimed HEAVEN handling
 
-- **Decision/status:** Destination after claim expiry; Open.
-- **Why it matters:** Prevents arbitrary treasury capture.
-- **Options:** roll to future pool; return to source; community treasury; burn.
-- **Recommended:** return to designated reward reserve after deadline and public reconciliation.
-- **Risks:** unfair enrichment, accounting ambiguity.
-- **Approver/dependencies:** Governance/legal; claim deadlines and emission rules.
+- **Decision/status:** **Policy approved 2026-07-30 — segregated dormancy and legally reviewed return to originating reward reserve.**
+- **Decision record:** [MHE-010 — Reward Vault Lifecycle and Dormant Claims Decision](MHE-010_REWARD_VAULT_LIFECYCLE_AND_DORMANT_CLAIMS_DECISION.md).
+- **Approved treatment:** after 24 months an unclaimed finalized allocation remains protected in a Dormant Claims Vault through month 36; after repeated notice it may return only to the originating reward reserve and only where legal review confirms no different unclaimed-property, escheat, trust, succession, or similar treatment is required.
+- **Confirmed boundaries:** dormant claims are not treasury property; a hold does not create DAO ownership; no automatic burn, insider allocation, liquidity use, or annual-capacity restoration.
+- **Still required:** operating entity, jurisdiction map, recovery and succession process, notice implementation, vault code, legal review, security audit, and activation.
+- **Risks:** unfair enrichment, legal noncompliance, accounting ambiguity, identity fraud, privacy exposure, and trapped balances.
+- **Approver/dependencies:** Founder approved policy; governance/legal/privacy/security approval remains required for implementation and disposition.
 
 ## OD-30 — Data privacy model
 
