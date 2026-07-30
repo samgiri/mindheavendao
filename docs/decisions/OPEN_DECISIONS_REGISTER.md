@@ -13,12 +13,12 @@
 
 ## OD-02 — MIND reference-price methodology
 
-- **Decision/status:** How business reference values map to MIND; Open.
-- **Why it matters:** Prevents arbitrary or misleading conversion.
-- **Options:** no on-chain USD mapping; fixed governance reference; TWAP oracle.
-- **Recommended:** no on-chain USD calculation at launch; publish approved MIND amounts.
-- **Risks:** oracle manipulation, securities/consumer implications, volatility.
-- **Approver/dependencies:** Governance and legal/finance; liquidity, oracle policy.
+- **Decision/status:** **Approved 2026-07-30 — 1 MIND = $1 is an off-chain Founder Node allocation reference only.**
+- **Decision record:** [MHE-002 — MIND Off-Chain Reference Decision](MHE-002_MIND_OFFCHAIN_REFERENCE_DECISION.md).
+- **Confirmed boundaries:** contracts use fixed MIND amounts; no USD oracle, peg, redemption promise, price guarantee, or treasury obligation.
+- **Still required:** OD-01 approval of exact tier amounts and legal/communications review.
+- **Risks:** users may misunderstand a planning reference as promised market value.
+- **Approver/dependencies:** Founder approved methodology; legal/finance review remains required for public materials.
 
 ## OD-03 — Accepted payment assets
 
