@@ -18,6 +18,7 @@ All notable repository changes are documented here.
 
 ### Clarified
 
+- MHE-001 approves MIND as a transferable governance token with a permanently fixed 20,000,000 supply, superseding the non-transferable Step 2 recommendation without authorizing deployment, sale, liquidity, price promises, or guaranteed returns.
 - The earlier MIND Protocol Constitution remains a protocol-focused draft and is not silently replaced by MHC-000.
 - Approval of MHC-000 does not by itself activate tokens, treasury operations, smart contracts, or on-chain governance.
 
