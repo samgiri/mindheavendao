@@ -98,3 +98,16 @@ Confirmed by the Founder:
 - New drafts and communications must follow [MHE-006](MHE-006_FOUNDER_NODE_EPOCH_AND_LEGAL_READINESS_DECISION.md).
 
 This decision is not a legal opinion and does not authorize a public offer, contribution flow, reward epoch, contract deployment, liquidity program, or launch.
+
+## 2026-07-30 — Service-based HEAVEN reward formula approved
+
+Confirmed by the Founder:
+
+- Founder Node HEAVEN allocations require verified participation; holding or locking MIND alone does not earn or guarantee HEAVEN.
+- The formula uses eligible fixed MIND quantity, an actual epoch-and-duration rate, a calculation-only HEAVEN allocation factor, and a verified participation score.
+- Participation scores use 0 for inactive/ineligible, 0.50 for verified partial completion, and 1.00 for verified full completion.
+- Every reward epoch must be pre-funded in HEAVEN.
+- If calculated allocations exceed the funded pool, a common pro-rata adjustment reduces every eligible allocation so total payments cannot exceed available funding.
+- New drafts must follow [MHE-007](MHE-007_SERVICE_BASED_HEAVEN_REWARD_FORMULA_DECISION.md).
+
+OD-09 is further partially resolved. Actual rates, HEAVEN factors, duties, verification, funding source, timing, legal approval, security review, and deployment remain open.
