@@ -61,21 +61,23 @@
 ## OD-07 — HEAVEN emission model
 
 - **Decision/status:** **Partially approved 2026-07-30 — genesis-locked supply and nine-year reward-reserve release ceilings.**
-- **Decision record:** [MHE-009 — HEAVEN Fixed Supply and Nine-Year Release Decision](MHE-009_HEAVEN_FIXED_SUPPLY_AND_NINE_YEAR_RELEASE_DECISION.md).
+- **Decision records:** [MHE-009 — HEAVEN Fixed Supply and Nine-Year Release Decision](MHE-009_HEAVEN_FIXED_SUPPLY_AND_NINE_YEAR_RELEASE_DECISION.md) and [MHE-010 — Reward Vault Lifecycle and Dormant Claims Decision](MHE-010_REWARD_VAULT_LIFECYCLE_AND_DORMANT_CLAIMS_DECISION.md).
+- **Approved timing:** the schedule begins at a separately approved non-backdated timestamp; each Release Year is 365 days; an epoch cannot cross a Release Year boundary.
 - **Approved annual ceilings:** 12%, 10%, 8%, 7%, 6%, 5%, 4%, 4%, and 4% of total supply for Years 1–9, totaling the 60% / 106,200,000 HEAVEN reward reserve.
 - **Confirmed boundaries:** annual ceilings are maximums, not promised emissions; no future-year borrowing; unused capacity remains locked and does not roll automatically; the historical ten-year schedule is superseded.
-- **Still open:** commencement date, calendar/time rules, exact epoch budgets, unused-capacity decisions, vault implementation, administrators, reporting, legal/security approval, and activation.
+- **Still open:** actual commencement timestamp, exact recurring epoch duration, epoch budgets, claim-mode timing interaction, vault implementation, administrators, reporting, legal/security approval, and activation.
 - **Risks:** over-release, schedule ambiguity, governance capture, vault compromise, unfunded promises, and misleading emissions language.
 - **Approver/dependencies:** Founder approved architecture; governance/economic/legal/security approval remains required for implementation and each activation.
 
 ## OD-08 — HEAVEN reward-vault funding
 
-- **Decision/status:** **Partially approved 2026-07-30 — genesis-locked reward reserve and isolated pre-funded epoch boundary.**
-- **Decision record:** [MHE-009 — HEAVEN Fixed Supply and Nine-Year Release Decision](MHE-009_HEAVEN_FIXED_SUPPLY_AND_NINE_YEAR_RELEASE_DECISION.md).
-- **Approved funding architecture:** HEAVEN moves from the locked 60% reward reserve into a separately approved isolated epoch vault before reward activation; no participant payment may exceed the MHE-007 calculation or the funded epoch balance.
-- **Confirmed boundaries:** no commingling with MIND principal; no guaranteed liability; no price/liquidity support; no active-epoch borrowing from future annual capacity.
-- **Still open:** exact vault contracts, epoch budgets, release authority, funding transaction cadence, unused/unclaimed handling, reconciliation implementation, security review, legal approval, and activation.
-- **Risks:** vault insolvency, accounting error, commingling, admin compromise, source/destination misuse, and legal classification.
+- **Decision/status:** **Partially approved 2026-07-30 — genesis-locked reserve, isolated pre-funding, lifecycle states, and unused-fund return.**
+- **Decision records:** [MHE-009 — HEAVEN Fixed Supply and Nine-Year Release Decision](MHE-009_HEAVEN_FIXED_SUPPLY_AND_NINE_YEAR_RELEASE_DECISION.md) and [MHE-010 — Reward Vault Lifecycle and Dormant Claims Decision](MHE-010_REWARD_VAULT_LIFECYCLE_AND_DORMANT_CLAIMS_DECISION.md).
+- **Approved funding architecture:** HEAVEN moves from the locked 60% reward reserve into a separately approved isolated epoch vault before reward activation; final approval is due at least seven days before start and full funding at least 48 hours before start.
+- **Approved lifecycle:** funded-unallocated, provisional, disputed, finalized-claimable, claimed, unused, dormant, returned, and burned states must reconcile exactly; unused funds return within seven days after finalization.
+- **Confirmed boundaries:** no commingling with MIND principal; no guaranteed liability; no price/liquidity support; no future-year borrowing; returned funds retain provenance and do not automatically restore or roll annual capacity.
+- **Still open:** exact vault contracts, recurring epoch duration, budgets, release authority, funding transactions, claim-mode interaction, reconciliation implementation, administrators, security review, legal approval, and activation.
+- **Risks:** vault insolvency, accounting error, commingling, admin compromise, claim-state corruption, source/destination misuse, and legal classification.
 - **Approver/dependencies:** Founder approved architecture; treasury governance/legal/security approval remains required for implementation and each funded epoch.
 
 ## OD-09 — Founder Node HEAVEN reward formula
@@ -256,21 +258,23 @@
 
 ## OD-28 — Claim deadlines
 
-- **Decision/status:** Expiry for referral and pool claims; Open.
-- **Why it matters:** Defines long-term liabilities and user fairness.
-- **Options:** no expiry; 12/24/36 months; governance sweep after notice.
-- **Recommended:** long, published deadline with repeated notice and legally reviewed exceptions.
-- **Risks:** forfeiture disputes, permanent liabilities.
-- **Approver/dependencies:** Governance/legal; vault and user communications.
+- **Decision/status:** **Policy approved 2026-07-30 — 24-month standard claim period plus 12-month dormant protection.**
+- **Decision record:** [MHE-010 — Reward Vault Lifecycle and Dormant Claims Decision](MHE-010_REWARD_VAULT_LIFECYCLE_AND_DORMANT_CLAIMS_DECISION.md).
+- **Approved timeline:** finalized claims remain normally claimable for 24 months, then remain segregated and late-claimable through month 36; deadlines extend for protocol-caused unavailability, protected appeals, and applicable legal processes.
+- **Approved notices:** availability notice; approximately 12- and 18-month reminders; notice before dormancy; 90- and 30-day notices before potential disposition.
+- **Still required:** contract implementation, contact permissions, recovery/inheritance rules, jurisdiction-specific unclaimed-property analysis, legal review, security audit, and activation.
+- **Risks:** forfeiture disputes, inaccessible wallets, notice failure, succession fraud, sanctions holds, custody classification, and permanent liabilities.
+- **Approver/dependencies:** Founder approved policy; governance/legal/privacy/security approval remains required for implementation.
 
 ## OD-29 — Unclaimed HEAVEN handling
 
-- **Decision/status:** Destination after claim expiry; Open.
-- **Why it matters:** Prevents arbitrary treasury capture.
-- **Options:** roll to future pool; return to source; community treasury; burn.
-- **Recommended:** return to designated reward reserve after deadline and public reconciliation.
-- **Risks:** unfair enrichment, accounting ambiguity.
-- **Approver/dependencies:** Governance/legal; claim deadlines and emission rules.
+- **Decision/status:** **Policy approved 2026-07-30 — segregated dormancy and legally reviewed return to originating reward reserve.**
+- **Decision record:** [MHE-010 — Reward Vault Lifecycle and Dormant Claims Decision](MHE-010_REWARD_VAULT_LIFECYCLE_AND_DORMANT_CLAIMS_DECISION.md).
+- **Approved treatment:** after 24 months an unclaimed finalized allocation remains protected in a Dormant Claims Vault through month 36; after repeated notice it may return only to the originating reward reserve and only where legal review confirms no different unclaimed-property, escheat, trust, succession, or similar treatment is required.
+- **Confirmed boundaries:** dormant claims are not treasury property; a hold does not create DAO ownership; no automatic burn, insider allocation, liquidity use, or annual-capacity restoration.
+- **Still required:** operating entity, jurisdiction map, recovery and succession process, notice implementation, vault code, legal review, security audit, and activation.
+- **Risks:** unfair enrichment, legal noncompliance, accounting ambiguity, identity fraud, privacy exposure, and trapped balances.
+- **Approver/dependencies:** Founder approved policy; governance/legal/privacy/security approval remains required for implementation and disposition.
 
 ## OD-30 — Data privacy model
 
