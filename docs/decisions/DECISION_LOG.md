@@ -72,3 +72,15 @@ Confirmed by the Founder:
 - New drafts must follow [MHE-004](MHE-004_VARIABLE_REWARD_CEILING_DECISION.md).
 
 OD-09 is partially resolved. The performance formula, HEAVEN conversion, cadence, exact duration constants, and funding model remain open.
+
+## 2026-07-30 — Founder Node reward claim options approved
+
+Confirmed by the Founder:
+
+- Weekly HEAVEN claims carry a 2% protocol claim fee.
+- Monthly HEAVEN claims carry no DAO protocol claim fee; BSC network gas remains payable.
+- Maturity settlement may receive a pre-funded loyalty bonus of up to 5%.
+- All base rewards, fees, and bonuses remain variable and inside the applicable maximum total reward ceiling.
+- New drafts must follow [MHE-005](MHE-005_REWARD_CLAIM_OPTIONS_DECISION.md).
+
+OD-09 remains partially open for the performance formula, HEAVEN calculation, funding model, timing constants, and anti-gaming rules.
