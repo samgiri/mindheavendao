@@ -174,3 +174,19 @@ Confirmed by the Founder:
 - New drafts must follow [MHE-011](MHE-011_CLAIM_TIMING_SWITCHING_AND_MATURITY_DECISION.md).
 
 OD-09 claim timing and anti-gaming architecture is approved. Actual rates, factors, bonuses, epoch duration, arithmetic details, legal review, security review, and activation remain open.
+
+## 2026-07-30 — Founder Node early withdrawal and emergency exit approved
+
+Confirmed by the Founder:
+
+- Normal maturity and eligible exits return the same number of locked MIND units with no protocol principal fee.
+- Ordinary early exit uses a 30-day cooldown.
+- Submitting an early-exit request prospectively suspends position status/voting and stops reward eligibility for unfinished intervals.
+- Completed pre-request service intervals may still finalize; claimed and finalized HEAVEN is preserved.
+- Maturity-bonus eligibility is permanently lost when an ordinary early-exit request is submitted.
+- Cancelling an exit does not restore the reward gap or maturity-bonus eligibility and requires 30 days before another ordinary request.
+- A valid critical-event or 30-day prolonged-pause path permits principal-only emergency exit without cooldown.
+- Participant MIND principal cannot be lent, pledged, bridged, used by treasury, burned as a penalty, or confiscated through ordinary administration.
+- New drafts must follow [MHE-012](MHE-012_EARLY_WITHDRAWAL_AND_EMERGENCY_EXIT_DECISION.md).
+
+OD-11 and OD-12 policy architecture is approved. Contract authority, recovery, inheritance, legal review, security review, and activation remain open.
