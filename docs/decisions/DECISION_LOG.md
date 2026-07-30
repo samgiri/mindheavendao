@@ -27,3 +27,14 @@ Confirmed:
 - External presentation files may be generated from repository records, but GitHub remains the authoritative version unless a binding legal record requires a different system.
 
 This decision improves transparency, professionalism, continuity, and auditability. It does not make a draft authoritative merely because it is stored in the repository.
+
+## 2026-07-30 — MIND transferability approved
+
+Confirmed by the Founder:
+
+- MIND will use the transferable-token model rather than the non-transferable Step 2 recommendation.
+- Maximum supply remains fixed at 20,000,000 MIND with no future minting.
+- Transferability does not authorize a sale, listing, liquidity program, price promise, guaranteed return, HEAVEN entitlement, or deployment.
+- New technical and economic drafts must follow [MHE-001](MHE-001_TRANSFERABLE_MIND_DECISION.md); historical drafts remain preserved.
+
+OD-15 is resolved. Allocation vesting, governance safeguards, Founder Node amounts, reward formulas, legal review, and deployment remain separate approval gates.
