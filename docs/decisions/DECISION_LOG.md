@@ -157,3 +157,20 @@ Confirmed by the Founder:
 - New drafts must follow [MHE-010](MHE-010_REWARD_VAULT_LIFECYCLE_AND_DORMANT_CLAIMS_DECISION.md).
 
 OD-28 and OD-29 policy architecture is approved. Exact claim mechanics, vault implementation, legal treatment, security review, and activation remain open.
+
+## 2026-07-30 — Claim timing, switching, and maturity anti-gaming approved
+
+Confirmed by the Founder:
+
+- Founder Node duration labels use exact on-chain periods of 180, 365, and 730 days.
+- Positions must explicitly select weekly, monthly, or maturity claim mode before activation; there is no hidden default.
+- Weekly and monthly successful-claim intervals are seven and 30 days respectively.
+- Mode switches apply prospectively after 14 days and are limited to one effective switch per rolling 90 days.
+- Reward lots preserve the mode, fee, and bonus attributes effective for their underlying service/reward interval.
+- Weekly-attributed lots retain the 2% HEAVEN protocol fee; monthly and maturity lots have no DAO protocol claim fee.
+- Maturity-bonus consideration requires continuous maturity mode from activation through maturity and no early claim.
+- Once a non-maturity mode becomes effective, maturity-bonus eligibility for that position is permanently lost.
+- No provisional, disputed, unfinalized, or unfunded amount is claimable.
+- New drafts must follow [MHE-011](MHE-011_CLAIM_TIMING_SWITCHING_AND_MATURITY_DECISION.md).
+
+OD-09 claim timing and anti-gaming architecture is approved. Actual rates, factors, bonuses, epoch duration, arithmetic details, legal review, security review, and activation remain open.
