@@ -105,21 +105,23 @@
 
 ## OD-11 — Founder Node early withdrawal
 
-- **Decision/status:** Whether principal can exit before maturity; Open.
-- **Why it matters:** User safety and lock credibility.
-- **Options:** prohibited; penalty; cooldown and governance-set conditions.
-- **Recommended:** transparent opt-in terms with bounded penalty, subject to legal review.
-- **Risks:** bank-run dynamics, unfair penalties, accounting complexity.
-- **Approver/dependencies:** Governance/legal/security; reward clawbacks.
+- **Decision/status:** **Policy approved 2026-07-30 — permissionless early-exit request, 30-day cooldown, and full MIND-unit principal return.**
+- **Decision record:** [MHE-012 — Early Withdrawal and Emergency Exit Decision](MHE-012_EARLY_WITHDRAWAL_AND_EMERGENCY_EXIT_DECISION.md).
+- **Approved consequences:** zero protocol principal fee; position status/voting and unfinished-interval reward eligibility stop prospectively at request; finalized HEAVEN is preserved; maturity-bonus eligibility is permanently lost; cancellation does not restore the reward gap or bonus eligibility.
+- **Approved anti-gaming:** completed pre-request intervals may finalize; unfinished intervals receive no automatic proration; cancellation requires 30 days before another ordinary early-exit request; the same position cannot reactivate after execution.
+- **Still required:** audited contract, voting snapshot integration, destination/recovery rules, custody and insolvency analysis, legal review, security audit, and activation.
+- **Risks:** exit queues, snapshot manipulation, accounting cutoffs, inaccessible wallets, custody classification, gas, and smart-contract failure.
+- **Approver/dependencies:** Founder approved policy; governance/legal/security approval remains required for implementation.
 
 ## OD-12 — Emergency withdrawal
 
-- **Decision/status:** Safe exit during prolonged pause; Open.
-- **Why it matters:** Protects principal when operations fail.
-- **Options:** principal-only escape hatch; timelocked migration; none.
-- **Recommended:** delayed principal-only escape hatch that cannot claim unearned rewards.
-- **Risks:** bypass, exploitation during incident.
-- **Approver/dependencies:** Governance/security; pause and upgrade model.
+- **Decision/status:** **Policy approved 2026-07-30 — principal-only emergency exit after qualifying critical activation or 30-day prolonged withdrawal pause.**
+- **Decision record:** [MHE-012 — Early Withdrawal and Emergency Exit Decision](MHE-012_EARLY_WITHDRAWAL_AND_EMERGENCY_EXIT_DECISION.md).
+- **Approved treatment:** no cooldown; return 100% of locked MIND units; zero protocol exit fee; no treasury approval per participant; finalized/dormant HEAVEN remains protected; no automatic unearned reward or accelerated maturity bonus.
+- **Approved boundaries:** principal cannot be lent, pledged, bridged, used by treasury, confiscated, or redirected; emergency authority cannot alter ceilings, claim history, or selected-wallet treatment.
+- **Still required:** exact objective trigger, emergency authority and threshold, safe migration interaction, recovery/inheritance, legal-hold process, legal review, security audit, and activation.
+- **Risks:** false trigger, incident exploitation, signer compromise, migration failure, legal holds, and contract insolvency.
+- **Approver/dependencies:** Founder approved policy; governance/security/legal approval and OD-18/OD-33 implementation remain required.
 
 ## OD-13 — Founder Node transferability
 
