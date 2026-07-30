@@ -125,21 +125,25 @@
 
 ## OD-13 — Founder Node transferability
 
-- **Decision/status:** Transfer of positions; Open.
-- **Why it matters:** Affects identity, referrals, and secondary markets.
-- **Options:** non-transferable; governed transfer; freely transferable.
-- **Recommended:** non-transferable at launch, with reviewed migration path.
-- **Risks:** market speculation, sanctions evasion, status ambiguity.
-- **Approver/dependencies:** Constitutional governance/legal; NFT and inheritance.
+- **Decision/status:** **Policy approved 2026-07-30 — active positions are non-transferable; only continuity-specific migration is permitted.**
+- **Decision record:** [MHE-013 — Position Transfer, Recovery, and Inheritance Decision](MHE-013_POSITION_TRANSFER_RECOVERY_AND_INHERITANCE_DECISION.md).
+- **Approved boundaries:** no sale, assignment, gifting, wrapping, bridging, fractionalization, transferable NFT, collateral, liquidity, split, merge, or marketplace; unlocked MIND remains transferable under MHE-001.
+- **Approved continuity paths:** owner-authorized wallet migration, pre-authorized guardian recovery, compatible smart-wallet migration, lawful incapacity/succession, and audited protocol migration.
+- **Approved owner migration:** source and destination signatures, seven-day delay, cancellation, duplicate-position checks, and exact state preservation.
+- **Still required:** contract design, snapshot cooldown, smart-wallet support, operator/role appointments, legal/privacy/security review, and activation.
+- **Risks:** disguised secondary market, recovery fraud, guardian collusion, duplicate state, voting duplication, sanctions evasion, and privacy exposure.
+- **Approver/dependencies:** Founder approved policy; constitutional governance/legal/privacy/security approval and OD-18 implementation remain required.
 
 ## OD-14 — Founder Node inheritance
 
-- **Decision/status:** Succession after death/incapacity; Open.
-- **Why it matters:** Long locks require continuity.
-- **Options:** wallet estate process; nominated beneficiary; legal executor review.
-- **Recommended:** documented off-chain legal process plus bounded on-chain recovery.
-- **Risks:** fraud, privacy, jurisdiction conflict.
-- **Approver/dependencies:** Foundation/legal/governance; identity and transferability.
+- **Decision/status:** **Policy approved 2026-07-30 — revocable nomination, guardian recovery, lawful incapacity/succession review, and estate settlement.**
+- **Decision record:** [MHE-013 — Position Transfer, Recovery, and Inheritance Decision](MHE-013_POSITION_TRANSFER_RECOVERY_AND_INHERITANCE_DECISION.md).
+- **Approved recovery baseline:** two of three pre-authorized guardians and a 14-day challenge; exceptional non-configured recovery requires two independent reviewers, legal checks, notice, appeal, and at least 30 days to challenge.
+- **Approved succession outcomes:** an eligible successor may continue the unchanged position; otherwise 100% of locked MIND units and finalized HEAVEN settle through the lawful estate/beneficiary process; prohibited recipients remain segregated under applicable law.
+- **Confirmed boundaries:** nomination is not an inheritance guarantee and cannot override wills, courts, marital/property rights, creditors, tax, sanctions, or applicable succession law.
+- **Still required:** governing law, operator and reviewer appointments, evidence rubrics, data processors, recovery/inheritance contracts, jurisdiction procedures, legal/privacy/security review, and activation.
+- **Risks:** forged evidence, identity theft, guardian or reviewer collusion, succession conflict, tax, sanctions, privacy breach, duplicate payment, and inaccessible assets.
+- **Approver/dependencies:** Founder approved policy; Foundation/legal/governance/privacy/security approval remains required for implementation.
 
 ## OD-15 — MIND token transferability
 
