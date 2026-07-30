@@ -1,4 +1,4 @@
-import { BSC_TESTNET, getRegistryReadiness } from "@/lib/chain/config";
+import { BSC_TESTNET, CONTRACT_ENV_KEYS, getRegistryReadiness } from "@/lib/chain/config";
 import { readChainStatus } from "@/lib/chain/rpc";
 
 export const dynamic = "force-dynamic";
@@ -52,7 +52,7 @@ export async function GET() {
         contracts: {
           configured: [],
           configuredCount: 0,
-          totalCount: Object.keys(getRegistryReadiness().configured).length,
+          totalCount: Object.keys(CONTRACT_ENV_KEYS).length,
           mode: "registry-only",
         },
         checkedAt,
