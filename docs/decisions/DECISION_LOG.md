@@ -126,3 +126,18 @@ Confirmed by the Founder:
 - New drafts must follow [MHE-008](MHE-008_PARTICIPATION_DUTIES_AND_EVIDENCE_DECISION.md).
 
 OD-20 and OD-21 are partially resolved. Exact task catalogs, reviewer appointments, evidence systems, legal review, security review, and activation remain open.
+
+## 2026-07-30 — HEAVEN fixed supply, allocation, and nine-year release approved
+
+Confirmed by the Founder:
+
+- HEAVEN has a fixed lifetime and genesis supply of 177,000,000 with 18 decimals and no future minting.
+- The full supply will be created once into named locked vaults.
+- The 60% reward reserve is 106,200,000 HEAVEN and uses nine annual maximum release ceilings of 12%, 10%, 8%, 7%, 6%, 5%, 4%, 4%, and 4% of total supply.
+- The remaining allocation is 12% ecosystem/user programs, 10% DAO treasury, 8% development/operations, 5% partners/practitioners, and 5% emergency/community reserve.
+- Annual ceilings are not guaranteed emissions. HEAVEN moves into isolated epoch vaults only through prospective governance, pre-funding, legal, and security controls.
+- Unused annual capacity remains locked and does not roll forward automatically.
+- There is no approved public-sale, liquidity, listing, price-support, peg, redemption, guaranteed-value, or guaranteed-return allocation.
+- The conflicting earlier ten-year release schedule is superseded by [MHE-009](MHE-009_HEAVEN_FIXED_SUPPLY_AND_NINE_YEAR_RELEASE_DECISION.md).
+
+OD-06 is resolved. OD-07 and OD-08 are partially resolved; implementation, vault, epoch, legal, security, and activation parameters remain open.
