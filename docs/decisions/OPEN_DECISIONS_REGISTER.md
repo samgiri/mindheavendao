@@ -180,21 +180,22 @@
 
 ## OD-20 — Off-chain contribution verification
 
-- **Decision/status:** Evidence, reviewers, appeals, commitments; Open.
-- **Why it matters:** Pool points depend on genuine contribution.
-- **Options:** committees; attestations; signed data providers; hybrid review.
-- **Recommended:** multi-reviewer process, evidence rubric, appeal window, Merkle commitment.
-- **Risks:** bias, bribery, privacy, centralization.
-- **Approver/dependencies:** Governance/privacy/legal; categories and suspension.
+- **Decision/status:** **Partially approved 2026-07-30 — evidence, review, conflict, appeal, and privacy architecture.**
+- **Decision record:** [MHE-008 — Participation Duties and Evidence Decision](MHE-008_PARTICIPATION_DUTIES_AND_EVIDENCE_DECISION.md).
+- **Approved controls:** prospective task criteria; attributable evidence; two independent reviewers for qualitative work; conflict declarations; reason codes; at least 14 days to appeal; non-originating appeal review; sensitive evidence kept off-chain; minimal public commitments.
+- **Still open:** evidence platform, exact schemas, reviewer appointment and compensation, automated-rule validation, retention periods, controller/processor roles, security assessment, legal review, and activation.
+- **Risks:** bias, bribery, collusion, privacy exposure, reviewer concentration, automation errors, and centralization.
+- **Approver/dependencies:** Founder approved architecture; governance/privacy/legal/security approval remains required for implementation, categories, reviewers, suspension, and activation.
 
 ## OD-21 — MindGlobal point assignment
 
-- **Decision/status:** Category weights, caps, and period rules; Open.
-- **Why it matters:** Determines proportional distribution.
-- **Options:** fixed rubric; governance-set future weights; quadratic/capped categories.
-- **Recommended:** published per-period rubric with category caps and prospective governance updates.
-- **Risks:** gaming, popularity bias, opaque scoring.
-- **Approver/dependencies:** Governance/community review; verification model.
+- **Decision/status:** **Partially approved 2026-07-30 for Founder Node participation — categories, caps, thresholds, and prospective task-catalog rules.**
+- **Decision record:** [MHE-008 — Participation Duties and Evidence Decision](MHE-008_PARTICIPATION_DUTIES_AND_EVIDENCE_DECISION.md).
+- **Approved Founder Node framework:** governance stewardship capped at 25 points; education/community, verification/research, technical/design/operations, and human-potential mission work each capped at 40; overall cap 100; ordinarily at least two tasks; no more than 60 points from one category.
+- **Approved MHE-007 score mapping:** 0–49 points = 0; 50–79 = 0.50; 80–100 = 1.00.
+- **Still open:** exact epoch tasks and values, repetition rules, quality rubrics, accessibility alternatives, MindGlobal Pool applicability, reviewer system, legal review, and activation.
+- **Risks:** gaming, popularity bias, opaque scoring, category capture, exclusion, employment/tax misclassification, and unverifiable work.
+- **Approver/dependencies:** Founder approved Founder Node architecture; governance/community/legal/privacy/security review remains required for implementation and any MindGlobal Pool use.
 
 ## OD-22 — Suspension and appeal process
 
