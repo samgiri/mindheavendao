@@ -130,12 +130,12 @@
 
 ## OD-15 — MIND token transferability
 
-- **Decision/status:** Launch transfer policy; Open.
-- **Why it matters:** Governance distribution, regulation, liquidity.
-- **Options:** standard transferable; phased transfer; restricted allocation vesting.
-- **Recommended:** standard token semantics with transparent treasury/allocation vesting if legally approved.
-- **Risks:** speculation, capture, classification.
-- **Approver/dependencies:** Constitutional governance/legal; allocation and liquidity.
+- **Decision/status:** **Approved 2026-07-30 — standard transferable governance token.**
+- **Decision record:** [MHE-001 — Transferable MIND Decision](MHE-001_TRANSFERABLE_MIND_DECISION.md).
+- **Confirmed boundaries:** fixed 20,000,000 genesis supply; no future mint, tax, blacklist, confiscation, guaranteed value, or automatic MIND/HEAVEN conversion.
+- **Still required:** allocation vesting, governance safeguards, legal review, liquidity policy, and deployment approval.
+- **Risks:** speculation, concentration, governance capture, classification, and misleading market communications.
+- **Approver/dependencies:** Founder approved transferability; constitutional governance and legal/security review retain authority over dependent rules.
 
 ## OD-16 — Foundation jurisdiction
 
