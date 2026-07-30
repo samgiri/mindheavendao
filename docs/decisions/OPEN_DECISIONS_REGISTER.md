@@ -50,30 +50,33 @@
 
 ## OD-06 — HEAVEN total supply
 
-- **Decision/status:** Supply cap and allocation; Open.
-- **Why it matters:** Fundamental utility economics and liabilities.
-- **Options:** fixed cap; capped emissions; uncapped governed emissions.
-- **Recommended:** defer until independently modeled; prefer transparent hard constraints.
-- **Risks:** inflation, scarcity mismatch, regulatory messaging.
-- **Approver/dependencies:** Constitutional governance/legal; utility design.
+- **Decision/status:** **Approved 2026-07-30 — fixed 177,000,000 lifetime and genesis supply.**
+- **Decision record:** [MHE-009 — HEAVEN Fixed Supply and Nine-Year Release Decision](MHE-009_HEAVEN_FIXED_SUPPLY_AND_NINE_YEAR_RELEASE_DECISION.md).
+- **Approved allocation:** 60% Founder Node/verified service reward reserve; 12% ecosystem/user programs; 10% DAO treasury; 8% development/operations; 5% partners/practitioners; 5% emergency/community reserve.
+- **Confirmed boundaries:** 18 decimals; one genesis mint into locked vaults; no future minting, inflation, re-mint after burn, public-sale allocation, guaranteed value, peg, redemption, or automatic burn at launch.
+- **Still required:** audited token/vault implementation, named roles and vaults, non-reward schedules and beneficiaries, legal review, deployment, and activation.
+- **Risks:** vault compromise, premature circulation, insider concentration, allocation misuse, misleading scarcity claims, and regulatory classification.
+- **Approver/dependencies:** Founder approved supply/allocation; constitutional governance, legal, economic, treasury, and security review remain required for activation.
 
 ## OD-07 — HEAVEN emission model
 
-- **Decision/status:** Release schedule and authorization; Open.
-- **Why it matters:** Determines sustainability.
-- **Options:** pre-minted allocation; capped epochs; governed budget.
-- **Recommended:** pre-funded epoch budgets with published caps.
-- **Risks:** over-emission, capture, unfunded promises.
-- **Approver/dependencies:** Governance/economic review; supply and treasury.
+- **Decision/status:** **Partially approved 2026-07-30 — genesis-locked supply and nine-year reward-reserve release ceilings.**
+- **Decision record:** [MHE-009 — HEAVEN Fixed Supply and Nine-Year Release Decision](MHE-009_HEAVEN_FIXED_SUPPLY_AND_NINE_YEAR_RELEASE_DECISION.md).
+- **Approved annual ceilings:** 12%, 10%, 8%, 7%, 6%, 5%, 4%, 4%, and 4% of total supply for Years 1–9, totaling the 60% / 106,200,000 HEAVEN reward reserve.
+- **Confirmed boundaries:** annual ceilings are maximums, not promised emissions; no future-year borrowing; unused capacity remains locked and does not roll automatically; the historical ten-year schedule is superseded.
+- **Still open:** commencement date, calendar/time rules, exact epoch budgets, unused-capacity decisions, vault implementation, administrators, reporting, legal/security approval, and activation.
+- **Risks:** over-release, schedule ambiguity, governance capture, vault compromise, unfunded promises, and misleading emissions language.
+- **Approver/dependencies:** Founder approved architecture; governance/economic/legal/security approval remains required for implementation and each activation.
 
 ## OD-08 — HEAVEN reward-vault funding
 
-- **Decision/status:** Funding sources and cadence; Open.
-- **Why it matters:** No reward can exceed available HEAVEN.
-- **Options:** treasury epochs; protocol revenue; approved contributions.
-- **Recommended:** pre-fund isolated epochs before qualification/finalization.
-- **Risks:** insolvency, commingling, source legality.
-- **Approver/dependencies:** Treasury governance/legal; emission, budgets.
+- **Decision/status:** **Partially approved 2026-07-30 — genesis-locked reward reserve and isolated pre-funded epoch boundary.**
+- **Decision record:** [MHE-009 — HEAVEN Fixed Supply and Nine-Year Release Decision](MHE-009_HEAVEN_FIXED_SUPPLY_AND_NINE_YEAR_RELEASE_DECISION.md).
+- **Approved funding architecture:** HEAVEN moves from the locked 60% reward reserve into a separately approved isolated epoch vault before reward activation; no participant payment may exceed the MHE-007 calculation or the funded epoch balance.
+- **Confirmed boundaries:** no commingling with MIND principal; no guaranteed liability; no price/liquidity support; no active-epoch borrowing from future annual capacity.
+- **Still open:** exact vault contracts, epoch budgets, release authority, funding transaction cadence, unused/unclaimed handling, reconciliation implementation, security review, legal approval, and activation.
+- **Risks:** vault insolvency, accounting error, commingling, admin compromise, source/destination misuse, and legal classification.
+- **Approver/dependencies:** Founder approved architecture; treasury governance/legal/security approval remains required for implementation and each funded epoch.
 
 ## OD-09 — Founder Node HEAVEN reward formula
 
