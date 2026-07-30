@@ -18,6 +18,7 @@ All notable repository changes are documented here.
 
 ### Clarified
 
+- MHE-008 approves a prospective Founder Node service-task catalog, category caps, 0–100 verified points, 0 / 0.50 / 1 score thresholds, dual review for qualitative work, conflict and appeal controls, privacy minimization, and accessibility requirements.
 - MHE-007 approves a service-based HEAVEN reward formula with verified 0 / 0.50 / 1 participation scores and a common pro-rata adjustment that prevents total payments from exceeding the pre-funded epoch pool.
 - MHE-006 retains fixed Founder Node MIND quantities, rejects automatic participation-linked price escalation, permits only separately approved off-chain epoch references, and makes jurisdiction-specific legal readiness a mandatory activation gate.
 - MHE-005 approves weekly HEAVEN claims with a 2% protocol claim fee, monthly claims with no protocol claim fee, and maturity settlement with an eligible pre-funded loyalty bonus up to 5%, all inside the applicable reward ceiling.
