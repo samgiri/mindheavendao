@@ -141,3 +141,19 @@ Confirmed by the Founder:
 - The conflicting earlier ten-year release schedule is superseded by [MHE-009](MHE-009_HEAVEN_FIXED_SUPPLY_AND_NINE_YEAR_RELEASE_DECISION.md).
 
 OD-06 is resolved. OD-07 and OD-08 are partially resolved; implementation, vault, epoch, legal, security, and activation parameters remain open.
+
+## 2026-07-30 — HEAVEN reward-vault lifecycle and dormant-claim protection approved
+
+Confirmed by the Founder:
+
+- The MHE-009 nine-year schedule begins only at a separately approved, non-backdated commencement timestamp after legal, governance, security, and deployment readiness.
+- Release Years are nine consecutive 365-day periods; an epoch cannot cross or draw from more than one Release Year.
+- Each epoch requires final approval at least seven days before start and full HEAVEN deposit at least 48 hours before start.
+- Evidence, review, appeal, and finalization use a published maximum 56-day post-service-window process.
+- Unused epoch HEAVEN returns to its originating reward reserve within seven days after finalization, retains its release-year provenance, and does not automatically restore or roll annual capacity.
+- Finalized claims receive 24 months of standard availability plus 12 months of segregated dormant protection.
+- Post-36-month return requires repeated notice, legal review, and compliance with applicable unclaimed-property or similar law.
+- Claims deadlines extend for protocol-caused unavailability and protected appeals or legal processes.
+- New drafts must follow [MHE-010](MHE-010_REWARD_VAULT_LIFECYCLE_AND_DORMANT_CLAIMS_DECISION.md).
+
+OD-28 and OD-29 policy architecture is approved. Exact claim mechanics, vault implementation, legal treatment, security review, and activation remain open.
