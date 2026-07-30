@@ -190,3 +190,20 @@ Confirmed by the Founder:
 - New drafts must follow [MHE-012](MHE-012_EARLY_WITHDRAWAL_AND_EMERGENCY_EXIT_DECISION.md).
 
 OD-11 and OD-12 policy architecture is approved. Contract authority, recovery, inheritance, legal review, security review, and activation remain open.
+
+## 2026-07-30 — Founder Node position continuity, recovery, and inheritance approved
+
+Confirmed by the Founder:
+
+- Active Founder Node positions are non-transferable and cannot be sold, assigned, wrapped, fractionalized, collateralized, bridged, or represented by a transferable NFT.
+- Unlocked MIND remains transferable under MHE-001.
+- Owner-authorized wallet migration requires source and destination signatures plus a seven-day delay.
+- The recovery baseline uses two of three pre-authorized guardians and a 14-day challenge period.
+- Exceptional recovery without prior configuration requires two independent reviewers, legal checks, notice, appeal, and at least a 30-day challenge period.
+- Participants may nominate a revocable beneficiary, but nomination does not override applicable succession law.
+- Eligible successors may continue a position without resetting any state; otherwise principal and finalized claims settle through the lawful estate process.
+- Every continuity event preserves principal, timestamps, reward lots, fees, claims, exit history, maturity eligibility, and governance history.
+- No individual administrator, Foundation officer, Founder, reviewer, guardian, or SatoshiLab.ai adviser may unilaterally reassign a position.
+- New drafts must follow [MHE-013](MHE-013_POSITION_TRANSFER_RECOVERY_AND_INHERITANCE_DECISION.md).
+
+OD-13 and OD-14 policy architecture is approved. Implementation, operators, governing law, privacy, security, and activation remain open.
