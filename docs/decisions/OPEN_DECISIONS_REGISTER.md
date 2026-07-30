@@ -75,14 +75,15 @@
 - **Risks:** insolvency, commingling, source legality.
 - **Approver/dependencies:** Treasury governance/legal; emission, budgets.
 
-## OD-09 — Weekly staking reward formula
+## OD-09 — Founder Node HEAVEN reward formula
 
-- **Decision/status:** Whether/how active nodes accrue HEAVEN; Open.
-- **Why it matters:** Largest potential recurring liability.
-- **Options:** no automatic reward; funded fixed epochs; performance-based budget.
-- **Recommended:** no formula until HEAVEN economics and funding are approved; never guaranteed.
-- **Risks:** unsustainable yield, APY marketing, gaming.
-- **Approver/dependencies:** Constitutional governance/legal; HEAVEN model, vault funding.
+- **Decision/status:** **Partially approved 2026-07-30 — variable maximum total reward ceilings.**
+- **Decision record:** [MHE-004 — Founder Node Variable Reward Ceiling Decision](MHE-004_VARIABLE_REWARD_CEILING_DECISION.md).
+- **Approved ceilings:** up to 38% for 6 months; up to 78% for 12 months; up to 122% for 24 months.
+- **Confirmed boundaries:** not APY or guaranteed; actual rewards may be lower or zero; HEAVEN only; future funded epochs; no auto-compounding or unfunded liability.
+- **Still open:** performance formula, HEAVEN conversion, weekly/monthly cadence, duration constants, funding source, and legal approval.
+- **Risks:** unsustainable reward cost, misleading APY language, gaming, governance capture, and funding shortfall.
+- **Approver/dependencies:** Founder approved ceilings; constitutional governance/legal/economic review must approve the remaining formula and HEAVEN model.
 
 ## OD-10 — HEAVEN auto-compounding meaning
 
