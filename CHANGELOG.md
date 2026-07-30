@@ -18,6 +18,7 @@ All notable repository changes are documented here.
 
 ### Clarified
 
+- MHE-013 makes active Founder Node positions non-transferable while approving state-preserving owner migration, two-of-three guardian recovery, exceptional reviewed recovery, beneficiary nomination, lawful succession continuation, and estate settlement.
 - MHE-012 approves full MIND-unit principal return, a 30-day ordinary early-exit cooldown, prospective reward cutoff, preservation of finalized HEAVEN, irreversible maturity-bonus loss, and a principal-only emergency path for critical events or a 30-day prolonged pause.
 - MHE-011 approves 180/365/730-day Founder Node positions, 7/30-day claim intervals, prospective 14-day mode switches limited to one per rolling 90 days, reward-lot fee attribution, and continuous-maturity/no-early-claim bonus eligibility.
 - MHE-010 approves prospective reward-vault funding deadlines, nine 365-day Release Years, auditable claim states, unused-fund return, 24-month standard claims, 12-month dormant protection, repeated notices, and legally reviewed post-36-month disposition.
