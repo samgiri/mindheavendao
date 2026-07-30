@@ -84,3 +84,17 @@ Confirmed by the Founder:
 - New drafts must follow [MHE-005](MHE-005_REWARD_CLAIM_OPTIONS_DECISION.md).
 
 OD-09 remains partially open for the performance formula, HEAVEN calculation, funding model, timing constants, and anti-gaming rules.
+
+## 2026-07-30 — Founder Node epoch model and legal-first launch gates approved
+
+Confirmed by the Founder:
+
+- Founder Node tiers retain fixed MIND quantities.
+- MindHeavenDAO will not use an automatic bonding curve, participation-linked price increase, price oracle, peg, or programmed appreciation mechanism.
+- A future allocation epoch may use a governance-approved off-chain contribution reference rate that remains fixed during that epoch.
+- The Genesis planning reference may remain 1 MIND = USD 1 under MHE-002; no later reference rate is approved in advance.
+- Allocation epochs and pre-funded HEAVEN reward epochs remain separate approval controls.
+- Jurisdiction-specific legal, regulatory, AML/KYC, sanctions, tax, privacy, treasury, governance, and security approvals are mandatory before activation.
+- New drafts and communications must follow [MHE-006](MHE-006_FOUNDER_NODE_EPOCH_AND_LEGAL_READINESS_DECISION.md).
+
+This decision is not a legal opinion and does not authorize a public offer, contribution flow, reward epoch, contract deployment, liquidity program, or launch.
