@@ -49,3 +49,15 @@ Confirmed by the Founder:
 - New drafts must follow [MHE-002](MHE-002_MIND_OFFCHAIN_REFERENCE_DECISION.md).
 
 OD-02 is resolved. Exact Founder Node MIND amounts remain pending under OD-01.
+
+## 2026-07-30 — Five fixed Founder Node allocations approved
+
+Confirmed by the Founder:
+
+- The minimum Founder Node commitment is 5,000 MIND.
+- The fixed tiers are Seed 5,000; Builder 10,000; Visionary 25,000; Pioneer 50,000; and Genesis 100,000 MIND.
+- No 500-MIND or sub-5,000-MIND Founder Node category is created.
+- Dollar figures remain off-chain planning references under MHE-002.
+- New drafts must follow [MHE-003](MHE-003_FOUNDER_NODE_MIND_ALLOCATION_DECISION.md).
+
+OD-01 is resolved. Lock terms, rewards, withdrawals, multiple-node rules, legal review, and deployment remain separate approval gates.
