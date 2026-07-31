@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import styles from "./dashboard.module.css";
+import { WalletControl } from "./WalletControl";
+import { WalletPage } from "./WalletPage";
 
 type Section =
   | "overview" | "wallet" | "mind" | "heaven" | "nodes" | "staking"
@@ -49,7 +51,6 @@ const transactions = [
 export function DashboardApp({ section }: { section: string }) {
   const active = section as Section;
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [walletNotice, setWalletNotice] = useState(false);
 
   const hrefFor = (id: Section) => id === "overview" ? "/dashboard" : `/dashboard/${id}`;
 
@@ -96,19 +97,10 @@ export function DashboardApp({ section }: { section: string }) {
           </div>
           <div className={styles.topbarActions}>
             <button type="button" className={styles.iconButton} aria-label="Notifications">♢<b>2</b></button>
-            <button type="button" className={styles.walletButton} onClick={() => setWalletNotice(true)}>
-              <span>Connect wallet</span><i>↗</i>
-            </button>
+            <WalletControl />
             <Link href="/dashboard/profile" className={styles.avatar} aria-label="Open profile"><span>SG</span><i /></Link>
           </div>
         </header>
-
-        {walletNotice ? (
-          <div className={styles.notice} role="status">
-            <span><b>Wallet connection is a placeholder.</b> No permissions, signatures, or transactions were requested.</span>
-            <button type="button" onClick={() => setWalletNotice(false)} aria-label="Dismiss notice">×</button>
-          </div>
-        ) : null}
 
         <div className={styles.content}>
           <div className={styles.pageHead}>
@@ -120,7 +112,7 @@ export function DashboardApp({ section }: { section: string }) {
             <div className={styles.demoLabel}>● All values are demo/test data</div>
           </div>
 
-          {active === "overview" ? <Overview /> : active === "nodes" ? <FounderNodes /> : <SectionPreview section={active} />}
+          {active === "overview" ? <Overview /> : active === "nodes" ? <FounderNodes /> : active === "wallet" ? <WalletPage /> : <SectionPreview section={active} />}
         </div>
       </section>
     </main>
