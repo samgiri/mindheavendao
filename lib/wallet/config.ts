@@ -13,6 +13,9 @@ export const futureWalletChains = [bsc, mainnet, polygon] as const;
 export const walletConnectProjectId =
   process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID?.trim() ?? "";
 
+const bscTestnetRpcUrl =
+  process.env.NEXT_PUBLIC_BSC_TESTNET_RPC_URL?.trim() || undefined;
+
 const appUrl =
   process.env.NEXT_PUBLIC_APP_URL?.trim() ??
   "https://mindheavendao-git-feature-dapp-dashboard-foundation-samlab.vercel.app";
@@ -53,7 +56,7 @@ export const wagmiConfig = createConfig({
   multiInjectedProviderDiscovery: true,
   ssr: true,
   transports: {
-    [activeWalletChain.id]: http(),
+    [activeWalletChain.id]: http(bscTestnetRpcUrl),
   },
 });
 

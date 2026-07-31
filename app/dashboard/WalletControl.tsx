@@ -111,11 +111,16 @@ export function useWalletIdentity() {
 export function WalletControl() {
   const [open, setOpen] = useState(false);
   const identity = useWalletIdentity();
-  const closeDialog = useCallback(() => setOpen(false), []);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const closeDialog = useCallback(() => {
+    setOpen(false);
+    window.requestAnimationFrame(() => triggerRef.current?.focus());
+  }, []);
 
   return (
     <>
       <button
+        ref={triggerRef}
         type="button"
         className={`${styles.walletButton} ${identity.isConnected ? styles.walletButtonConnected : ""}`}
         onClick={() => setOpen(true)}
@@ -140,18 +145,44 @@ function WalletDialog({ onClose }: { onClose: () => void }) {
   const [selectedConnector, setSelectedConnector] = useState<Connector | null>(null);
   const environment = useWalletEnvironment();
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLElement>(null);
+  const [connectionTimedOut, setConnectionTimedOut] = useState(false);
 
   useEffect(() => {
     closeButtonRef.current?.focus();
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") onClose();
+      if (event.key !== "Tab" || !dialogRef.current) return;
+
+      const controls = Array.from(
+        dialogRef.current.querySelectorAll<HTMLElement>(
+          'button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])',
+        ),
+      );
+      if (!controls.length) return;
+      const first = controls[0];
+      const last = controls[controls.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [onClose]);
 
+  useEffect(() => {
+    if (!isPending) return;
+    const timeout = window.setTimeout(() => setConnectionTimedOut(true), 30_000);
+    return () => window.clearTimeout(timeout);
+  }, [isPending]);
+
   function connectWallet(connector: Connector) {
     setSelectedConnector(connector);
+    setConnectionTimedOut(false);
     reset();
     connect(
       { connector },
@@ -173,7 +204,7 @@ function WalletDialog({ onClose }: { onClose: () => void }) {
     <div className={styles.walletOverlay} role="presentation" onMouseDown={event => {
       if (event.target === event.currentTarget) onClose();
     }}>
-      <section className={styles.walletDialog} role="dialog" aria-modal="true" aria-labelledby="wallet-dialog-title">
+      <section ref={dialogRef} className={styles.walletDialog} role="dialog" aria-modal="true" aria-labelledby="wallet-dialog-title">
         <div className={styles.walletDialogHead}>
           <div>
             <span>Connection only · Test environment</span>
@@ -206,6 +237,7 @@ function WalletDialog({ onClose }: { onClose: () => void }) {
               <button type="button" onClick={copyAddress}>{copyState}</button>
               <button type="button" onClick={() => disconnect(undefined, { onSuccess: onClose })}>Disconnect</button>
             </div>
+            <p className={styles.walletSafety}>Wallet connected. Dashboard records remain demonstration data until contract and backend integration.</p>
           </div>
         ) : (
           <>
@@ -232,10 +264,11 @@ function WalletDialog({ onClose }: { onClose: () => void }) {
               ) : null}
             </div>
             {error ? <WalletFeedback message={walletErrorMessage(error)} retry={() => selectedConnector ? connectWallet(selectedConnector) : reset()} /> : null}
+            {connectionTimedOut && isPending ? <WalletFeedback message="Connection timed out. Check your wallet and try again." retry={() => selectedConnector ? connectWallet(selectedConnector) : reset()} /> : null}
           </>
         )}
 
-        <p className={styles.walletSafety}>Never share a private key or seed phrase. This demo requests connection only—no signatures, approvals, transfers, staking, or transactions.</p>
+        <p className={styles.walletSafety}>MindHeavenDAO will never request your seed phrase or private key. This demo requests connection only—no signatures, approvals, transfers, staking, or transactions.</p>
       </section>
     </div>
   );

@@ -16,9 +16,9 @@
   },
   "dependencies": {
     "@tanstack/react-query": "5.101.4",
-    "@walletconnect/ethereum-provider": "2.21.1",
+    "@walletconnect/ethereum-provider": "2.23.10",
     "drizzle-orm": "0.45.2",
-    "next": "16.2.6",
+    "next": "16.2.12",
     "react": "19.2.6",
     "react-dom": "19.2.6",
     "viem": "2.55.10",

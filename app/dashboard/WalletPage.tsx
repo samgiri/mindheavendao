@@ -37,15 +37,18 @@ export function WalletPage() {
           <div className={`${styles.sessionBadge} ${identity.isConnected ? styles.sessionConnected : ""}`}><i /> {identity.isConnected ? "Connected" : "Not connected"}</div>
         </div>
         {identity.isConnected && identity.address ? (
-          <div className={styles.walletIdentityCard}>
-            <div className={styles.walletIdentityMark}>{identity.ensName ? "ENS" : "0×"}</div>
-            <div>
-              <small>{identity.ensLoading ? "Resolving ENS…" : identity.ensName ? "ENS identity" : "Wallet address"}</small>
-              <strong>{identity.ensName ?? shortAddress(identity.address)}</strong>
-              <span>{identity.address}</span>
+          <>
+            <div className={styles.walletIdentityCard}>
+              <div className={styles.walletIdentityMark}>{identity.ensName ? "ENS" : "0×"}</div>
+              <div>
+                <small>{identity.ensLoading ? "Resolving ENS…" : identity.ensName ? "ENS identity" : "Wallet address"}</small>
+                <strong>{identity.ensName ?? shortAddress(identity.address)}</strong>
+                <span>{identity.address}</span>
+              </div>
+              <button type="button" onClick={copyAddress} aria-label="Copy connected wallet address">{copyState}</button>
             </div>
-            <button type="button" onClick={copyAddress} aria-label="Copy connected wallet address">{copyState}</button>
-          </div>
+            <p className={styles.walletSafety}>Wallet connected. Dashboard records remain demonstration data until contract and backend integration.</p>
+          </>
         ) : (
           <div className={styles.walletEmpty}>
             <i>◫</i><div><strong>No wallet connected</strong><span>Connect a supported wallet to establish a read-only session.</span></div><WalletControl />
@@ -57,6 +60,16 @@ export function WalletPage() {
           <div><span>Connector</span><strong>{identity.connector?.name ?? "—"}</strong><small>Session provider</small></div>
           <div><span>Session</span><strong>{identity.isConnected ? "Auto-reconnect enabled" : "Inactive"}</strong><small>Stored locally by wagmi</small></div>
         </div>
+        {identity.isConnected && identity.address ? (
+          <a
+            className={styles.walletExplorerLink}
+            href={`${activeWalletChain.blockExplorers.default.url}/address/${identity.address}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            View public address on BscScan
+          </a>
+        ) : null}
         {identity.isWrongNetwork ? (
           <div className={styles.wrongNetworkPanel} role="alert">
             <div><strong>Wrong Network</strong><span>Switch to BNB Smart Chain Testnet to continue in this demo.</span></div>
@@ -76,7 +89,7 @@ export function WalletPage() {
       </section>
 
       <section className={styles.demoBalancesCard}>
-        <div className={styles.panelHead}><div><span>Demo/test data</span><h2>Demo balances</h2></div><b>No live prices</b></div>
+        <div className={styles.panelHead}><div><span>Dashboard demonstration data — not read from this wallet.</span><h2>Demo balances</h2></div><b>No live prices</b></div>
         <div className={styles.demoBalanceList}>
           {demoBalances.map(balance => <div key={balance.symbol}><i>{balance.symbol[0]}</i><span><strong>{balance.symbol}</strong><small>{balance.purpose}</small></span><b>{balance.amount}</b></div>)}
         </div>
@@ -85,7 +98,7 @@ export function WalletPage() {
       <section className={styles.walletSecurityCard}>
         <div><span>Security notice</span><h2>Connection only</h2></div>
         <ul>
-          <li>No private keys or seed phrases</li>
+          <li>MindHeavenDAO will never request your seed phrase or private key</li>
           <li>No signatures or token approvals</li>
           <li>No transfers, staking, or transactions</li>
           <li>Disconnect access inside your wallet at any time</li>
