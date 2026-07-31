@@ -1,7 +1,8 @@
 import { createPublicClient, http } from "viem";
 import { bsc, bscTestnet, mainnet, polygon } from "viem/chains";
 import { createConfig } from "wagmi";
-import { metaMask, walletConnect } from "wagmi/connectors";
+import { injected } from "wagmi/connectors/injected";
+import { walletConnect } from "wagmi/connectors/walletConnect";
 
 export const activeWalletChain = bscTestnet;
 
@@ -17,10 +18,17 @@ const appUrl =
   "https://mindheavendao-git-feature-dapp-dashboard-foundation-samlab.vercel.app";
 
 const connectors = [
-  metaMask({
-    dapp: {
-      name: "MindHeavenDAO Foundation DApp",
-      url: appUrl,
+  injected({
+    target() {
+      return {
+        id: "metaMask",
+        name: "MetaMask",
+        provider(window) {
+          const ethereum = window?.ethereum;
+          const providers = ethereum?.providers ?? (ethereum ? [ethereum] : []);
+          return providers.find(provider => provider.isMetaMask);
+        },
+      };
     },
   }),
   ...(walletConnectProjectId
