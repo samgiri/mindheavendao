@@ -25,12 +25,12 @@ const navigation: { id: Section; label: string; icon: string }[] = [
 ];
 
 const titles: Record<Section, { eyebrow: string; title: string; description: string }> = {
-  overview: { eyebrow: "Portfolio command center", title: "Welcome back, Founder", description: "A clear view of your demo assets, participation, and ecosystem activity." },
+  overview: { eyebrow: "Foundation participation", title: "Welcome back, Founder", description: "A clear view of your demo balances, governance participation, and foundation activity." },
   wallet: { eyebrow: "Connected identity", title: "Wallet", description: "Review demo balances and network status. Transaction controls are intentionally disabled." },
   mind: { eyebrow: "Governance utility", title: "MIND Token", description: "Explore your demo MIND allocation and governance participation." },
   heaven: { eyebrow: "Ecosystem utility", title: "HEAVEN Token", description: "Review demo HEAVEN activity across the MindHeaven ecosystem." },
   nodes: { eyebrow: "Founding participation", title: "Founder Nodes", description: "Monitor demo node status and contribution milestones." },
-  staking: { eyebrow: "Protocol participation", title: "Staking", description: "Preview demo positions without projections or guaranteed-return claims." },
+  staking: { eyebrow: "Program participation", title: "Staking", description: "Preview demo participation records without projections or guaranteed-return claims." },
   referrals: { eyebrow: "Community growth", title: "Referrals", description: "See demo invitations and transparent community contribution records." },
   governance: { eyebrow: "Collective intelligence", title: "Governance", description: "Review demo proposals and your simulated voting participation." },
   treasury: { eyebrow: "Transparent stewardship", title: "Treasury", description: "A demo overview of ecosystem allocations and governance controls." },
@@ -41,7 +41,7 @@ const titles: Record<Section, { eyebrow: string; title: string; description: str
 
 const transactions = [
   { icon: "↙", name: "Node contribution recorded", detail: "Founder Node · Demo", value: "+ 2,500 MIND", time: "Today, 09:42", tone: "positive" },
-  { icon: "↗", name: "Staking position simulated", detail: "HEAVEN Pool · Demo", value: "1,250 HEAVEN", time: "Yesterday, 18:16", tone: "neutral" },
+  { icon: "↗", name: "Program participation recorded", detail: "HEAVEN program · Demo", value: "1,250 HEAVEN", time: "Yesterday, 18:16", tone: "neutral" },
   { icon: "✓", name: "Governance vote recorded", detail: "MHP-004 · Local demo", value: "Voted For", time: "Jul 28, 14:03", tone: "positive" },
   { icon: "⌘", name: "Referral joined", detail: "Community invite · Demo", value: "+ 1 referral", time: "Jul 26, 11:20", tone: "neutral" },
 ];
@@ -68,7 +68,7 @@ export function DashboardApp({ section }: { section: string }) {
         <div className={styles.demoPill}><i /> DApp preview <span>Phase 1</span></div>
         <nav aria-label="Dashboard navigation">
           {navigation.slice(0, 10).map(item => (
-            <Link key={item.id} href={hrefFor(item.id)} onClick={() => setDrawerOpen(false)} className={active === item.id ? styles.activeNav : ""}>
+            <Link key={item.id} href={hrefFor(item.id)} onClick={() => setDrawerOpen(false)} className={active === item.id ? styles.activeNav : ""} aria-current={active === item.id ? "page" : undefined}>
               <i aria-hidden="true">{item.icon}</i><span>{item.label}</span>
               {item.id === "governance" ? <b>3</b> : null}
             </Link>
@@ -76,7 +76,7 @@ export function DashboardApp({ section }: { section: string }) {
         </nav>
         <div className={styles.accountNav}>
           {navigation.slice(10).map(item => (
-            <Link key={item.id} href={hrefFor(item.id)} onClick={() => setDrawerOpen(false)} className={active === item.id ? styles.activeNav : ""}>
+            <Link key={item.id} href={hrefFor(item.id)} onClick={() => setDrawerOpen(false)} className={active === item.id ? styles.activeNav : ""} aria-current={active === item.id ? "page" : undefined}>
               <i aria-hidden="true">{item.icon}</i><span>{item.label}</span>
             </Link>
           ))}
@@ -120,7 +120,7 @@ export function DashboardApp({ section }: { section: string }) {
             <div className={styles.demoLabel}>● All values are demo/test data</div>
           </div>
 
-          {active === "overview" ? <Overview /> : <SectionPreview section={active} />}
+          {active === "overview" ? <Overview /> : active === "nodes" ? <FounderNodes /> : <SectionPreview section={active} />}
         </div>
       </section>
     </main>
@@ -130,11 +130,11 @@ export function DashboardApp({ section }: { section: string }) {
 function Overview() {
   return (
     <>
-      <section className={styles.balanceHero} aria-label="Demo portfolio balance">
+      <section className={styles.balanceHero} aria-label="Demo account overview">
         <div>
-          <span>Total portfolio balance <b>Demo</b></span>
+          <span>Demo account overview <b>Test data</b></span>
           <strong>$24,680.40</strong>
-          <small>Illustrative value only · No live token prices</small>
+          <small>Illustrative aggregate only · No live token prices</small>
         </div>
         <div className={styles.balanceChart} aria-hidden="true">
           {[32, 43, 38, 55, 49, 65, 58, 72, 67, 81, 76, 88].map((height, index) => <i key={index} style={{ height: `${height}%` }} />)}
@@ -160,15 +160,15 @@ function Overview() {
 
       <section className={styles.summaryGrid} aria-label="Dashboard summaries">
         <SummaryCard icon="◇" label="Founder Node" value="Genesis" status="Active demo" detail="Level 02 · 62% milestone progress" progress={62} href="/dashboard/nodes" />
-        <SummaryCard icon="↗" label="Staking" value="2 positions" status="Demo" detail="Illustrative positions · No return forecast" progress={74} href="/dashboard/staking" />
-        <SummaryCard icon="⌘" label="Referrals" value="12 members" status="Demo" detail="8 active · 4 pending invitations" progress={67} href="/dashboard/referrals" />
-        <SummaryCard icon="◎" label="Governance" value="3 proposals" status="Open" detail="Voting power: 18,420 demo MIND" progress={48} href="/dashboard/governance" />
-        <SummaryCard icon="▱" label="Treasury" value="$1.84M" status="Demo" detail="Illustrative allocation overview" progress={81} href="/dashboard/treasury" />
+        <SummaryCard icon="↗" label="Staking" value="2 programs" status="Participating" detail="Demo records · No return forecast" progress={74} href="/dashboard/staking" />
+        <SummaryCard icon="⌘" label="Community" value="12 members" status="Demo network" detail="8 active · 4 pending invitations" progress={67} href="/dashboard/referrals" />
+        <SummaryCard icon="◎" label="Governance" value="3 proposals" status="Participation open" detail="18,420 demo MIND voting weight" progress={48} href="/dashboard/governance" />
+        <SummaryCard icon="▱" label="Treasury" value="$1.84M" status="Preview" detail="Illustrative foundation allocation" progress={81} href="/dashboard/treasury" />
       </section>
 
       <section className={styles.activityPanel}>
         <div className={styles.panelHead}>
-          <div><span>Demo activity</span><h2>Recent transactions</h2></div>
+          <div><span>Foundation record · Demo</span><h2>Recent activity</h2></div>
           <Link href="/dashboard/transactions">View all <span>→</span></Link>
         </div>
         <TransactionList />
@@ -201,6 +201,73 @@ function TransactionList() {
           <time>{transaction.time}</time>
         </div>
       ))}
+    </div>
+  );
+}
+
+const nodeFields = [
+  { label: "Node Tier", value: "Genesis", note: "Founder classification" },
+  { label: "Contribution", value: "2,500 MIND", note: "Demo record" },
+  { label: "Lock Period", value: "36 months", note: "Illustrative term" },
+  { label: "Governance Weight", value: "1.5×", note: "Demo proposal weight" },
+  { label: "Reward Status", value: "Review pending", note: "No return implied" },
+  { label: "Next Review", value: "15 Sep 2026", note: "Demo milestone review" },
+  { label: "Participation Status", value: "Active", note: "Foundation programs" },
+];
+
+const nodeMilestones = [
+  { name: "Foundation orientation", date: "12 Jun 2026", state: "Complete" },
+  { name: "Governance readiness", date: "04 Jul 2026", state: "Complete" },
+  { name: "Community program", date: "31 Aug 2026", state: "In progress" },
+  { name: "Participation review", date: "15 Sep 2026", state: "Upcoming" },
+];
+
+function FounderNodes() {
+  return (
+    <div className={styles.nodesLayout}>
+      <section className={styles.nodeIdentity}>
+        <div className={styles.nodeIdentityTop}>
+          <div className={styles.nodeSeal}>◇</div>
+          <div>
+            <span>Founder participation record <b>Demo</b></span>
+            <h2>Genesis Node</h2>
+            <p>Reference ID · MH-FN-0142</p>
+          </div>
+          <div className={styles.founderStatus}><i /> Active participation</div>
+        </div>
+        <div className={styles.nodeFieldGrid}>
+          {nodeFields.map(field => (
+            <div key={field.label}>
+              <span>{field.label}</span>
+              <strong>{field.value}</strong>
+              <small>{field.note}</small>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.milestonePanel}>
+        <div className={styles.panelHead}>
+          <div><span>Demo/test data</span><h2>Participation milestones</h2></div>
+          <b>2 of 4 complete</b>
+        </div>
+        <div className={styles.milestoneProgress} aria-label="Two of four demo milestones complete"><i /></div>
+        <div className={styles.milestoneList}>
+          {nodeMilestones.map((milestone, index) => (
+            <div key={milestone.name} className={index < 2 ? styles.milestoneComplete : index === 2 ? styles.milestoneCurrent : ""}>
+              <i>{index < 2 ? "✓" : index + 1}</i>
+              <span><strong>{milestone.name}</strong><small>{milestone.date}</small></span>
+              <b>{milestone.state}</b>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.nodeNotice}>
+        <span>Foundation notice</span>
+        <p>This node record is illustrative test data. Reward status does not represent accrued income, a guaranteed return, or an on-chain entitlement.</p>
+        <button type="button" disabled>Node actions unavailable in demo</button>
+      </section>
     </div>
   );
 }
