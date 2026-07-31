@@ -68,6 +68,8 @@ export function SystemApp() {
   useEffect(() => {
     const storedAddress = window.localStorage.getItem("mhd-demo-wallet") ?? "";
     const storedVotes = window.localStorage.getItem("mhd-demo-votes-v2");
+    // Existing demo state is intentionally restored once after hydration.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (storedAddress) setWallet({ address: storedAddress, chainId: BSC_TESTNET_CHAIN_ID, mode: "demo" });
     if (storedVotes) {
       try {
