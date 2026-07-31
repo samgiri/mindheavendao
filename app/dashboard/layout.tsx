@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { WalletProviders } from "./WalletProviders";
 
 export const metadata: Metadata = {
   title: "Dashboard | MindHeavenDAO",
@@ -7,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return <WalletProviders>{children}</WalletProviders>;
 }
