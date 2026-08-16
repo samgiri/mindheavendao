@@ -33,9 +33,9 @@
 - [x] Disconnect clears local interface session
 - [x] Desktop and mobile panel geometry verified
 - [x] Keyboard focus styling and Escape close
-- [ ] Restore an already-authorized injected wallet after refresh
-- [ ] EIP-6963 multi-provider discovery
-- [ ] Explicit MetaMask and Uniswap Wallet selection/branding
+- [x] Restore an already-authorized injected wallet after refresh
+- [x] EIP-6963 multi-provider discovery
+- [x] Explicit MetaMask and Uniswap Wallet selection/branding when announced by the installed wallet
 - [ ] WalletConnect or documented decision not to support it
 - [ ] Real desktop/mobile provider matrix completed
 
@@ -45,8 +45,8 @@
 - [x] `/system` loads
 - [x] Eight internal workspace views render
 - [x] Prototype, demo, unavailable, and live RPC data are visibly distinguished
-- [ ] `/dashboard` exists
-- [ ] Dashboard sub-routes support direct URLs, refresh, and history
+- [x] `/dashboard` exists on the audit branch
+- [x] Dashboard sub-routes support direct URLs, refresh, and history on the audit branch
 - [ ] Automated route coverage beyond the static baseline
 
 ## Contracts
