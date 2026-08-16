@@ -156,3 +156,9 @@ Screenshots were captured as task artifacts for the desktop and mobile-responsiv
 7. Add automated wallet-provider, network-switch, session-refresh, and accessibility tests.
 
 **Recommendation: NOT READY.** Continue only with bounded testnet development. Do not enable value-changing features or begin mainnet work.
+
+## Post-audit testnet phase update
+
+The audit branch now adds refreshable `/dashboard` routes for Dashboard, Identity, Founder Nodes, Governance, Contributions, Rewards, Treasury, and Documents. Browser verification confirmed that client navigation updates the URL and a direct reload preserves the selected view.
+
+The branch also adds EIP-6963 discovery for installed MetaMask, Uniswap Wallet, and other announced browser wallets, retains a generic injected-provider fallback, and restores previously authorized injected accounts with `eth_accounts`. WalletConnect remains deliberately unconfigured and is labelled as such. These improvements resolve routing and multi-injected-wallet implementation blockers on the branch, but they do not change the **NOT READY** recommendation because contracts, ABIs, dependency remediation, independent audit, and the physical-device wallet matrix remain outstanding.
