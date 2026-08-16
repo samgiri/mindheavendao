@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   CONTRIBUTIONS,
   DOCUMENTS,
@@ -62,23 +62,26 @@ export function SystemApp() {
   const [mobileNav, setMobileNav] = useState(false);
   const [voted, setVoted] = useState<Record<string, "for" | "against" | "abstain">>({});
   const [walletPanel, setWalletPanel] = useState(false);
+  const walletPanelRef = useRef<HTMLElement>(null);
   const [chainStatus, setChainStatus] = useState<ChainStatus | null>(null);
   const [chainStatusLoading, setChainStatusLoading] = useState(true);
 
   useEffect(() => {
-    const storedAddress = window.localStorage.getItem("mhd-demo-wallet") ?? "";
-    const storedVotes = window.localStorage.getItem("mhd-demo-votes-v2");
-    if (storedAddress) setWallet({ address: storedAddress, chainId: BSC_TESTNET_CHAIN_ID, mode: "demo" });
-    if (storedVotes) {
-      try {
-        setVoted(JSON.parse(storedVotes) as Record<string, "for" | "against" | "abstain">);
-      } catch {
-        window.localStorage.removeItem("mhd-demo-votes-v2");
+    const hydrateSession = window.setTimeout(() => {
+      const storedAddress = window.localStorage.getItem("mhd-demo-wallet") ?? "";
+      const storedVotes = window.localStorage.getItem("mhd-demo-votes-v2");
+      if (storedAddress) setWallet({ address: storedAddress, chainId: BSC_TESTNET_CHAIN_ID, mode: "demo" });
+      if (storedVotes) {
+        try {
+          setVoted(JSON.parse(storedVotes) as Record<string, "for" | "against" | "abstain">);
+        } catch {
+          window.localStorage.removeItem("mhd-demo-votes-v2");
+        }
       }
-    }
+    }, 0);
 
     const provider = getProvider();
-    if (!provider) return;
+    if (!provider) return () => window.clearTimeout(hydrateSession);
 
     const onAccounts = (...args: unknown[]) => {
       const accounts = args[0] as string[];
@@ -95,10 +98,21 @@ export function SystemApp() {
     provider.on?.("accountsChanged", onAccounts);
     provider.on?.("chainChanged", onChain);
     return () => {
+      window.clearTimeout(hydrateSession);
       provider.removeListener?.("accountsChanged", onAccounts);
       provider.removeListener?.("chainChanged", onChain);
     };
   }, []);
+
+  useEffect(() => {
+    if (!walletPanel) return;
+    walletPanelRef.current?.focus();
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setWalletPanel(false);
+    };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [walletPanel]);
 
   useEffect(() => {
     let active = true;
@@ -132,10 +146,7 @@ export function SystemApp() {
   async function connectWallet() {
     const provider = getProvider();
     if (!provider) {
-      window.localStorage.setItem("mhd-demo-wallet", DEMO_ADDRESS);
-      setWallet({ address: DEMO_ADDRESS, chainId: BSC_TESTNET_CHAIN_ID, mode: "demo" });
-      setWalletPanel(false);
-      setNotice("Demo identity activated locally. No wallet, signature, transaction, or payment was requested.");
+      setNotice("No compatible browser wallet was detected. Install or enable a wallet, or choose demo mode explicitly.");
       return;
     }
 
@@ -147,20 +158,20 @@ export function SystemApp() {
       if (accounts[0]) {
         window.localStorage.removeItem("mhd-demo-wallet");
         setWallet({ address: accounts[0], chainId, mode: "wallet" });
+        if (chainId !== BSC_TESTNET_CHAIN_ID) {
+          const switched = await requestTestnet(provider);
+          if (switched) setWallet({ address: accounts[0], chainId: BSC_TESTNET_CHAIN_ID, mode: "wallet" });
+        } else {
+          setNotice("Wallet connected on BNB Smart Chain Testnet. No transaction was requested.");
+        }
         setWalletPanel(false);
-        setNotice("Wallet connected for identity and network preview. No transaction was requested.");
       }
     } catch {
       setNotice("Wallet connection was cancelled. Nothing changed.");
     }
   }
 
-  async function switchToTestnet() {
-    const provider = getProvider();
-    if (!provider || wallet.mode !== "wallet") {
-      setNotice("A wallet extension is required to switch networks. Demo mode already previews BSC Testnet.");
-      return;
-    }
+  async function requestTestnet(provider: EthereumProvider) {
     try {
       await provider.request({
         method: "wallet_switchEthereumChain",
@@ -168,6 +179,7 @@ export function SystemApp() {
       });
       setWallet(current => ({ ...current, chainId: BSC_TESTNET_CHAIN_ID }));
       setNotice("Connected to BNB Smart Chain Testnet. Contract actions remain disabled.");
+      return true;
     } catch (error) {
       const code = (error as { code?: number }).code;
       if (code === 4902) {
@@ -184,18 +196,39 @@ export function SystemApp() {
           });
           setWallet(current => ({ ...current, chainId: BSC_TESTNET_CHAIN_ID }));
           setNotice("BNB Smart Chain Testnet added. Contract actions remain disabled.");
-          return;
+          return true;
         } catch {
           setNotice("The network could not be added. No transaction was attempted.");
-          return;
+          return false;
         }
       }
       setNotice("Network switch was cancelled. No transaction was attempted.");
+      return false;
+    }
+  }
+
+  async function switchToTestnet() {
+    const provider = getProvider();
+    if (!provider || wallet.mode !== "wallet") {
+      setNotice("A connected browser wallet is required to switch networks. Demo mode already previews BSC Testnet.");
+      return;
+    }
+    await requestTestnet(provider);
+  }
+
+  async function copyAddress() {
+    try {
+      await navigator.clipboard.writeText(wallet.address);
+      setNotice("Wallet address copied.");
+    } catch {
+      setNotice("The address could not be copied. Select it from the wallet panel instead.");
     }
   }
 
   function disconnect() {
     window.localStorage.removeItem("mhd-demo-wallet");
+    window.localStorage.removeItem("mhd-demo-votes-v2");
+    setVoted({});
     setWallet({ address: "", chainId: "", mode: "disconnected" });
     setWalletPanel(false);
     setNotice("Identity disconnected from this interface. Wallet permissions are managed inside your wallet.");
@@ -285,7 +318,7 @@ export function SystemApp() {
 
       {walletPanel && (
         <div className={styles.modalBackdrop} role="presentation" onMouseDown={() => setWalletPanel(false)}>
-          <section className={styles.walletModal} role="dialog" aria-modal="true" aria-labelledby="wallet-title" onMouseDown={event => event.stopPropagation()}>
+          <section ref={walletPanelRef} tabIndex={-1} className={styles.walletModal} role="dialog" aria-modal="true" aria-labelledby="wallet-title" onMouseDown={event => event.stopPropagation()}>
             <button className={styles.modalClose} onClick={() => setWalletPanel(false)} aria-label="Close wallet panel">×</button>
             <span>IDENTITY CONNECTION</span>
             <h2 id="wallet-title">{wallet.address ? "Connected identity" : "Enter the founder workspace"}</h2>
@@ -293,6 +326,11 @@ export function SystemApp() {
             {wallet.address ? (
               <>
                 <div className={styles.connectedCard}><i /><div><small>{wallet.mode === "demo" ? "Demo identity" : "Wallet identity"}</small><strong>{shortAddress(wallet.address)}</strong><span>{chainLabel(wallet.chainId)}</span></div></div>
+                <div className={styles.walletActions}>
+                  <button className={styles.secondaryAction} onClick={copyAddress}>Copy address</button>
+                  <a className={styles.secondaryAction} href={`https://testnet.bscscan.com/address/${wallet.address}`} target="_blank" rel="noreferrer">View on explorer ↗</a>
+                  {wallet.mode === "wallet" && wallet.chainId !== BSC_TESTNET_CHAIN_ID && <button className={styles.secondaryAction} onClick={switchToTestnet}>Switch network</button>}
+                </div>
                 <button className={styles.secondaryAction} onClick={disconnect}>Disconnect interface</button>
               </>
             ) : (
