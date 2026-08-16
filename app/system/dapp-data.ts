@@ -30,6 +30,17 @@ export const NAVIGATION: { id: View; label: string; icon: string }[] = [
   { id: "documents", label: "Documents", icon: "≡" },
 ];
 
+export const VIEW_PATHS: Record<View, string> = {
+  dashboard: "",
+  identity: "identity",
+  nodes: "founder-nodes",
+  governance: "governance",
+  contributions: "contributions",
+  rewards: "rewards",
+  treasury: "treasury",
+  documents: "documents",
+};
+
 export const PROPOSALS: Proposal[] = [
   {
     id: "MHP-001",
