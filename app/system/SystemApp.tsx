@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   CONTRIBUTIONS,
@@ -10,6 +11,7 @@ import {
   NODE_TIERS,
   PROPOSALS,
   READINESS,
+  VIEW_PATHS,
   type Proposal,
   type View,
 } from "./dapp-data";
@@ -19,6 +21,11 @@ type EthereumProvider = {
   request: (request: { method: string; params?: unknown[] }) => Promise<unknown>;
   on?: (event: string, listener: (...args: unknown[]) => void) => void;
   removeListener?: (event: string, listener: (...args: unknown[]) => void) => void;
+};
+
+type AnnouncedProvider = {
+  info: { icon: string; name: string; rdns: string; uuid: string };
+  provider: EthereumProvider;
 };
 
 type WalletState = {
@@ -55,13 +62,23 @@ function getProvider() {
   return (window as Window & { ethereum?: EthereumProvider }).ethereum;
 }
 
-export function SystemApp() {
-  const [view, setView] = useState<View>("dashboard");
+function providerTone(provider: AnnouncedProvider) {
+  const identity = `${provider.info.name} ${provider.info.rdns}`.toLowerCase();
+  if (identity.includes("metamask")) return "#f6851b";
+  if (identity.includes("uniswap")) return "#ff37c7";
+  return "#3ce8f4";
+}
+
+export function SystemApp({ initialView = "dashboard", routeBase }: { initialView?: View; routeBase?: "/dashboard" }) {
+  const router = useRouter();
+  const [view, setView] = useState<View>(initialView);
   const [wallet, setWallet] = useState<WalletState>({ address: "", chainId: "", mode: "disconnected" });
   const [notice, setNotice] = useState("");
   const [mobileNav, setMobileNav] = useState(false);
   const [voted, setVoted] = useState<Record<string, "for" | "against" | "abstain">>({});
   const [walletPanel, setWalletPanel] = useState(false);
+  const [announcedProviders, setAnnouncedProviders] = useState<AnnouncedProvider[]>([]);
+  const [activeProvider, setActiveProvider] = useState<EthereumProvider | null>(null);
   const walletPanelRef = useRef<HTMLElement>(null);
   const [chainStatus, setChainStatus] = useState<ChainStatus | null>(null);
   const [chainStatusLoading, setChainStatusLoading] = useState(true);
@@ -80,8 +97,31 @@ export function SystemApp() {
       }
     }, 0);
 
-    const provider = getProvider();
-    if (!provider) return () => window.clearTimeout(hydrateSession);
+    return () => window.clearTimeout(hydrateSession);
+  }, []);
+
+  useEffect(() => {
+    const onAnnounce = (event: Event) => {
+      const detail = (event as CustomEvent<AnnouncedProvider>).detail;
+      if (!detail?.info?.uuid || !detail.provider) return;
+      setAnnouncedProviders(current => current.some(item => item.info.uuid === detail.info.uuid) ? current : [...current, detail]);
+    };
+
+    window.addEventListener("eip6963:announceProvider", onAnnounce);
+    window.dispatchEvent(new Event("eip6963:requestProvider"));
+    const fallbackTimer = window.setTimeout(() => {
+      const fallback = getProvider();
+      if (fallback) setActiveProvider(fallback);
+    }, 0);
+    return () => {
+      window.clearTimeout(fallbackTimer);
+      window.removeEventListener("eip6963:announceProvider", onAnnounce);
+    };
+  }, []);
+
+  useEffect(() => {
+    const provider = activeProvider;
+    if (!provider) return;
 
     const onAccounts = (...args: unknown[]) => {
       const accounts = args[0] as string[];
@@ -97,12 +137,18 @@ export function SystemApp() {
 
     provider.on?.("accountsChanged", onAccounts);
     provider.on?.("chainChanged", onChain);
+    void Promise.all([
+      provider.request({ method: "eth_accounts" }) as Promise<string[]>,
+      provider.request({ method: "eth_chainId" }) as Promise<string>,
+    ]).then(([accounts, chainId]) => {
+      if (accounts[0]) setWallet({ address: accounts[0], chainId, mode: "wallet" });
+    }).catch(() => undefined);
+
     return () => {
-      window.clearTimeout(hydrateSession);
       provider.removeListener?.("accountsChanged", onAccounts);
       provider.removeListener?.("chainChanged", onChain);
     };
-  }, []);
+  }, [activeProvider]);
 
   useEffect(() => {
     if (!walletPanel) return;
@@ -143,14 +189,15 @@ export function SystemApp() {
     return Math.round((complete / READINESS.length) * 100);
   }, []);
 
-  async function connectWallet() {
-    const provider = getProvider();
+  async function connectWallet(selectedProvider?: EthereumProvider) {
+    const provider = selectedProvider ?? activeProvider ?? getProvider();
     if (!provider) {
       setNotice("No compatible browser wallet was detected. Install or enable a wallet, or choose demo mode explicitly.");
       return;
     }
 
     try {
+      setActiveProvider(provider);
       const [accounts, chainId] = await Promise.all([
         provider.request({ method: "eth_requestAccounts" }) as Promise<string[]>,
         provider.request({ method: "eth_chainId" }) as Promise<string>,
@@ -208,7 +255,7 @@ export function SystemApp() {
   }
 
   async function switchToTestnet() {
-    const provider = getProvider();
+    const provider = activeProvider ?? getProvider();
     if (!provider || wallet.mode !== "wallet") {
       setNotice("A connected browser wallet is required to switch networks. Demo mode already previews BSC Testnet.");
       return;
@@ -236,6 +283,7 @@ export function SystemApp() {
 
   function navigate(next: View) {
     setView(next);
+    if (routeBase) router.push(`${routeBase}${VIEW_PATHS[next] ? `/${VIEW_PATHS[next]}` : ""}`);
     setMobileNav(false);
     setNotice("");
   }
@@ -335,7 +383,17 @@ export function SystemApp() {
               </>
             ) : (
               <>
-                <button className={styles.primaryAction} onClick={connectWallet}>Connect browser wallet <b>↗</b></button>
+                {announcedProviders.map(option => (
+                  <button
+                    className={styles.providerOption}
+                    key={option.info.uuid}
+                    onClick={() => connectWallet(option.provider)}
+                    style={{ "--provider-color": providerTone(option) } as React.CSSProperties}
+                    aria-label={`Connect ${option.info.name}`}
+                  ><i /> <span>{option.info.name}</span><b>↗</b></button>
+                ))}
+                {announcedProviders.length === 0 && <button className={styles.primaryAction} onClick={() => connectWallet()}>Connect browser wallet <b>↗</b></button>}
+                <p className={styles.walletSupport}>MetaMask and Uniswap Wallet appear here when installed. WalletConnect is not configured.</p>
                 <button className={styles.secondaryAction} onClick={() => {
                   window.localStorage.setItem("mhd-demo-wallet", DEMO_ADDRESS);
                   setWallet({ address: DEMO_ADDRESS, chainId: BSC_TESTNET_CHAIN_ID, mode: "demo" });
