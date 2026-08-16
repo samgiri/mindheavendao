@@ -51,6 +51,20 @@ test("read-only BSC integration exposes health without enabling writes", async (
   assert.match(app, /No compatible browser wallet was detected/);
   assert.match(app, /View on explorer/);
   assert.match(app, /mhd-demo-votes-v2/);
+  assert.match(app, /eip6963:requestProvider/);
+  assert.match(app, /WalletConnect is not configured/);
+});
+
+test("dashboard views have refreshable URL routes", async () => {
+  const route = await readFile(new URL("app/dashboard/[[...view]]/page.tsx", root), "utf8");
+  const data = await readFile(new URL("app/system/dapp-data.ts", root), "utf8");
+
+  for (const path of ["identity", "founder-nodes", "governance", "contributions", "rewards", "treasury", "documents"]) {
+    assert.match(data, new RegExp(`\\b${path}\\b`));
+  }
+  assert.match(route, /generateStaticParams/);
+  assert.match(route, /notFound\(\)/);
+  assert.match(route, /routeBase="\/dashboard"/);
 });
 
 test("temporary starter code and assets remain removed", async () => {
