@@ -48,6 +48,9 @@ test("read-only BSC integration exposes health without enabling writes", async (
   assert.doesNotMatch(rpc, /eth_sendTransaction|eth_sign|personal_sign/);
   assert.match(app, /fetch\("\/api\/chain\/status"/);
   assert.match(app, /Phase 3 · Read-only testnet/);
+  assert.match(app, /No compatible browser wallet was detected/);
+  assert.match(app, /View on explorer/);
+  assert.match(app, /mhd-demo-votes-v2/);
 });
 
 test("temporary starter code and assets remain removed", async () => {
