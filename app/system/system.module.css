@@ -296,14 +296,20 @@
 .recordPolicy h2{max-width:750px;margin:20px 0 13px;font:400 30px Georgia,serif}
 .recordPolicy p{max-width:800px;color:#8ea2b4;font-size:11px;line-height:1.7}
 .recordPolicy a{display:inline-block;margin-top:15px;color:var(--cyan);font-size:10px;text-decoration:none}
-.modalBackdrop{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:20px;background:rgba(1,5,9,.78);backdrop-filter:blur(10px)}
-.walletModal{position:relative;width:min(460px,100%);padding:35px;border:1px solid var(--lineStrong);border-radius:22px;background:linear-gradient(150deg,#0c1b2a,#050c14);box-shadow:0 40px 100px rgba(0,0,0,.5)}
+.modalBackdrop{position:fixed;inset:0;z-index:50;display:grid;align-items:start;justify-items:end;padding:96px 28px 28px;background:rgba(1,5,9,.78);backdrop-filter:blur(10px)}
+.walletModal{position:relative;width:min(460px,100%);max-height:calc(100vh - 124px);overflow:auto;padding:35px;border:1px solid var(--lineStrong);border-radius:22px;background:linear-gradient(150deg,#0c1b2a,#050c14);box-shadow:0 40px 100px rgba(0,0,0,.5)}
 .modalClose{position:absolute;right:16px;top:14px;border:0;background:none;color:#7e92a5;font-size:23px;cursor:pointer}
 .walletModal>span{color:var(--cyan);font-size:9px;font-weight:750;letter-spacing:.15em}
 .walletModal h2{margin:28px 0 12px;font:400 32px Georgia,serif}
 .walletModal>p{color:#91a4b5;font-size:11px;line-height:1.7}
 .primaryAction,.secondaryAction{width:100%;height:46px;margin-top:10px;border-radius:11px}
 .secondaryAction{border:1px solid var(--line);background:#0b1927;color:#9db0c1;cursor:pointer}
+.walletActions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.walletActions .secondaryAction{display:grid;place-items:center;margin-top:0;padding:0 12px;text-align:center;text-decoration:none}
+.providerOption{width:100%;height:50px;margin-top:10px;padding:0 15px;display:grid;grid-template-columns:12px 1fr auto;align-items:center;gap:11px;border:1px solid color-mix(in srgb,var(--provider-color) 45%,#203448);border-radius:11px;background:color-mix(in srgb,var(--provider-color) 11%,#081522);color:#e8f1f8;text-align:left;cursor:pointer}
+.providerOption>i{width:10px;height:10px;border-radius:50%;background:var(--provider-color);box-shadow:0 0 12px var(--provider-color)}
+.providerOption>b{color:var(--provider-color)}
+.walletSupport{margin:12px 0 0;color:#71869a;font-size:9px;line-height:1.5}
 .connectedCard{margin:22px 0;padding:17px;display:flex;align-items:center;gap:14px;border:1px solid var(--line);border-radius:13px;background:#081522}
 .connectedCard>i{width:10px;height:10px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green)}
 .connectedCard small,.connectedCard span{display:block;color:#63788b;font-size:9px}
@@ -328,6 +334,9 @@
   .nodeGrid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:700px){
+  .modalBackdrop{align-items:end;justify-items:center;padding:12px}
+  .walletModal{width:100%;max-height:calc(100vh - 24px);padding:28px 20px}
+  .walletActions{grid-template-columns:1fr}
   .environment small,.networkOk,.networkWarn{display:none}
   .topbar{min-height:68px;padding:10px 15px}
   .wallet,.walletConnected{padding:0 10px}

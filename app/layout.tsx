@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mind-heaven-dao-sample.blockchain444.chatgpt.site"),
+  metadataBase: new URL("https://mindheavendao.vercel.app"),
   title: "MindHeavenDAO | Human Intelligence, Evolved",
   description: "MindHeavenDAO is a decentralized ecosystem bringing together AI, neuroscience, wellness, human potential, and community ownership.",
   alternates: { canonical: "/" },
@@ -16,6 +16,6 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  const schema = { "@context":"https://schema.org", "@type":"Organization", name:"MindHeavenDAO", url:"https://mind-heaven-dao-sample.blockchain444.chatgpt.site", description:"An evolving ecosystem bringing together AI, neuroscience, wellness, human potential, and community ownership." };
+  const schema = { "@context":"https://schema.org", "@type":"Organization", name:"MindHeavenDAO", url:"https://mindheavendao.vercel.app", description:"An evolving ecosystem bringing together AI, neuroscience, wellness, human potential, and community ownership." };
   return <html lang="en"><body>{children}<script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema)}} /></body></html>;
 }
