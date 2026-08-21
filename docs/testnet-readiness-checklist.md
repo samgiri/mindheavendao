@@ -36,7 +36,7 @@
 - [x] Restore an already-authorized injected wallet after refresh
 - [x] EIP-6963 multi-provider discovery
 - [x] Explicit MetaMask and Uniswap Wallet selection/branding when announced by the installed wallet
-- [ ] WalletConnect or documented decision not to support it
+- [x] WalletConnect decision documented: defer to a separate credentialed connector phase before operational testnet use
 - [ ] Real desktop/mobile provider matrix completed
 
 ## Routes and data truthfulness
@@ -47,7 +47,7 @@
 - [x] Prototype, demo, unavailable, and live RPC data are visibly distinguished
 - [x] `/dashboard` exists on the audit branch
 - [x] Dashboard sub-routes support direct URLs, refresh, and history on the audit branch
-- [ ] Automated route coverage beyond the static baseline
+- [x] Automated static coverage for all dashboard route slugs and production metadata
 
 ## Contracts
 
@@ -68,16 +68,16 @@
 - [x] Locked dependency install
 - [x] Lint
 - [x] Type checking
-- [x] Unit/static integration tests (4/4)
+- [x] Unit/static integration tests (7/7)
 - [x] Vinext production build
 - [x] Vercel/Next production build
 - [x] Browser console and framework-overlay check
 - [x] RPC failure path returns safe, non-secret error
 - [x] No transaction/signature methods in current chain layer
-- [ ] Dependency vulnerabilities remediated and re-audited
-- [ ] Automated wallet/provider tests
+- [ ] Dependency vulnerabilities fully remediated and re-audited — production tree is clean; 6 development-tool findings remain behind breaking Vinext/Drizzle upgrades
+- [x] Automated static wallet/provider, network-switch, refresh-restoration, listener-cleanup, and dialog-accessibility coverage
 - [ ] Accessibility audit with a dedicated tool and manual keyboard pass
-- [ ] Production canonical/Open Graph URLs corrected
+- [x] Production canonical, sitemap, robots, JSON-LD, and Open Graph base URLs corrected
 
 ## Go/no-go
 

@@ -108,9 +108,9 @@ All eight internal views rendered successfully through client-side navigation, b
 - No transaction method exists. `eth_sendTransaction`, signing, approvals, claims, staking, purchases, and transfers are absent.
 - Address environment variables are format-validated but not checksummed, bytecode-verified, or ABI-verified. Because all addresses are absent, contract verification cannot start.
 - The API suppresses RPC error detail and returns a safe 503 message. It validates the RPC chain before reporting success and uses a seven-second timeout.
-- Dependency installation reported 21 vulnerabilities: 1 low, 4 moderate, and 16 high across the full dependency tree. Production-only audit reported 4 high findings involving `next`, `postcss`, `sharp`, and `nanoid`. No automatic major upgrade was applied.
-- The homepage canonical/Open Graph URLs still point to `mind-heaven-dao-sample.blockchain444.chatgpt.site`, not the tested Vercel production domain. This is outside the wallet-focused safe-fix set and remains a deployment metadata issue.
-- The injected-wallet integration relies on a single `window.ethereum` provider. Multiple-provider selection and EIP-6963 discovery are absent.
+- The post-audit dependency refresh clears the production dependency audit. The full development tree now reports 6 findings (4 moderate, 2 high), isolated to legacy Vinext/Drizzle tooling through `image-size` and `esbuild`. Clearing those final findings requires reviewed breaking upgrades, so they remain a development-tool migration blocker.
+- Canonical, Open Graph base, JSON-LD, robots, and sitemap URLs now point to the audited `https://mindheavendao.vercel.app` origin.
+- The branch now supports EIP-6963 multi-provider discovery with a generic `window.ethereum` fallback; physical-device verification remains outstanding.
 
 ## Safe fixes made
 
@@ -129,13 +129,13 @@ No contract, tokenomic, payment, staking, claim, referral, node-purchase, logo, 
 
 | Check | Result |
 |---|---|
-| Install from `package-lock.json` | PASS — 505 packages after the approved script helper addition |
+| Install from `package-lock.json` | PASS — 522 packages after the dependency refresh |
 | ESLint | PASS |
 | TypeScript `--noEmit` | PASS |
-| Repository tests | PASS — 4/4 |
+| Repository tests | PASS — 7/7 |
 | Vinext production build | PASS |
 | Vercel/Next production build | PASS |
-| Dependency audit | FAIL — vulnerabilities remain as described above |
+| Dependency audit | PARTIAL — production tree passes with 0 findings; full development tree retains 6 findings behind breaking Vinext/Drizzle upgrades |
 | Live `/` and `/system` | PASS — meaningful content, no framework overlay, no console warnings/errors observed |
 | Live `/api/chain/status` | PASS — HTTP 200 and chain 97 |
 | All internal workspace views | PASS for rendering; FAIL for independent route URLs |
@@ -148,12 +148,10 @@ Screenshots were captured as task artifacts for the desktop and mobile-responsiv
 ## Remaining blockers and recommendation
 
 1. Deploy, publish, and independently audit the intended testnet contracts; provide verified addresses and ABIs.
-2. Decide and implement supported wallet connectors, including EIP-6963 and WalletConnect if required.
+2. Implement WalletConnect in a separate credentialed connector phase before operational testnet use; keep it unavailable and clearly labelled in this PR.
 3. Run the full real-wallet matrix with MetaMask and Uniswap Wallet on desktop and mobile devices.
-4. Add independent URL routes or explicitly revise the route requirement.
-5. Remediate and retest dependency vulnerabilities using reviewed upgrades.
-6. Correct production canonical/social metadata.
-7. Add automated wallet-provider, network-switch, session-refresh, and accessibility tests.
+4. Migrate the remaining legacy Vinext/Drizzle development tooling, then rerun the full dependency audit.
+5. Run a dedicated accessibility tool audit and manual keyboard pass.
 
 **Recommendation: NOT READY.** Continue only with bounded testnet development. Do not enable value-changing features or begin mainnet work.
 
@@ -161,4 +159,4 @@ Screenshots were captured as task artifacts for the desktop and mobile-responsiv
 
 The audit branch now adds refreshable `/dashboard` routes for Dashboard, Identity, Founder Nodes, Governance, Contributions, Rewards, Treasury, and Documents. Browser verification confirmed that client navigation updates the URL and a direct reload preserves the selected view.
 
-The branch also adds EIP-6963 discovery for installed MetaMask, Uniswap Wallet, and other announced browser wallets, retains a generic injected-provider fallback, and restores previously authorized injected accounts with `eth_accounts`. WalletConnect remains deliberately unconfigured and is labelled as such. These improvements resolve routing and multi-injected-wallet implementation blockers on the branch, but they do not change the **NOT READY** recommendation because contracts, ABIs, dependency remediation, independent audit, and the physical-device wallet matrix remain outstanding.
+The branch also adds EIP-6963 discovery for installed MetaMask, Uniswap Wallet, and other announced browser wallets, retains a generic injected-provider fallback, and restores previously authorized injected accounts with `eth_accounts`. WalletConnect remains deliberately unconfigured and labelled as such; the decision is to add it only in a separate credentialed connector phase before operational testnet use. Production metadata is corrected, the production dependency audit is clean, and static coverage now protects route, provider, switching, refresh, listener-cleanup, and dialog-accessibility requirements. These improvements do not change the **NOT READY** recommendation because contracts, ABIs, the remaining development-tool migration, independent audit, dedicated accessibility testing, and the physical-device wallet matrix remain outstanding.
